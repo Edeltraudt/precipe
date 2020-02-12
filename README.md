@@ -1,7 +1,9 @@
 # precipe
 Collaborative cookbook and meal planner with not-yet-fully defined requirements.
 
-Built with React.
+## Use Case
+
+In larger groups, it may get hard to track food intolerances, allergies, and other dietary restrictions, making it more difficult to plan for a meal. This app intends to ease that process by providing a cookbook that can be shared with groups, where each group member can state their preferences.
 
 ## Design Drafts
 Need review depending on the requirement status
