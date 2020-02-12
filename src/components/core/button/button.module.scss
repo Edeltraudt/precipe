@@ -1,0 +1,23 @@
+@import './../../../assets/scss/utility';
+
+.Button {
+  -webkit-appearance: none;
+  border-radius: $border-radius;
+  border: 0;
+  background: transparent
+    linear-gradient(105deg, var(--text-color) 0%, #260F64 100%)
+    0% 0% no-repeat;
+  background-size: 200% 100%;
+  color: var(--bg-color);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: $fw-medium;
+  font-size: $fs-medium;
+  line-height: 1;
+  padding: 1em $spacing-large;
+  transition: background-position-x 0.4s ease-out;
+
+  &:hover, &:focus {
+    background-position-x: 100%;
+  }
+}

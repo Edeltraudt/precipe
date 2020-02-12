@@ -1,0 +1,7 @@
+@import './../../../assets/scss/utility';
+
+.Wrap {
+  h2 {
+    margin-bottom: calc(#{$spacing-large} + 0.5vh);
+  }
+}

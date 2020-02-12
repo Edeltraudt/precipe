@@ -1,0 +1,12 @@
+:root {
+  // reusable colors for color-coded components
+  --color: #{$color-primary};
+  --color-text: #{$color-primary-inverse};
+
+  --bg-color: #{$color-base};
+  --bg-soft-color: #F7F8FA;
+  --text-color: #{$color-text};
+  --soft-color: #{$color-soft};
+  --success-color: #{$color-success};
+  --border-color: #{$color-border};
+}

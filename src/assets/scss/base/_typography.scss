@@ -1,0 +1,16 @@
+html {
+  font-size: $fs-document-s;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include break(tablet) {
+    font-size: $fs-document;
+  }
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font: 400 normal 1rem / #{$lh-base} $ff-text;
+}

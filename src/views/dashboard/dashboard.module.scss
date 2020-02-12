@@ -1,0 +1,23 @@
+@import './../../assets/scss/utility';
+
+.Dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.Recipes, .Events {
+  padding: calc(#{$spacing-large} + 2vmin);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.Events {
+  flex: 0 0 30%;
+  min-width: 450px;
+  max-width: 600px;
+}
+
+.Recipes {
+  background: var(--bg-soft-color);
+  flex: 1;
+}

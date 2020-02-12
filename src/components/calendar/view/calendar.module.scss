@@ -1,0 +1,55 @@
+@import './../../../assets/scss/utility';
+
+.Wrap {
+  height: 100vh;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.Slider {
+  display: flex;
+  height: 100%;
+}
+
+.Slide {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  height: 100%;
+  transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: opacity, transform, visibility;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.Calendar {
+  .form & {
+    opacity: 0;
+    transform: translateX(-50%);
+    visibility: hidden;
+  }
+}
+
+.Form {
+  opacity: 0;
+  transform: translateX(0);
+  transition-delay: 0.1s;
+  visibility: hidden;
+
+  .form & {
+    opacity: 1;
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+}
+
+.Days {
+  margin: calc(#{$spacing-large} + 0.5vh) 0;
+}
+
+.Button {
+  margin-top: auto;
+  width: 100%;
+}

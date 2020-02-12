@@ -1,0 +1,23 @@
+@import './../../../assets/scss/utility';
+
+.Input {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  font: inherit;
+  font-size: $fs-medium;
+  font-weight: $fw-medium;
+  outline: 0;
+  padding: 0.25em 0;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--soft-color);
+  }
+
+  &.large {
+    font-size: $fs-large;
+  }
+}

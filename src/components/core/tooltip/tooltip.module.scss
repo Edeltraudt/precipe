@@ -1,0 +1,22 @@
+@import './../../../assets/scss/utility';
+
+.Tooltip {
+  background: $color-text;
+  border-radius: $border-radius / 2;
+  color: $color-base;
+  font-size: $fs-small;
+  left: 50%;
+  line-height: $lh-small;
+  margin-top: 0.25rem;
+  opacity: 0;
+  padding: 0.3em 0.5em 0.35em;
+  position: absolute;
+  top: 100%;
+  transform: translateX(-50%);
+  visibility: hidden;
+
+  :hover > &, :focus > & {
+    opacity: 1;
+    visibility: visible;
+  }
+}

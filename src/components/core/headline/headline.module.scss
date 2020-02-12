@@ -1,0 +1,27 @@
+@import './../../../assets/scss/utility';
+
+%headline {
+  line-height: $lh-small;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  @extend %headline;
+}
+
+h2 {
+  @extend %headline;
+  font-weight: $fw-normal;
+  font-size: $fs-x-large;
+  margin: 0 0 $spacing-large;
+
+  @include break(tablet-l) {
+    margin-bottom: $spacing-x-large;
+  }
+}
+
+h4 {
+  @extend %headline;
+  font-size: $fs-medium;
+  font-weight: $fw-normal;
+}

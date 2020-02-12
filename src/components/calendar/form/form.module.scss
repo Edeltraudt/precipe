@@ -1,0 +1,12 @@
+@import './../../../assets/scss/utility';
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  flex: 1; // inside a flex container
+  height: 100%;
+}
+
+.Button {
+  margin-top: auto;
+}

@@ -1,0 +1,36 @@
+@import "./../../../assets/scss/utility";
+
+.Bubble {
+  border: 1px solid var(--color);
+  border-radius: $border-radius;
+  color: var(--color);
+  margin: 0 0 0.25rem;
+  padding:
+    $spacing-medium
+    $spacing-x-large
+    $spacing-medium * 1.1
+    $spacing-medium;
+  transition: 0.2s ease;
+
+  &.joined {
+    background: var(--color);
+    color: var(--color-text);
+  }
+}
+
+.Time {
+  line-height: 1;
+}
+
+.Title {
+  font-size: $fs-large;
+  font-weight: $fw-bold;
+  line-height: $lh-small;
+  margin: 0;
+}
+
+.Info {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

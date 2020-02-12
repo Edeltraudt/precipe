@@ -1,0 +1,47 @@
+@import './../../../assets/scss/utility';
+
+.Wrap {
+  align-items: flex-start;
+  display: flex;
+
+  & + & {
+    border-top: 1px solid $color-border;
+    margin-top: 0.75rem;
+    padding-top: 1rem;
+  }
+}
+
+.Day {
+  color: var(--soft-color);
+  display: flex;
+  font-size: $fs-base;
+  flex-direction: column;
+  font-weight: $fw-normal;
+  line-height: $lh-small;
+  margin: 0 0.25rem 0 0;
+  width: 25%;
+
+  &.today {
+    color: var(--text-color);
+  }
+}
+
+.Date {
+  font-weight: $fw-medium;
+  font-size: $fs-x-large;
+}
+
+.Events {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Event {
+  & + & {
+    margin-top: 0.5rem
+  }
+}
