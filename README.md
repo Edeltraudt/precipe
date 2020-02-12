@@ -12,7 +12,7 @@ Need review depending on the requirement status.
 ![image](https://i.ibb.co/QMgsQMq/Home-A.png)
 
 ### Account settings
-![image](https://i.ibb.co/SrXdXsn/Account-B.png)
+![image](https://i.ibb.co/VDqkBCw/Account-B.png)
 
 ## Build
 
