@@ -2,7 +2,7 @@
 
 .Wrap {
   // --color: var(--success-color);
-  color: var(--color);
+  color: var(--text-color);
   user-select: none;
 }
 
@@ -16,7 +16,6 @@
 
 .Label {
   align-items: center;
-  color: var(--color);
   cursor: pointer;
   display: flex;
   font-weight: 600;
@@ -28,7 +27,7 @@
 .Checkbox {
   background: transparent;
   border-radius: 1em;
-  border: 1px solid var(--color);
+  border: 1px solid;
   flex: 0 0 1.5em;
   height: 1.5em;
   margin-right: 1em;
