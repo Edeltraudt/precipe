@@ -1,0 +1,28 @@
+@import './../../../assets/scss/utility';
+
+.Wrap {
+  display: grid;
+  grid-template:
+    'icon label' auto
+    '_ value' auto
+    / min-content 1fr;
+  font-size: $fs-base;
+  line-height: $lh-small;
+}
+
+.Label {
+  grid-area: label;
+  font-weight: $fw-normal;
+}
+
+.Value {
+  color: $color-headlines;
+  font-size: $fs-large;
+  grid-area: value;
+  margin: 0;
+}
+
+.Suffix {
+  font-size: $fs-base;
+  margin-left: 0.25em;
+}

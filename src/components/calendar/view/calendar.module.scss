@@ -16,18 +16,18 @@
   flex-direction: column;
   flex: 0 0 100%;
   height: 100%;
+  padding-top: $spacing-x-small;
   transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   will-change: opacity, transform, visibility;
-
-  h2 {
-    margin-bottom: 0;
-  }
 }
 
 .Calendar {
+  transition-delay: 0.1s;
+
   .form & {
     opacity: 0;
     transform: translateX(-50%);
+    transition-delay: 0s;
     visibility: hidden;
   }
 }
@@ -35,18 +35,14 @@
 .Form {
   opacity: 0;
   transform: translateX(0);
-  transition-delay: 0.1s;
   visibility: hidden;
 
   .form & {
     opacity: 1;
     transform: translateX(-100%);
+    transition-delay: 0.1s;
     visibility: visible;
   }
-}
-
-.Days {
-  margin: calc(#{$spacing-large} + 0.5vh) 0;
 }
 
 .Button {
