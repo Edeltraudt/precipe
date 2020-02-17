@@ -1,7 +1,7 @@
 import React from "react";
 
+import Recipes from "./../components/recipes/view/recipes";
 import { Recipe } from "./../components/recipes/recipe/recipe";
-import { Recipes } from "./../components/recipes/view/recipes";
 import { Grid } from "./../components/recipes/grid/grid";
 
 export default {
