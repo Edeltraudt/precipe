@@ -11,17 +11,22 @@ h1 {
 
 h2 {
   @extend %headline;
+  @include font-size($fs-x-large);
+  color: $color-headlines;
   font-weight: $fw-normal;
-  font-size: $fs-x-large;
-  margin: 0 0 $spacing-large;
+  margin: 0 0 0.75em;
+}
 
-  @include break(tablet-l) {
-    margin-bottom: $spacing-x-large;
-  }
+h3 {
+  @extend %headline;
+  @include font-size($fs-large);
+  color: $color-text;
+  font-weight: $fw-medium;
+  margin: 0 0 0.85em;
 }
 
 h4 {
   @extend %headline;
   font-size: $fs-medium;
-  font-weight: $fw-normal;
+  font-weight: $fw-medium;
 }

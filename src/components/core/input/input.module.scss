@@ -2,16 +2,20 @@
 
 .Input {
   -webkit-appearance: none;
-  background: transparent;
+  background: $color-input-bg;
   border: 0;
-  border-bottom: 1px solid var(--border-color);
   border-radius: 0;
   font: inherit;
-  font-size: $fs-medium;
+  font-size: $fs-text;
   font-weight: $fw-medium;
   outline: 0;
-  padding: 0.25em 0;
+  padding: 0.58em 0.75em;
+  transition: background 0.15s ease;
   width: 100%;
+
+  &:focus {
+    background: $color-input-bg-focus;
+  }
 
   &::placeholder {
     color: var(--soft-color);

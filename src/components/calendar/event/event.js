@@ -28,7 +28,7 @@ export const CalendarEvent = props => {
   };
 
   return props.event ? (
-    <article className={styles.Wrap} style={{ "--color": color }}>
+    <article className={styles.Wrap} style={{ "--color": color, "--color-text": color ? "#fff" : null }}>
       <div className={[styles.Bubble, isJoined ? styles.joined : ""].join(" ")}>
         <time className={styles.Time}>
           {getTime(props.event.startDate)}–{getTime(props.event.endDate)}

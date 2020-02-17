@@ -7,7 +7,7 @@ export const Button = props => (
   <button
     id={props.id}
     type={props.type}
-    className={[styles.Button, props.className].join(" ")}
+    className={[styles.Button, styles[props.style], props.className].join(" ")}
     onClick={e => {
       if (props.onClick) props.onClick(e);
     }}
@@ -21,9 +21,11 @@ Button.propTypes = {
     .isRequired,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  style: PropTypes.oneOf(['default', 'danger'])
 };
 
 Button.defaultProps = {
-  type: "button"
+  type: "button",
+  style: "default"
 };

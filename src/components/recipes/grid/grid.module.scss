@@ -2,10 +2,10 @@
 
 .Grid {
   display: grid;
-  grid-template: auto / repeat(auto-fill, minmax(330px, 1fr));
-  grid-gap: $spacing-large;
+  grid-template: auto / repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: $spacing-medium;
 
   @include break(desktop) {
-    grid-gap: $spacing-x-large;
+    grid-gap: $spacing-large;
   }
 }

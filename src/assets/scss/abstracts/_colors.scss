@@ -1,17 +1,42 @@
 // color variables
 
-$color-base:        #FFFFFF;
-$color-light:       #F2F2F2;
-$color-soft:        #9A9DAB;
-$color-text:        #00192B;
-$color-headlines:   #333333;
+$color-grey-0:      #FFFFFF;
+$color-grey-50:     #F7F8FA;
+$color-grey-100:    #F2F2F5;
+$color-grey-200:    #EDEEF2;
+$color-grey-300:    #E6E7ED;
+$color-grey-400:    #C4C6CC;
+$color-grey-500:    #9A9DAB;
+$color-grey-600:    #606678;
+$color-grey-700:    #00192B;
 
-$color-border:      #E6E7ED;
+$color-primary-100: #CBF2CF;
+$color-primary-200: #5DC765;
+$color-primary-300: #23872B;
 
-$color-primary:         #0C1936;
-$color-primary-inverse: #ffffff;
+$color-primary:     $color-primary-200;
+$color-primary-inverse: $color-primary-300;
 
-$color-error:       brickred;
-$color-success:     #5DC765;
-$color-info:        #385EFF;
-$color-warning:     gold;
+$color-danger:      #D11749;
+$color-success:     $color-primary;
+
+$color-base:        $color-grey-0;
+$color-base-soft:   $color-grey-50;
+$color-light:       $color-grey-100;
+$color-soft:        $color-grey-500;
+$color-text:        $color-grey-600;
+$color-headlines:   $color-grey-700;
+
+$color-input-bg:          $color-grey-200;
+$color-input-bg-focus:    $color-grey-300;
+$color-input-text:        $color-grey-600;
+$color-input-placeholder: $color-grey-500;
+
+$color-border:      $color-grey-300;
+
+$color-button-bg:   $color-primary-100;
+$color-button-text: $color-primary-300;
+
+$color-danger-button-bg:    mix($color-danger, $color-base, 15%);
+$color-danger-button-text:  darken($color-danger, 10%);
+

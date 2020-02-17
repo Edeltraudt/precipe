@@ -11,27 +11,29 @@ export const Recipe = props => (
       " "
     )}
   >
-    <div className={styles.ImageWrap}>
+    <figure className={styles.ImageWrap}>
       {!props.placeholder && (
         <>
           {/* Optional Group Icon */}
-          <img src="" alt="" className={styles.Image} />
-          <div className={styles.Info}>
-            <p className={styles.Time}>20 min</p>
-            <button className={styles.Like} aria-label="Like this recipe" />
-          </div>
+          <img src="https://via.placeholder.com/320x380" alt="" className={styles.Image} />
         </>
       )}
-    </div>
+    </figure>
     <header className={styles.Title}>
       {props.placeholder ? (
         <button className={styles.Link} onClick={props.onClick}>
+          <span className={styles.placeholderIcon} />
           <Headline level="4">Create new Recipe</Headline>
         </button>
       ) : (
-        <a className={styles.Link} onClick={props.onClick}>
-          <Headline level="4">Simple beet carpaccio with mixed herbs</Headline>
-        </a>
+        <div className={styles.Info}>
+          <a className={styles.Link} onClick={props.onClick}>
+            <Headline level="4">Simple beet carpaccio with mixed herbs</Headline>
+          </a>
+
+          <p className={styles.Time}>20 min</p>
+          <button className={styles.Like} aria-label="Like this recipe" />
+        </div>
       )}
     </header>
   </article>

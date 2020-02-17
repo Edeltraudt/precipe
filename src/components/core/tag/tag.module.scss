@@ -1,0 +1,21 @@
+@import './../../../assets/scss/utility';
+
+.Input {
+  @include visually-hidden;
+}
+
+.Tag {
+  @include ButtonReset($spacing-large);
+  @include ButtonColor($color-input-bg, $color-input-text);
+  font-weight: $fw-normal;
+  font-size: $fs-base;
+  line-height: 1;
+  padding: 0.65em 2em;
+  transition: background 0.15s ease-out;
+  text-align: center;
+
+  .Input:checked + & {
+    @include ButtonColor($color-button-bg, $color-button-text);
+    font-weight: $fw-medium;
+  }
+}

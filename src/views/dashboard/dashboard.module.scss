@@ -11,10 +11,19 @@
   overflow-y: auto;
 }
 
+.Recipes {
+  @include break(hd) {
+    padding-left: columns(1);
+    padding-right: columns(1);
+  }
+}
+
 .Events {
   flex: 0 0 30%;
-  min-width: 450px;
-  max-width: 600px;
+
+  @include break(hd) {
+    flex: 0 0 columns(5);
+  }
 }
 
 .Recipes {

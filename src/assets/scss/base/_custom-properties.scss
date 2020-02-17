@@ -1,7 +1,7 @@
 :root {
   // reusable colors for color-coded components
-  --color: #{$color-primary};
-  --color-text: #{$color-primary-inverse};
+  --color: #{$color-button-bg};
+  --color-text: #{$color-button-text};
 
   --bg-color: #{$color-base};
   --bg-soft-color: #F7F8FA;

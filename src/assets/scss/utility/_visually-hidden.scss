@@ -1,0 +1,22 @@
+// Mixin and placeholder to visually hide content, but leave it
+// accessible for screenreaders.
+//
+// https://www.paciellogroup.com/blog/2016/01/the-state-of-hidden-content-support-in-2016/
+// http://www.barrierefreies-webdesign.de/knowhow/verstecken-von-inhalten/
+
+@mixin visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(1, 1, 1, 1);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+%visually-hidden {
+  @include visually-hidden;
+}
+
+.visually-hidden {
+  @extend %visually-hidden;
+}
