@@ -1,0 +1,25 @@
+@import './../../../assets/scss/utility';
+
+$border-width: 2px;
+
+.Wrap {
+  height: 3rem;
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  width: 3rem;
+}
+
+.Icon {
+  background: var(--color);
+  border-radius: 50%;
+  border: $border-width solid var(--bg-color);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: $fw-bold;
+  margin-top: -$border-width;
+  height: 100%;
+  width: 100%;
+}

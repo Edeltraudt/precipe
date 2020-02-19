@@ -1,26 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-
-import { Tooltip } from "./../tooltip/tooltip";
 
 import styles from "./icon.module.scss";
 
-export const Icon = props => (
-  <div className={styles.Wrap}>
-    {props.image ? (
-      <img
-        src={props.image}
-        alt={props.name + " profile image."}
-        className={styles.Icon}
-      />
-    ) : (
-      <span className={styles.Icon}>{props.name.slice(0, 1)}</span>
-    )}
-    <Tooltip>{props.name}</Tooltip>
-  </div>
-);
+import { ReactComponent as Checkmark } from "./icons/checkmark.svg";
+import { ReactComponent as AngleDown } from "./icons/angle-down.svg";
+import { ReactComponent as ArrowLeft } from "./icons/arrow-left.svg";
+import { ReactComponent as Beef } from "./icons/beef.svg";
+import { ReactComponent as Edit } from "./icons/edit.svg";
+import { ReactComponent as Egg } from "./icons/egg.svg";
+import { ReactComponent as Heart } from "./icons/heart.svg";
+import { ReactComponent as Image } from "./icons/image.svg";
+import { ReactComponent as Lactose } from "./icons/lactose.svg";
+import { ReactComponent as Minus } from "./icons/minus.svg";
+import { ReactComponent as Plus } from "./icons/plus.svg";
+import { ReactComponent as Pork } from "./icons/pork.svg";
+import { ReactComponent as Poultry } from "./icons/poultry.svg";
+import { ReactComponent as Seafood } from "./icons/seafood.svg";
+import { ReactComponent as Search } from "./icons/search.svg";
+import { ReactComponent as Servings } from "./icons/servings.svg";
+import { ReactComponent as Sugar } from "./icons/sugar.svg";
+import { ReactComponent as Time } from "./icons/time.svg";
+import { ReactComponent as Wheat } from "./icons/wheat.svg";
+
+export const Icon = props => {
+  const getSVG = () => {
+    switch (props.name) {
+      case "arrow-left":
+        return <ArrowLeft />;
+      case "angle-down":
+        return <AngleDown />;
+
+      case "edit":
+        return <Edit />
+      case "beef":
+        return <Beef />
+      case "egg":
+        return <Egg />
+      case "heart":
+        return <Heart />
+      case "image":
+        return <Image />
+      case "lactose":
+        return <Lactose />
+      case "minus":
+        return <Minus />
+      case "plus":
+        return <Plus />
+      case "pork":
+        return <Pork />
+      case "poultry":
+        return <Poultry />
+      case "seafood":
+        return <Seafood />
+      case "search":
+        return <Search />
+      case "servings":
+        return <Servings />
+      case "sugar":
+        return <Sugar />
+      case "time":
+        return <Time />
+      case "wheat":
+        return <Wheat />
+
+      case "checkmark":
+        return <Checkmark />;
+      default:
+        throw new Error(`Undefined icon type ${props.name}.`);
+    }
+  };
+
+  return (
+    <span
+      className={[styles.Icon, props.className].join(" ")}
+      style={{ fontSize: props.size }}
+    >
+      {getSVG()}
+    </span>
+  );
+};
 
 Icon.propTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string.isRequired
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string
 };

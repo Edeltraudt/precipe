@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Cheese</title>
+  <desc>A line styled icon from Orion Icon Library.</desc>
+  <circle data-name="layer2"
+  cx="47" cy="38" r="3" fill="none" stroke="currentColor" stroke-linecap="butt"
+  stroke-linejoin="miter" stroke-width="3"></circle>
+  <circle data-name="layer2" cx="35" cy="47" r="5" fill="none"
+  stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="3"></circle>
+  <circle data-name="layer2" cx="26.1" cy="36" r="2" fill="none"
+  stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="3"></circle>
+  <circle data-name="layer2" cx="16" cy="46" r="2" fill="none"
+  stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="3"></circle>
+  <circle data-name="layer2" cx="12" cy="34" r="4" fill="none"
+  stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="3"></circle>
+  <path data-name="layer1" d="M62 30L30 2S2 5.3 2 22l60 8z" fill="none"
+  stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="3"></path>
+  <path data-name="layer1" d="M2 22v32l60 8v-6.2l-1.5.3a5 5 0 0 1 0-10l1.5.3V30"
+  fill="none" stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter"
+  stroke-width="3"></path>
+</svg>
