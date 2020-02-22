@@ -1,0 +1,34 @@
+@import './../../../assets/scss/utility';
+
+.Wrap {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  z-index: 20;
+}
+
+.Item {
+  @include ButtonReset;
+  font-size: 1.25rem;
+  padding: 1px;
+}
+
+.Icon {
+  * {
+    fill: transparent;
+    transform: scale(0.9);
+    transform-origin: 50% 60%;
+    transition: 0.2s ease;
+    transition-property: fill, transform;
+  }
+
+  .Item:hover &,
+  .Item:hover ~ .Item &,
+  .Item.checked &,
+  .Item.checked ~ .Item & {
+    * {
+      fill: currentColor;
+      transform: scale(1);
+    }
+  }
+}

@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 
 import UserContext from "./../../../contexts/user-context";
 
-import { Checkbox } from "./../../core/checkbox/checkbox";
-import { IconGroup } from '../../core/icon-group/icon-group';
+import { Checkbox } from "./../../core/forms";
+import { UserIconGroup } from './../../user/icons';
 
 import { eventModel } from "./../../../models/event";
 
@@ -13,7 +13,7 @@ const padTime = n => n.toString().padStart(2, 0);
 const getTime = date =>
   padTime(date.getHours()) + ":" + padTime(date.getMinutes());
 
-export const CalendarEvent = props => {
+const CalendarEvent = props => {
   const user = useContext(UserContext);
   const index = user.groups.findIndex(
     groupId => groupId === props.event.groupId
@@ -42,7 +42,7 @@ export const CalendarEvent = props => {
           id={props.event.id + "-join"}
           onChange={handleJoinChange}
         />
-        <IconGroup size="s" groupId={props.event.groupId} />
+        <UserIconGroup size="s" groupId={props.event.groupId} />
       </div>
     </article>
   ) : null;
@@ -51,3 +51,5 @@ export const CalendarEvent = props => {
 CalendarEvent.propTypes = {
   event: eventModel
 };
+
+export default CalendarEvent;

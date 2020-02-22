@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./tag.module.scss";
 
-export const Tag = props => {
+const Tag = props => {
   const [value, setValue] = useState(false);
 
   return (
@@ -27,3 +27,5 @@ Tag.propTypes = {
     .isRequired,
   onChange: PropTypes.func
 };
+
+export default Tag;

@@ -1,25 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Recipe } from "../recipe/recipe";
+import RecipeTeaser from "../teaser";
 
 import styles from "./grid.module.scss";
 
-export const Grid = props => {
+const Grid = props => {
   const handleCreateRecipeClick = e => {};
 
   return (
     <div className={styles.Grid}>
       {props.editable && (
-        <Recipe placeholder onClick={handleCreateRecipeClick} />
+        <RecipeTeaser placeholder onClick={handleCreateRecipeClick} />
       )}
-      <Recipe />
-      <Recipe />
-      <Recipe />
-      <Recipe />
-      <Recipe />
-      <Recipe />
-      <Recipe />
+      <RecipeTeaser />
+      <RecipeTeaser />
+      <RecipeTeaser />
+      <RecipeTeaser />
+      <RecipeTeaser />
+      <RecipeTeaser />
+      <RecipeTeaser />
     </div>
   );
 };
@@ -34,3 +34,5 @@ Grid.propTypes = {
   ),
   editable: PropTypes.bool
 };
+
+export default Grid;

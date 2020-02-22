@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import Form, { FormItem, FormRow } from "./../../core/form/form";
-import { Button } from "./../../core/button/button";
-import { Input } from "./../../core/input/input";
+import { UserIconGroup } from "./../../user/icons";
+import Form, { FormItem, FormRow, Button, Input } from "./../../core/forms";
 
 import styles from "./form.module.scss";
 
-export const CalendarForm = props => {
+const CalendarForm = props => {
   const [title, setTitle] = useState("");
   const [invitees, setInvitees] = useState([]);
   const [date, setDate] = useState('');
@@ -57,7 +56,9 @@ export const CalendarForm = props => {
       </FormRow>
 
       <FormRow>
-        <FormItem label="Add people or a group">Custom input</FormItem>
+        <FormItem label="Add people or a group">
+          <UserIconGroup editable />
+        </FormItem>
       </FormRow>
 
       <FormRow>
@@ -100,3 +101,5 @@ export const CalendarForm = props => {
 };
 
 CalendarForm.propTypes = {};
+
+export default CalendarForm;

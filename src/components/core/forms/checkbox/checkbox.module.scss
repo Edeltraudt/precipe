@@ -1,0 +1,58 @@
+@import './../../../../assets/scss/utility';
+
+.Wrap {
+  // --color: var(--success-color);
+  color: var(--text-color);
+  user-select: none;
+}
+
+.Input {
+  @include visually-hidden;
+}
+
+.Label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  font-size: 0.875em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.Checkbox {
+  background: transparent;
+  border-radius: 1em;
+  border: 1px solid;
+  flex: 0 0 1.5em;
+  height: 1.5em;
+  margin-right: 1em;
+  margin-top: -0.125em;
+  position: relative;
+  transition: 0.2s ease;
+  width: 1.5em;
+
+  &::before {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    content: '';
+    font-size: 0.625em;
+    height: 1em;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -60%) rotate(45deg);
+    width: 0.625em;
+  }
+
+  :checked + .Label & {
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: var(--bg-color);
+  }
+}
+
+.Text {
+  height: 1em;
+  line-height: 1;
+}

@@ -1,0 +1,58 @@
+@import './../../../../assets/scss/utility';
+
+.List {
+  display: flex;
+  list-style: none;
+  flex-flow: row-reverse;
+  margin: 0;
+  padding: 0;
+}
+
+.Item {
+  border-radius: 50%;
+  font-size: $fs-base;
+  height: 3rem;
+  position: relative;
+  width: 3rem;
+
+  & + & {
+    margin-right: -0.625rem
+  }
+
+  &.s {
+    font-size: $fs-small;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.Add {
+  @extend .Item;
+  align-items: center;
+  background: transparent;
+  border: 2px dashed $color-border;
+  color: $color-soft;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: 0.2s ease;
+  transition-property: border-color, color;
+
+  &:hover {
+    border-color: $color-soft;
+    color: $color-text;
+  }
+
+  &:focus {
+    border-color: rgba($color-primary, 0.5);
+  }
+
+  &Icon {
+    height: 1.5em;
+    width: 1.5em;
+
+    * {
+      stroke-width: 4;
+    }
+  }
+}

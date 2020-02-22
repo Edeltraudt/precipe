@@ -1,0 +1,17 @@
+@import './../../../assets/scss/utility';
+
+.Wrap {
+  align-items: baseline;
+  display: flex;
+}
+
+.Amount {
+  color: $color-headlines;
+  @include font-size($fs-large);
+  min-width: 5em;
+  padding-right: 1.5em;
+}
+
+.Name {
+  font-weight: $fw-normal;
+}

@@ -1,16 +1,12 @@
 import React from "react";
 
-import { CalendarEvent } from "./components/calendar-event/calendar-event";
-
 import "./assets/scss/styles.scss";
+
+import DashboardView from "./views/dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <CalendarEvent event={{
-        group: 'Homies'
-      }} />
-    </div>
+    <DashboardView />
   );
 }
 

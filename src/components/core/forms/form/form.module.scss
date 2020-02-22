@@ -1,0 +1,52 @@
+@import './../../../../assets/scss/utility';
+
+$margin: $spacing-base;
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.Row {
+  margin: 0 0 $spacing-large;
+
+  &.limited {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -$margin / 2;
+    margin-right: -$margin / 2;
+
+    @include break(tablet) {
+      flex-flow: row;
+    }
+  }
+}
+
+.Item {
+  display: flex;
+  flex-direction: column-reverse;
+
+  .limited & {
+    flex: 1;
+    flex-basis: calc(100% / var(--count));
+    padding: 0 $margin / 2;
+  }
+}
+
+.Label {
+  color: var(--soft-color);
+  font-weight: $fw-medium;
+  line-height: 1;
+  margin: 0 0 0.5em;
+}
+
+.Info {
+  color: var(--soft-color);
+  font-size: $fs-small;
+  line-height: $lh-base-s;
+  margin: 1em 0 0;
+  max-width: 65%;
+  order: -1;
+}

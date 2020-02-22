@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { CalendarEvent } from "../event/event";
+import CalendarEvent from "../event";
 
 import { eventModel } from "./../../../models/event";
 
 import styles from "./day.module.scss";
 
-export const CalendarDay = props => {
+const CalendarDay = props => {
   const date = props.events[0].startDate;
   const today = new Date();
   let isToday = false;
@@ -44,3 +44,5 @@ export const CalendarDay = props => {
 CalendarEvent.propTypes = {
   events: PropTypes.arrayOf(eventModel)
 };
+
+export default CalendarDay;

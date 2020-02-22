@@ -1,9 +1,6 @@
 import React from "react";
 
-import Calendar from "./../components/calendar/view/calendar";
-
-import { CalendarEvent } from "./../components/calendar/event/event";
-import { CalendarDay } from "./../components/calendar/day/day";
+import Calendar, { CalendarDay, CalendarEvent } from "./../components/calendar";
 
 export default {
   title: "Calendar"

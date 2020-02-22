@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { Headline } from "./../../core/headline/headline";
-import { Button } from "./../../core/button/button";
+import { Headline } from "./../../core/typography";
+import { Button } from "./../../core/forms";
 
-import { CalendarDay } from "./../day/day";
-import { CalendarForm } from "./../form/form";
+import CalendarDay from "./../day";
+import CalendarForm from "./../form";
 
 import styles from "./calendar.module.scss";
 
 const Calendar = props => {
-  const [isCreating, setIsCreating] = useState(false);
+  const [isCreating, setIsCreating] = useState(true);
 
   const handleCreateEventClick = e => {
     setIsCreating(true);

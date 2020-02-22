@@ -23,7 +23,7 @@ import { ReactComponent as Sugar } from "./icons/sugar.svg";
 import { ReactComponent as Time } from "./icons/time.svg";
 import { ReactComponent as Wheat } from "./icons/wheat.svg";
 
-export const Icon = props => {
+const Icon = props => {
   const getSVG = () => {
     switch (props.name) {
       case "arrow-left":
@@ -86,3 +86,5 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string
 };
+
+export default Icon;

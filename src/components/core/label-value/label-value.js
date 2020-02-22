@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./label-value.module.scss";
 
-export const LabelValue = props => {
+const LabelValue = props => {
   const [value, setValue] = useState(false);
 
   return (
@@ -21,8 +21,10 @@ export const LabelValue = props => {
 
 LabelValue.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   suffix: PropTypes.string,
   editable: PropTypes.bool,
   onChange: PropTypes.func
 };
+
+export default LabelValue;
