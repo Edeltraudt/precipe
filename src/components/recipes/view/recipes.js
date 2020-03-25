@@ -11,13 +11,14 @@ const Recipes = props => {
     <div className={[styles.Wrap]}>
       <Headline level="2">Recipes</Headline>
 
-      <Grid editable />
+      <Grid editable recipes={props.recipes} />
     </div>
   );
 };
 
 Recipes.propTypes = {
-  upcomingEvents: PropTypes.array
+  upcomingEvents: PropTypes.array,
+  recipes: PropTypes.array
 };
 
 export default Recipes;

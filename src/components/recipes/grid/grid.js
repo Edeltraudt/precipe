@@ -7,19 +7,25 @@ import styles from "./grid.module.scss";
 
 const Grid = props => {
   const handleCreateRecipeClick = e => {};
+  const handleRecipeClick = e => {};
 
   return (
     <div className={styles.Grid}>
       {props.editable && (
         <RecipeTeaser placeholder onClick={handleCreateRecipeClick} />
+      {props.editable && <Recipe onClick={handleCreateRecipeClick} />}
       )}
       <RecipeTeaser />
       <RecipeTeaser />
+
+      {props.recipes.map(recipe => (
       <RecipeTeaser />
       <RecipeTeaser />
       <RecipeTeaser />
       <RecipeTeaser />
       <RecipeTeaser />
+        <Recipe recipe={recipe} onClick={handleRecipeClick} key={`recipe-${recipe.id}`}/>
+      ))}
     </div>
   );
 };

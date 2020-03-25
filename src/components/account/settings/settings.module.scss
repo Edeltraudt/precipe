@@ -1,0 +1,21 @@
+@import "./../../../assets/scss/utility";
+
+.AccountSettings {
+
+}
+
+.Item {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0 0 0.5rem;
+}
+
+.Label, .Value {
+  padding: 0.5em 0;
+}
+
+.Value {
+  font-weight: $fw-medium;
+}

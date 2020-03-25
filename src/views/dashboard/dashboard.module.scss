@@ -1,32 +1,7 @@
 @import './../../assets/scss/utility';
 
-.Dashboard {
-  display: flex;
-  height: 100vh;
-}
-
 .Recipes, .Events {
-  padding: calc(#{$spacing-large} + 2vmin);
   height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
-}
-
-.Recipes {
-  @include break(hd) {
-    padding-left: columns(1);
-    padding-right: columns(1);
-  }
-}
-
-.Events {
-  flex: 0 0 30%;
-
-  @include break(hd) {
-    flex: 0 0 columns(5);
-  }
-}
-
-.Recipes {
-  background: var(--bg-soft-color);
-  flex: 1;
 }

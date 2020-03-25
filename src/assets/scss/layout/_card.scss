@@ -1,0 +1,13 @@
+.card {
+  background: $color-base;
+  margin: 0 0 1.25rem;
+  padding: 3rem 6rem 3rem 4rem;
+
+  p:not([class]) {
+    color: $color-soft;
+
+    &:last-of-type {
+      margin: 0 0 1.5rem;
+    }
+  }
+}

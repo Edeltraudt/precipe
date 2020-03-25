@@ -1,0 +1,29 @@
+.wrap {
+  display: flex;
+  height: 100vh;
+}
+
+%padding-container {
+  padding: calc(#{$spacing-large} + 2vmin);
+}
+
+.sidebar {
+  @extend %padding-container;
+  flex: 0 0 30%;
+  height: 100%;
+
+  @include break(hd) {
+    flex: 0 0 columns(5);
+  }
+}
+
+.content {
+  @extend %padding-container;
+  background: var(--bg-soft-color);
+  flex: 1;
+
+  @include break(hd) {
+    padding-left: columns(1);
+    padding-right: columns(1);
+  }
+}
