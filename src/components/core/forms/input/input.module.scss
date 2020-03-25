@@ -7,7 +7,6 @@
   border-radius: $border-radius;
   font: inherit;
   font-size: $fs-text;
-  font-weight: $fw-medium;
   outline: 0;
   padding: 0.58rem 0.75rem;
   transition: background 0.15s ease;
@@ -23,5 +22,6 @@
 
   &.large {
     @include font-size($fs-large);
+    font-weight: $fw-medium;
   }
 }

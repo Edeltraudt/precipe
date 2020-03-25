@@ -17,5 +17,10 @@
   .Input:checked + & {
     @include ButtonColor($color-button-bg, $color-button-text);
     font-weight: $fw-medium;
+
+    .negative & {
+      background: $color-text;
+      color: colorInvert($color-text);
+    }
   }
 }

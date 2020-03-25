@@ -5,11 +5,7 @@
   margin: 0 0 0.5em;
 }
 
-h1 {
-  @extend %headline;
-}
-
-h2 {
+h1, h2, .headline {
   @extend %headline;
   @include font-size($fs-x-large);
   color: $color-headlines;
@@ -17,7 +13,7 @@ h2 {
   margin: 0 0 0.75em;
 }
 
-h3 {
+h3, .subheadline {
   @extend %headline;
   @include font-size($fs-large);
   color: $color-text;

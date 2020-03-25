@@ -5,12 +5,11 @@ $margin: $spacing-base;
 .Form {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  overflow: hidden;
+  flex: 0 0 100%;
 }
 
 .Row {
-  margin: 0 0 $spacing-large;
+  margin: 0 0 1rem;
 
   &.limited {
     display: flex;
@@ -32,6 +31,11 @@ $margin: $spacing-base;
     flex: 1;
     flex-basis: calc(100% / var(--count));
     padding: 0 $margin / 2;
+  }
+
+  button, a {
+    align-self: flex-start;
+    flex: 0 0 auto;
   }
 }
 

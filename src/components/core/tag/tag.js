@@ -5,9 +5,11 @@ import styles from "./tag.module.scss";
 
 const Tag = props => {
   const [value, setValue] = useState(false);
+export const Tag = props => {
+  const [value, setValue] = useState(props.checked);
 
   return (
-    <div className={styles.Wrap}>
+    <div className={`${styles[props.style]}`}>
       <input
         type="checkbox"
         id={props.id}
@@ -25,7 +27,9 @@ const Tag = props => {
 Tag.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  checked: PropTypes.bool,
+  style: PropTypes.oneOf(["negative"])
 };
 
 export default Tag;

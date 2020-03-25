@@ -100,6 +100,8 @@ const CalendarForm = props => {
   );
 };
 
-CalendarForm.propTypes = {};
+CalendarForm.propTypes = {
+  onSuccess: PropTypes.func
+};
 
 export default CalendarForm;
