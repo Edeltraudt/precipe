@@ -3,16 +3,8 @@ import PropTypes from "prop-types";
 
 import UserContext from "./../../../contexts/user-context";
 
-import {
-  Headline,
-  Input,
-  Message,
-  Tag,
-  Button,
-  Form,
-  FormRow,
-  FormItem
-} from "./../../core";
+import { Headline, Message } from "./../../core/typography";
+import Form, { Input, Button, FormRow, FormItem } from "./../../core/forms";
 
 import styles from "./settings.module.scss";
 
@@ -39,7 +31,7 @@ export const AccountSettings = props => {
     setHasPasswordError(false);
     setPasswordError("");
     setPassword("");
-  }
+  };
 
   const handleUpdateEmailClick = e => {
     e.preventDefault();
@@ -52,7 +44,7 @@ export const AccountSettings = props => {
     setHasEmailError(false);
     setEmailError("");
     setEmail("");
-  }
+  };
 
   const handleUpdatePassword = e => {
     e.preventDefault();
@@ -114,7 +106,10 @@ export const AccountSettings = props => {
                 <FormItem>
                   <Message size="s" style={hasEmailError ? "danger" : false}>
                     {hasEmailError && emailError}
-                    <Button style="plain-link" onClick={handleCancelUpdateEmailClick}>
+                    <Button
+                      style="plain-link"
+                      onClick={handleCancelUpdateEmailClick}
+                    >
                       Cancel and do not update e-mail
                     </Button>
                   </Message>

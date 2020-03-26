@@ -25,3 +25,34 @@
     font-weight: $fw-medium;
   }
 }
+
+
+.Wrap {
+  $icon-size: 1.25rem;
+  $icon-space: 1rem;
+
+  position: relative;
+
+  .Icon {
+    align-items: center;
+    color: var(--soft-color);
+    display: flex;
+    height: $icon-size;
+    justify-content: center;
+    left: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: $icon-size;
+
+    svg {
+      max-height: 100%;
+      max-width: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  .Input {
+    padding-left: $icon-size + $icon-space * 2;
+  }
+}

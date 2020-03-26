@@ -1,0 +1,12 @@
+.expand-click-area {
+  position: static;
+
+  &::after {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import * as styles from "./message.module.scss";
 
-export const Message = ({ children, className, style, size }) => {
+const Message = ({ children, className, style, size }) => {
   return <p className={`${styles.Message} ${className} ${styles[size]} ${styles[style]}`}>{children}</p>;
 };
 
@@ -17,3 +17,5 @@ Message.defaultProps = {
   style: "default",
   size: "default"
 };
+
+export default Message;

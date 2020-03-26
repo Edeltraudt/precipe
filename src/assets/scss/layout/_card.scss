@@ -2,6 +2,7 @@
   background: $color-base;
   margin: 0 0 1.25rem;
   padding: 3rem 6rem 3rem 4rem;
+  position: relative;
 
   p:not([class]) {
     color: $color-soft;
@@ -9,5 +10,15 @@
     &:last-of-type {
       margin: 0 0 1.5rem;
     }
+  }
+
+  &.-elevated {
+    border-radius: $border-radius;
+    box-shadow: 0 0.625em 3em -0.5em rgba($color-text, 0.15),
+      0 0.2em 0.5em -0.01em rgba($color-text, 0.1);
+  }
+
+  &.-small {
+    padding: 2rem;
   }
 }

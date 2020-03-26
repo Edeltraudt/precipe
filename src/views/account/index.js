@@ -1,7 +1,8 @@
 import React from "react";
 
-import { Headline, Card, Button } from "./../../components/core";
-import { IngredientBlacklist, AccountSettings } from "./../../components/account";
+import { Button } from "./../../components/core/forms";
+import { Headline } from "./../../components/core/typography";
+import { DietaryRestrictions, IngredientBlacklist, AccountSettings } from "./../../components/account";
 
 import styles from "./account.module.scss";
 
@@ -12,6 +13,11 @@ const AccountView = props => {
 
       <div className={`${styles.Main} content`}>
         <Headline level="1">My Account</Headline>
+
+        <div className={styles.Section}>
+          <DietaryRestrictions />
+        </div>
+
         <IngredientBlacklist />
         <AccountSettings />
         <section className="card">

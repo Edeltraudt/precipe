@@ -5,7 +5,8 @@ const UserContext = React.createContext({
   name: "Laureena",
   mail: "laureena@outlook.com",
   groups: [1, 2],
-  groupColors: ["#385EFF", "#9C48B5"]
+  groupColors: ["#385EFF", "#9C48B5"],
+  dietaryRestrictions: [4, 5]
 });
 
 export const UserProvider = UserContext.Provider;

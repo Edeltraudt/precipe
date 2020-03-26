@@ -3,6 +3,13 @@ import PropTypes from "prop-types";
 
 import styles from "./input.module.scss";
 
+export const InputWithIcon = ({ children, icon }) => (
+  <div className={styles.Wrap}>
+    <div className={styles.Icon}>{icon}</div>
+    {children}
+  </div>
+);
+
 const Input = props => {
   const [value, setValue] = useState(props.value);
 

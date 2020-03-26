@@ -36,7 +36,6 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 1px darken($background-color, 10%),
-      0 0 0 3px rgba(darken($background-color, 20%), 0.5);
+    @include focus-outline(darken($background-color, 20%));
   }
 }

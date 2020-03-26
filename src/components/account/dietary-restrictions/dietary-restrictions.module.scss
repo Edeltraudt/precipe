@@ -1,0 +1,52 @@
+@import "./../../../assets/scss/utility";
+
+.Grid {
+  display: grid;
+  grid-gap: 1.25rem;
+  grid-template: auto / repeat(auto-fill, minmax(170px, 1fr));
+  margin: 2.25rem 0 0;
+
+  :global(.card) {
+    margin: 0;
+  }
+}
+
+.SelectionItem {
+  align-items: center;
+  color: var(--soft-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Checkbox {
+  @include visually-hidden;
+}
+
+.Label {
+  align-items: center;
+  border-radius: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: 0.15s ease color;
+
+  &::after {
+    border-radius: inherit;
+    transition: 0.15s ease box-shadow;
+  }
+
+  .Checkbox:checked + & {
+    color: var(--text-color);
+
+    &::after {
+      @include focus-outline;
+    }
+  }
+}
+
+.Icon {
+  height: 2em;
+  margin: 0 0 0.75em;
+  width: 2em;
+}
