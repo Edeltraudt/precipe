@@ -1,25 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-import { Button } from "../button/button";
 
 import styles from "./form.module.scss";
 
-export const FormItem = props => {
-  const id =
-    props.children && typeof props.children !== "string"
-      ? props.children.props.id
-      : null;
+export const FormItem = ({ children, label, info }) => {
+  const id = children && typeof children !== "string" ? children.id : null;
 
   return (
     <div className={styles.Item}>
-      {props.children}
-      {props.label && (
+      {children}
+      {label && (
         <label className={styles.Label} htmlFor={id}>
-          {props.label}
+          {label}
         </label>
       )}
-      {props.info && <p className={styles.Info}>{props.info}</p>}
+      {info && <p className={styles.Info}>{info}</p>}
     </div>
   );
 };

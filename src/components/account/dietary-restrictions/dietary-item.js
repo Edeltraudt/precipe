@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 
 import * as styles from "./dietary-restrictions.module.scss";
 
-export const DietaryItem = props => {
-  const slug = props.label
+export const DietaryItem = ({ label, checked, onChange }) => {
+  const slug = label
     .toLowerCase()
     .trim()
     .replace(/\s/g, "-");
   const id = "si-" + slug;
 
-  const [checked, setChecked] = useState(props.checked);
+  const [checked, setChecked] = useState(checked);
 
   return (
     <div className={`card -elevated -small ${styles.DietaryItem}`}>
@@ -19,7 +19,7 @@ export const DietaryItem = props => {
         type="checkbox"
         className={styles.Checkbox}
         onChange={e => {
-          props.onChange(!checked);
+          onChange(!checked);
           setChecked(!checked);
         }}
         checked={checked}
@@ -29,7 +29,7 @@ export const DietaryItem = props => {
         <svg className={styles.Icon}>
           <use xlinkHref={`/assets/diet-sprite.svg#${slug}`}></use>
         </svg>
-        {props.label}
+        {label}
       </label>
     </div>
   );

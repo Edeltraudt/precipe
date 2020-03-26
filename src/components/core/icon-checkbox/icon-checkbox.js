@@ -3,29 +3,29 @@ import PropTypes from "prop-types";
 
 import styles from "./icon-checkbox.module.scss";
 
-const IconCheckbox = props => {
-  const [isChecked, setIsChecked] = useState(props.checked);
+const IconCheckbox = ({ checked, type, icon, label, onChange }) => {
+  const [isChecked, setIsChecked] = useState(checked);
 
   const handleChange = e => {
     setIsChecked(e.target.checked);
 
-    if (props.onChange) {
-      props.onChange(e.target.checked);
+    if (onChange) {
+      onChange(e.target.checked);
     }
   };
 
   return (
     <div className={styles.Wrap}>
       <input
-        id={props.id}
+        id={id}
         type="checkbox"
         className={styles.Input}
         value={isChecked}
         onChange={handleChange}
       />
-      <label className={styles.Label} htmlFor={props.id}>
+      <label className={styles.Label} htmlFor={id}>
         <span className={styles.IconCheckbox} />
-        <span className={styles.Text}>{props.label}</span>
+        <span className={styles.Text}>{label}</span>
       </label>
     </div>
   );

@@ -7,8 +7,8 @@ import { eventModel } from "./../../../models/event";
 
 import styles from "./day.module.scss";
 
-const CalendarDay = props => {
-  const date = props.events[0].startDate;
+const CalendarDay = ({ events }) => {
+  const date = events[0].startDate;
   const today = new Date();
   let isToday = false;
 
@@ -31,7 +31,7 @@ const CalendarDay = props => {
         </span>
       </h3>
       <ol className={styles.Events}>
-        {props.events.map(event => (
+        {events.map(event => (
           <li className={styles.Event} key={event.id}>
             <CalendarEvent event={event} />
           </li>

@@ -10,29 +10,29 @@ export const InputWithIcon = ({ children, icon }) => (
   </div>
 );
 
-const Input = props => {
-  const [value, setValue] = useState(props.value);
+const Input = ({ value, id, type, placeholder, onChange, size }) => {
+  const [inputValue, setInputValue] = useState(value);
 
   const handleChange = e => {
-    setValue(e.target.value);
+    setInputValue(e.target.value);
 
-    if (props.onChange) {
-      props.onChange(e.target.value);
+    if (onChange) {
+      onChange(e.target.value);
     }
   };
 
-  const customProps = {
-    id: props.id,
-    placeholder: props.placeholder,
-    className: [styles.Input, props.size === "l" ? styles.large : ""].join(" "),
-    value,
+  const props = {
+    id: id,
+    placeholder: placeholder,
+    className: [styles.Input, size === "l" ? styles.large : ""].join(" "),
+    value: inputValue,
     onChange: handleChange
   };
 
-  return props.type === "textarea" ? (
-    <textarea {...customProps} />
+  return type === "textarea" ? (
+    <textarea {...props} />
   ) : (
-    <input type={props.type} {...customProps} />
+    <input type={type} {...props} />
   );
 };
 

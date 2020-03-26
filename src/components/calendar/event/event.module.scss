@@ -23,7 +23,7 @@
 }
 
 .Title {
-  font-size: $fs-large;
+  @include font-size($fs-large * 0.8);
   font-weight: $fw-bold;
   line-height: $lh-small;
   margin: 0;

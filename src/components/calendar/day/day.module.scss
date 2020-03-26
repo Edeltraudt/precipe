@@ -14,7 +14,7 @@
 .Day {
   color: var(--soft-color);
   display: flex;
-  font-size: $fs-base;
+  @include font-size($fs-base);
   flex-direction: column;
   font-weight: $fw-normal;
   line-height: $lh-small;
@@ -22,13 +22,13 @@
   width: 25%;
 
   &.today {
-    color: var(--text-color);
+    color: $color-headlines;
   }
 }
 
 .Date {
-  font-weight: $fw-medium;
-  font-size: $fs-x-large;
+  @include font-size($fs-x-large * 0.8);
+  font-weight: $fw-bold;
 }
 
 .Events {

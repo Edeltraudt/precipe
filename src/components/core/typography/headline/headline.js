@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 import styles from "./headline.module.scss";
 
-const Headline = props => {
-  const TagName = "h" + props.level;
+const Headline = ({ level, type, children }) => {
+  const TagName = "h" + level;
 
-  return <TagName className={styles[props.type]}>{props.children}</TagName>;
+  return <TagName className={styles[type]}>{children}</TagName>;
 };
 
 Headline.propTypes = {

@@ -5,18 +5,22 @@ import RecipeTeaser from "../teaser";
 
 import styles from "./grid.module.scss";
 
-const Grid = props => {
+const Grid = ({ recipes, editable }) => {
   const handleCreateRecipeClick = e => {};
   const handleRecipeClick = e => {};
 
   return (
     <div className={styles.Grid}>
-      {props.editable && (
+      {editable && (
         <RecipeTeaser placeholder onClick={handleCreateRecipeClick} />
       )}
 
-      {props.recipes.map(recipe => (
-        <RecipeTeaser recipe={recipe} onClick={handleRecipeClick} key={`recipe-${recipe.id}`}/>
+      {recipes.map(recipe => (
+        <RecipeTeaser
+          recipe={recipe}
+          onClick={handleRecipeClick}
+          key={`recipe-${recipe.id}`}
+        />
       ))}
     </div>
   );

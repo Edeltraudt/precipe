@@ -2,7 +2,7 @@
 
 %headline {
   line-height: $lh-small;
-  margin: 0 0 0.5em;
+  margin: 0 0 1.125em;
 }
 
 h1, h2, .headline {
@@ -10,7 +10,6 @@ h1, h2, .headline {
   @include font-size($fs-x-large);
   color: $color-headlines;
   font-weight: $fw-normal;
-  margin: 0 0 0.75em;
 }
 
 h3, .subheadline {
@@ -18,7 +17,6 @@ h3, .subheadline {
   @include font-size($fs-large);
   color: $color-text;
   font-weight: $fw-medium;
-  margin: 0 0 0.85em;
 }
 
 h4 {

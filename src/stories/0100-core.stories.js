@@ -1,11 +1,11 @@
 import React from "react";
 
 import { Button, Checkbox, Input } from "../components/core/forms";
-import { IconCheckbox } from "../components/core/icon-checkbox";
+import IconCheckbox from "../components/core/icon-checkbox";
 import { Headline } from "../components/core/typography";
 import { UserIcon, UserIconGroup } from "../components/user/icons";
-import { Tag } from "../components/core/tag";
-import { LabelValue } from "../components/core/label-value";
+import Tag from "../components/core/tag/tag";
+import LabelValue from "../components/core/label-value";
 
 export default {
   title: "Core"

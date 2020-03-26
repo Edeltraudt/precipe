@@ -6,12 +6,10 @@ import Rating from "./../rating";
 
 import styles from "./teaser.module.scss";
 
-const RecipeTeaser = props => (
-  <article
-    className={`${styles.Wrap} ${!props.recipe ? styles.placeholder : ""}`}
-  >
+const RecipeTeaser = ({ recipe, groupIcon, onClick }) => (
+  <article className={`${styles.Wrap} ${!recipe ? styles.placeholder : ""}`}>
     <figure className={styles.ImageWrap}>
-      {props.recipe !== undefined && (
+      {recipe !== undefined && (
         <>
           {/* TODO: Optional Group Icon */}
           <img
@@ -23,15 +21,15 @@ const RecipeTeaser = props => (
       )}
     </figure>
     <header className={styles.Title}>
-      {!props.recipe ? (
-        <button className={styles.Link} onClick={props.onClick}>
+      {!recipe ? (
+        <button className={styles.Link} onClick={onClick}>
           <span className={styles.placeholderIcon} />
           <Headline level="4">Create new Recipe</Headline>
         </button>
       ) : (
         <div className={styles.Info}>
-          <a className={`expand-click-area ${styles.Link}`} onClick={props.onClick}>
-            <Headline level="4">{props.recipe.title}</Headline>
+          <a className={`expand-click-area ${styles.Link}`} onClick={onClick}>
+            <Headline level="4">{recipe.title}</Headline>
           </a>
 
           <p className={styles.Time}>20 min</p>

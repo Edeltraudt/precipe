@@ -10,13 +10,18 @@
 .sidebar {
   @extend %padding-container;
   background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
   flex: 0 0 30%;
+  max-width: 30rem;
   height: 100vh;
   position: sticky;
   top: 0;
 
   @include break(hd) {
     flex: 0 0 columns(5);
+    padding-left: columns(0.5);
+    padding-right: columns(0.5);
   }
 }
 

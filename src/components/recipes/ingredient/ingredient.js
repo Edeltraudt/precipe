@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 
 import styles from "./ingredient.module.scss";
 
-const Ingredient = props => {
+const Ingredient = ({ qty, unit, name }) => {
   const handleCreateRecipeClick = e => {};
 
   return (
     <p className={styles.Wrap}>
       <span className={styles.Amount}>
-        {props.qty && props.qty}
-        {props.unit && props.unit}
+        {qty && qty}
+        {unit && unit}
       </span>
-      <strong className={styles.Name}>{props.name}</strong>
+      <strong className={styles.Name}>{name}</strong>
     </p>
   );
 };

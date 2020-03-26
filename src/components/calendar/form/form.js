@@ -6,12 +6,12 @@ import Form, { FormItem, FormRow, Button, Input } from "./../../core/forms";
 
 import styles from "./form.module.scss";
 
-const CalendarForm = props => {
+const CalendarForm = ({ onSuccess }) => {
   const [title, setTitle] = useState("");
   const [invitees, setInvitees] = useState([]);
-  const [date, setDate] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
+  const [date, setDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [recipe, setRecipe] = useState(0);
 
   const setDefaultValues = () => {
@@ -33,9 +33,8 @@ const CalendarForm = props => {
     e.persist();
 
     // on success...
-    if (props.onSuccess) {
-      props.onSuccess(title);
-
+    if (onSuccess) {
+      onSuccess(title);
       setDefaultValues();
     }
   };

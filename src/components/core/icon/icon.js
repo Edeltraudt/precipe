@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import styles from "./icon.module.scss";
@@ -23,58 +23,58 @@ import { ReactComponent as Sugar } from "./icons/sugar.svg";
 import { ReactComponent as Time } from "./icons/time.svg";
 import { ReactComponent as Wheat } from "./icons/wheat.svg";
 
-const Icon = props => {
+const Icon = ({ size, name, className }) => {
   const getSVG = () => {
-    switch (props.name) {
+    switch (name) {
       case "arrow-left":
         return <ArrowLeft />;
       case "angle-down":
         return <AngleDown />;
 
       case "edit":
-        return <Edit />
+        return <Edit />;
       case "beef":
-        return <Beef />
+        return <Beef />;
       case "egg":
-        return <Egg />
+        return <Egg />;
       case "heart":
-        return <Heart />
+        return <Heart />;
       case "image":
-        return <Image />
+        return <Image />;
       case "lactose":
-        return <Lactose />
+        return <Lactose />;
       case "minus":
-        return <Minus />
+        return <Minus />;
       case "plus":
-        return <Plus />
+        return <Plus />;
       case "pork":
-        return <Pork />
+        return <Pork />;
       case "poultry":
-        return <Poultry />
+        return <Poultry />;
       case "seafood":
-        return <Seafood />
+        return <Seafood />;
       case "search":
-        return <Search />
+        return <Search />;
       case "servings":
-        return <Servings />
+        return <Servings />;
       case "sugar":
-        return <Sugar />
+        return <Sugar />;
       case "time":
-        return <Time />
+        return <Time />;
       case "wheat":
-        return <Wheat />
+        return <Wheat />;
 
       case "checkmark":
         return <Checkmark />;
       default:
-        throw new Error(`Undefined icon type ${props.name}.`);
+        throw new Error(`Undefined icon type ${name}.`);
     }
   };
 
   return (
     <span
-      className={[styles.Icon, props.className].join(" ")}
-      style={{ fontSize: props.size }}
+      className={[styles.Icon, className].join(" ")}
+      style={{ fontSize: size }}
     >
       {getSVG()}
     </span>

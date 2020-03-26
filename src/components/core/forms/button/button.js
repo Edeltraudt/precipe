@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import styles from "./button.module.scss";
 
-const Button = props => (
+const Button = ({ id, type, style, className, onClick, children }) => (
   <button
-    id={props.id}
-    type={props.type}
-    className={[styles.Button, styles[props.style], props.className].join(" ")}
+    id={id}
+    type={type}
+    className={[styles.Button, styles[style], className].join(" ")}
     onClick={e => {
-      if (props.onClick) props.onClick(e);
+      if (onClick) onClick(e);
     }}
   >
-    {props.children}
+    {children}
   </button>
 );
 

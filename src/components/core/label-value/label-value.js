@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 
 import styles from "./label-value.module.scss";
 
-const LabelValue = props => {
+const LabelValue = ({ label, value, suffix, editable, onChange }) => {
   const [value, setValue] = useState(false);
 
   return (
     <div className={styles.Wrap}>
-      {/*props.icon && <Icon name={props.icon} />*/}
+      {/*icon && <Icon name={icon} />*/}
 
-      <strong className={styles.Label}>{props.label}</strong>
+      <strong className={styles.Label}>{label}</strong>
       <p className={styles.Value}>
-        {props.value}
-        {props.suffix && <span className={styles.Suffix}>{props.suffix}</span>}
+        {value}
+        {suffix && <span className={styles.Suffix}>{suffix}</span>}
       </p>
     </div>
   );

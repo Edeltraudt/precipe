@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { Button } from "../button/button";
 import { FormRow } from "./form-row";
 import { FormItem } from "./form-item";
 
 import styles from "./form.module.scss";
 
-const Form = props => {
+const Form = ({ method, children, onSubmit }) => {
   const handleSubmit = e => {
-    if (props.onSubmit) {
-      props.onSubmit(e);
+    if (onSubmit) {
+      onSubmit(e);
     }
-  }
+  };
 
-  return <form className={styles.Form} onSubmit={handleSubmit}>{props.children}</form>;
+  return (
+    <form className={styles.Form} onSubmit={handleSubmit}>
+      {children}
+    </form>
+  );
 };
 
 Form.propTypes = {

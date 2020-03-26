@@ -6,30 +6,27 @@ import { UserIcon } from "./../single-icon/single-icon";
 
 import styles from "./group.module.scss";
 
-export const UserIconGroup = props => {
+export const UserIconGroup = ({ size, groupId, editable }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // TODO: get all group members and group color
-    if (props.groupId) {
+    if (groupId) {
       setUsers([{ name: "Laureena" }, { name: "Tim" }]);
     }
-  }, []);
+  }, [groupId]);
 
   return (
     <div className={styles.Wrap}>
       <ul className={styles.List}>
         {users.map((user, index) => (
-          <li
-            className={[styles.Item, styles[props.size]].join(" ")}
-            key={index}
-          >
+          <li className={[styles.Item, styles[size]].join(" ")} key={index}>
             <UserIcon name={user.name} image={user.image} label={user.label} />
           </li>
         ))}
       </ul>
 
-      {props.editable && (
+      {editable && (
         <button className={styles.Add} aria-label="Add user" type="button">
           <Icon className={styles.AddIcon} name="plus" />
         </button>

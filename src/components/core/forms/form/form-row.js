@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-import { Button } from "../button/button";
 
 import styles from "./form.module.scss";
 
-export const FormRow = props => {
+export const FormRow = ({ children, className }) => {
   const cls = [
     styles.Row,
-    props.children.length ? styles.limited : "",
-    props.className ? props.className : ""
+    children.length ? styles.limited : "",
+    className ? className : ""
   ].join(" ");
 
   return (
-    <div className={cls} style={{ "--count": props.children.length }}>
-      {props.children}
+    <div className={cls} style={{ "--count": children.length }}>
+      {children}
     </div>
   );
 };

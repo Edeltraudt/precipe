@@ -3,31 +3,39 @@ import PropTypes from "prop-types";
 
 import styles from "./tag.module.scss";
 
-const Tag = props => {
-  const [value, setValue] = useState(props.checked);
+const Tag = ({ id, children, checked, style, onChange }) => {
+  const [value, setValue] = useState(checked);
 
   return (
-    <div className={`${styles[props.style]}`}>
+    <div className={`${styles.Wrap} ${styles[style]}`}>
       <input
         type="checkbox"
-        id={props.id}
+        id={id}
         className={styles.Input}
-        onChange={e => setValue(e.target.checked)}
+        onChange={e => {
+          onChange(!value);
+          setValue(!value);
+        }}
         checked={value}
       />
-      <label htmlFor={props.id} className={styles.Tag}>
-        {props.children}
+      <label htmlFor={id} className={styles.Tag}>
+        {children}
       </label>
     </div>
   );
 };
 
 Tag.propTypes = {
+  id: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   checked: PropTypes.bool,
   style: PropTypes.oneOf(["negative"])
+};
+
+Tag.defaultProps = {
+  checked: false
 };
 
 export default Tag;

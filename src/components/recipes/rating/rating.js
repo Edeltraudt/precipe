@@ -24,14 +24,14 @@ const ratings = [
   }
 ];
 
-const Rating = props => {
-  const [value, setValue] = useState(props.value);
+const Rating = ({ value, onChange }) => {
+  const [ratingValue, setRatingValue] = useState(value);
 
   const handleClick = rating => {
-    setValue(rating);
+    setRatingValue(rating);
 
-    if (props.onChange) {
-      props.onChange(rating);
+    if (onChange) {
+      onChange(rating);
     }
   };
 
@@ -42,7 +42,7 @@ const Rating = props => {
           key={rating.value}
           className={[
             styles.Item,
-            value && value === rating.value ? styles.checked : ""
+            ratingValue && ratingValue === rating.value ? styles.checked : ""
           ].join(" ")}
           aria-label={rating.label}
           onClick={e => handleClick(rating.value)}

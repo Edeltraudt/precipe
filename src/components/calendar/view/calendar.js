@@ -9,8 +9,8 @@ import CalendarForm from "./../form";
 
 import styles from "./calendar.module.scss";
 
-const Calendar = props => {
-  const [isCreating, setIsCreating] = useState(true);
+const Calendar = ({ upcomingEvents }) => {
+  const [isCreating, setIsCreating] = useState(false);
 
   const handleCreateEventClick = e => {
     setIsCreating(true);
@@ -21,12 +21,12 @@ const Calendar = props => {
   };
 
   return (
-    <div className={[styles.Slider, isCreating ? styles.form : ""].join(" ")}>
-      <div className={[styles.Slide, styles.Calendar].join(" ")}>
-        <Headline level="2">Events</Headline>
+    <div className={`${styles.Slider} ${isCreating ? styles.form : ""}`}>
+      <div className={`${styles.Slide} ${styles.Calendar}`}>
+        <Headline level="2">Upcoming Meals</Headline>
 
         <div className={styles.Days}>
-          {props.upcomingEvents.map(day => (
+          {upcomingEvents.map(day => (
             <CalendarDay events={day.events} key={day.date} />
           ))}
         </div>
