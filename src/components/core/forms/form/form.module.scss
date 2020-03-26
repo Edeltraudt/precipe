@@ -37,6 +37,12 @@ $margin: $spacing-base;
     align-self: flex-start;
     flex: 0 0 auto;
   }
+
+  &:last-child:not(:only-child) {
+    button, a {
+      margin-left: auto;
+    }
+  }
 }
 
 .Label {

@@ -22,7 +22,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   type: PropTypes.string,
-  style: PropTypes.oneOf(["default", "danger", "link"])
+  style: PropTypes.oneOf(["default", "danger", "link", "plain-link"])
 };
 
 Button.defaultProps = {

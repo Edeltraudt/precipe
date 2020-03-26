@@ -14,16 +14,28 @@
     @include ButtonColor($color-danger-button-bg, $color-danger-button-text);
   }
 
-  &.link {
+  &.link,
+  &.plain-link {
     all: initial;
-    color: $color-success;
     cursor: pointer;
     font: inherit;
     font-weight: $fw-medium;
     transition: color 0.15s ease-out;
+  }
+
+  &.link {
+    color: $color-success;
 
     &:hover {
       color: $color-button-text;
+    }
+  }
+
+  &.plain-link {
+    color: var(--text-color);
+
+    &:hover {
+      color: $color-success;
     }
   }
 }
