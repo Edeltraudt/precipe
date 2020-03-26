@@ -13,18 +13,10 @@ const Grid = props => {
     <div className={styles.Grid}>
       {props.editable && (
         <RecipeTeaser placeholder onClick={handleCreateRecipeClick} />
-      {props.editable && <Recipe onClick={handleCreateRecipeClick} />}
       )}
-      <RecipeTeaser />
-      <RecipeTeaser />
 
       {props.recipes.map(recipe => (
-      <RecipeTeaser />
-      <RecipeTeaser />
-      <RecipeTeaser />
-      <RecipeTeaser />
-      <RecipeTeaser />
-        <Recipe recipe={recipe} onClick={handleRecipeClick} key={`recipe-${recipe.id}`}/>
+        <RecipeTeaser recipe={recipe} onClick={handleRecipeClick} key={`recipe-${recipe.id}`}/>
       ))}
     </div>
   );

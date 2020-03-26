@@ -23,23 +23,15 @@ const RecipeTeaser = props => (
       )}
     </figure>
     <header className={styles.Title}>
-
-      {props.placeholder ? (
-        <button className={`expand-link ${styles.Link}`} onClick={props.onClick}>
       {!props.recipe ? (
         <button className={styles.Link} onClick={props.onClick}>
-
           <span className={styles.placeholderIcon} />
           <Headline level="4">Create new Recipe</Headline>
         </button>
       ) : (
         <div className={styles.Info}>
-
-          <a className={`expand-link ${styles.Link}`} onClick={props.onClick}>
-            <Headline level="4">Simple beet carpaccio with mixed herbs</Headline>
-          <a className={styles.Link} onClick={props.onClick}>
+          <a className={`expand-click-area ${styles.Link}`} onClick={props.onClick}>
             <Headline level="4">{props.recipe.title}</Headline>
-
           </a>
 
           <p className={styles.Time}>20 min</p>

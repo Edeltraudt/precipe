@@ -6,9 +6,9 @@ export default {
   title: "Recipes"
 };
 
-export const SingleRecipe = () => <Recipe />;
-export const RecipeGrid = () => <Grid />;
-export const RecipeIngredient = () => (
+export const Teaser = () => <RecipeTeaser />;
+export const Grid = () => <RecipeGrid />;
+export const Ingredient = () => (
   <Ingredient qty={4} unit="g" name="red beets" />
 );
 export const Overview = () => <Recipes />;

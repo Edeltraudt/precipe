@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import styles from "./tag.module.scss";
 
 const Tag = props => {
-  const [value, setValue] = useState(false);
-export const Tag = props => {
   const [value, setValue] = useState(props.checked);
 
   return (
