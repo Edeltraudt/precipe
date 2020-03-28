@@ -2,7 +2,11 @@
 
 %headline {
   line-height: $lh-small;
-  margin: 0 0 1.125em;
+  margin: 0 0 0.5em;
+
+  &:not(:last-child) {
+    margin: 0 0 1.125em;
+  }
 }
 
 h1, h2, .headline {

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 
 import UserContext from "./../../../contexts/user-context";
 
-import { Checkbox } from "./../../core/forms";
+import { IconCheckbox } from "./../../core";
 import { UserIconGroup } from "./../../user/icons";
 
 import { eventModel } from "./../../../models/event";
@@ -18,19 +18,22 @@ const CalendarEvent = ({ event }) => {
   const index = user.groups.findIndex(groupId => groupId === event.groupId);
   const color = user.groupColors[index];
 
-  // TODO: set default value when reloading
-  const [isJoined, setIsJoined] = useState(false);
+  const [accepted, setAccepted] = useState(false);
 
-  const handleJoinChange = status => {
-    setIsJoined(status);
+  const handleAccept = status => {
+    setAccepted(true);
   };
+
+  const handleDecline = status => {
+    setAccepted(false);
+  }
 
   return event ? (
     <article
       className={styles.Wrap}
       style={{ "--color": color, "--color-inv": color ? "#fff" : null }}
     >
-      <div className={[styles.Bubble, isJoined ? styles.joined : ""].join(" ")}>
+      <div className={[styles.Bubble, accepted ? styles.joined : ""].join(" ")}>
         <time className={styles.Time}>
           {getTime(event.startDate)}–{getTime(event.endDate)}
         </time>
@@ -38,11 +41,23 @@ const CalendarEvent = ({ event }) => {
       </div>
 
       <div className={styles.Info}>
-        <Checkbox
-          label={isJoined ? "" : "Join"}
-          id={event.id + "-join"}
-          onChange={handleJoinChange}
-        />
+        <span className={styles.Actions}>
+          <IconCheckbox
+            type="radio"
+            name={event.id + "-invitation"}
+            id={event.id + "-accept"}
+            onChange={handleAccept}
+            label="Accept"
+          />
+          <IconCheckbox
+            type="radio"
+            name={event.id + "-invitation"}
+            id={event.id + "-decline"}
+            icon="close"
+            onChange={handleDecline}
+            label="Decline"
+          />
+        </span>
         <UserIconGroup size="s" groupId={event.groupId} />
       </div>
     </article>

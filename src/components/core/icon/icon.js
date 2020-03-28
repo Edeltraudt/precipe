@@ -38,6 +38,8 @@ const Icon = ({ size, name, className }) => {
         return <Edit />;
       case "sort":
         return <Sort />;
+      case "checkmark":
+        return <Checkmark />;
       case "close":
         return <Close />;
       case "heart":
@@ -70,9 +72,6 @@ const Icon = ({ size, name, className }) => {
         return <DietSugar />;
       case "diet-wheat":
         return <DietWheat />;
-
-      case "checkmark":
-        return <Checkmark />;
       default:
         throw new Error(`Undefined icon type ${name}.`);
     }

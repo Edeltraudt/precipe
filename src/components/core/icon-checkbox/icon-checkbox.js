@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import Icon from "../icon/icon";
+
 import styles from "./icon-checkbox.module.scss";
 
-const IconCheckbox = ({ id, checked, type, icon, label, onChange }) => {
+const IconCheckbox = ({ id, checked, type, icon, label, onChange, name }) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleChange = e => {
@@ -15,16 +17,19 @@ const IconCheckbox = ({ id, checked, type, icon, label, onChange }) => {
   };
 
   return (
-    <div className={styles.Wrap}>
+    <div className={`${styles.Wrap} ${styles[icon]}`}>
       <input
         id={id}
-        type="checkbox"
+        type={type}
         className={styles.Input}
         value={isChecked}
         onChange={handleChange}
+        name={name}
       />
       <label className={styles.Label} htmlFor={id}>
-        <span className={styles.IconCheckbox} />
+        <span className={styles.IconCheckbox}>
+          <Icon name={icon} className={styles.Icon} />
+        </span>
         <span className={styles.Text}>{label}</span>
       </label>
     </div>
@@ -33,16 +38,17 @@ const IconCheckbox = ({ id, checked, type, icon, label, onChange }) => {
 
 IconCheckbox.propTypes = {
   id: PropTypes.string,
+  name: PropTypes.string,
   checked: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.oneOf(["radio", "checkbox"]),
   onChange: PropTypes.func,
-  icon: PropTypes.oneOf(["check", "close"])
+  icon: PropTypes.oneOf(["checkmark", "close"])
 };
 
 IconCheckbox.defaultProps = {
   type: "radio",
-  icon: "check"
+  icon: "checkmark"
 };
 
 export default IconCheckbox;

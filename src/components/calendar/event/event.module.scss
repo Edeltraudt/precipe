@@ -29,8 +29,13 @@
   margin: 0;
 }
 
+.Actions {
+  align-items: center;
+  display: flex;
+  margin-right: auto;
+}
+
 .Info {
   align-items: center;
   display: flex;
-  justify-content: space-between;
 }

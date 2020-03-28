@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
-aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <title>Checkmark</title>
-  <desc>A line styled icon from Orion Icon Library.</desc>
-  <path data-name="layer1"
-  fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="3" d="M16 33l11 11 21-22"
-  stroke-linejoin="round" stroke-linecap="round"></path>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="6.914" viewBox="0 0 9.414 6.914"><path d="M12,6,6.5,11.5,4,9" transform="translate(-3.293 -5.293)" fill="none" stroke="currentColor" stroke-linecap="square" stroke-width="1"/></svg>
