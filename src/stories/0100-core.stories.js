@@ -18,7 +18,7 @@ export const CheckBox = () => (
   <Checkbox isChecked={true} id="1" label="Checkbox" />
 );
 export const IconCheckBox = () => (
-  <IconCheckbox isChecked={true} icon="pork" id="1" label="Icon Checkbox" />
+  <IconCheckbox isChecked={true} icon="close" id="1" label="Icon Checkbox" />
 );
 
 export const PlainLabelValuePair = () => (

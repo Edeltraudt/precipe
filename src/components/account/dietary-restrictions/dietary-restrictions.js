@@ -45,7 +45,7 @@ export const DietaryRestrictions = ({ className }) => {
   return (
     <>
       <Headline level="2" type="subheadline">
-        Dietary restrictions
+        Dietary restrictions and preferences
       </Headline>
       <div className={styles.Grid}>
         {/* TODO: save change to user */}

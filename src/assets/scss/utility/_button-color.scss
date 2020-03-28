@@ -8,31 +8,21 @@
   display: inline-block;
   font: inherit;
   outline: 0;
+  padding: 0;
   user-select: none;
   text-decoration: none;
 }
 
 @mixin ButtonColor($background-color, $color) {
-  // bg lighter than text
-  @if $background-color > $color {
-    background: $background-color;
-    color: $color;
+  background: $background-color;
+  color: $color;
 
-    &:hover, &:focus {
-      background: lighten($background-color, 2.5%);
-    }
+  &:hover, &:focus {
+    background: darken($background-color, 4%);
+  }
 
-    &:active {
-      background: darken($background-color, 2.5%);
-    }
-  } @else {
-    &:hover, &:focus {
-      background: darken($background-color, 4%);
-    }
-
-    &:active {
-      background: darken($background-color, 8%);
-    }
+  &:active {
+    background: darken($background-color, 8%);
   }
 
   &:focus {
