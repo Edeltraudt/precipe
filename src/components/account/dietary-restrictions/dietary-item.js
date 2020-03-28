@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import Icon from "./../../core"
+import { Icon } from "./../../core"
 
 import * as styles from "./dietary-restrictions.module.scss";
 
@@ -27,7 +27,7 @@ export const DietaryItem = ({ label, checked, onChange }) => {
         checked={checkedValue}
       />
       <label htmlFor={id} className={`${styles.Label} expand-click-area`}>
-        <Icon name={`diet-${slug}`} />
+        <Icon name={`diet-${slug}`} className={styles.Icon} />
         {label}
       </label>
     </div>

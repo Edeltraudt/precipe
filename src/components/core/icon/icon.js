@@ -52,13 +52,13 @@ const Icon = ({ size, name, className }) => {
         return <DietLactose />;
       case "diet-beef":
         return <DietBeef />;
-      case "diet-egg":
+      case "diet-eggs":
         return <DietEgg />;
       case "diet-pork":
         return <DietPork />;
       case "diet-poultry":
         return <DietPoultry />;
-      case "diet-seafood":
+      case "diet-fish":
         return <DietSeafood />;
       case "diet-sugar":
         return <DietSugar />;
