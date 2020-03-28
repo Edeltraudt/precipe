@@ -1,0 +1,129 @@
+@import './../../../../assets/scss/utility';
+
+.Wrap {
+  position: relative;
+
+  &:not(:first-child) {
+    margin-left: 1em;
+  }
+
+  &.invisible {
+    margin-left: -0.25em;
+  }
+}
+
+.Icon {
+  color: var(--text-color);
+  font-size: 1.75em;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-55%);
+}
+
+.invisible {
+  :global
+  .ReactA11ySelect__button {
+    border: 0;
+    font-weight: $fw-medium;
+    padding-left: 0.75em;
+
+    &:focus,
+    &[aria-expanded=true] {
+      background: rgba($color-text, 0.2);
+      box-shadow: none;
+    }
+  }
+}
+
+// default styles taken from component and adapted
+// to avoid unnecessary duplicate styles
+:global
+.ReactA11ySelect {
+  --border-color: #{$color-border};
+  --background-color: var(--bg-color);
+  --shadow-color: #aaa;
+  --highlighted-foreground-color: #fff;
+  --highlighted-background-color: #333;
+  font: inherit;
+  position: relative;
+
+  &__button {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-s;
+    color: $color-headlines;
+    cursor: pointer;
+    display: inline;
+    margin: 0;
+    padding: 0.625em 2em 0.625em 0.75em;
+    text-align: left;
+
+    &[aria-expanded=true] {
+      background-color: var(--border-color);
+    }
+
+    &__arrow-indicator {
+      display: none;
+    }
+
+    &:focus {
+      @include focus-outline;
+    }
+  }
+
+
+
+  &__ul {
+    background-color: $color-base;
+    border-radius: $border-radius-s;
+    @include elevate(5);
+    list-style: none;
+    margin: 0;
+    min-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    transform-origin: top right;
+    transition: 0.15s ease;
+    transition-property: opacity, visibility, transform;
+    width: 10rem;
+    will-change: opacity, visibility, transform;
+    z-index: 100;
+
+    &:not([aria-hidden=true]) {
+      opacity: 1;
+      transform: scale(1);
+      visibility: visible;
+    }
+
+    &[aria-hidden=true] {
+      opacity: 0;
+      transform: scale(0.5);
+      visibility: hidden;
+    }
+
+    &__li {
+      color: $color-text;
+      cursor: pointer;
+      position: relative;
+      padding: 0.625em 1em;
+      transition: 0.15s ease;
+
+      &:hover,
+      &:focus,
+      &[aria-checked=true] {
+        background-color: $color-button-bg;
+        color: $color-button-text;
+        outline: 0;
+      }
+
+      &[disabled] {
+        opacity: 0.4;
+        padding-right: 2.25em;
+      }
+    }
+  }
+}

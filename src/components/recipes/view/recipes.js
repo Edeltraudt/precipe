@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { Headline } from "./../../core/typography";
-import { Tag } from "./../../core";
+import { Select } from "./../../core/forms";
+import { Icon, Tag } from "./../../core";
 import Grid from "./../grid";
 
 import styles from "./recipes.module.scss";
@@ -12,19 +13,30 @@ const Recipes = ({ upcomingEvents, recipes }) => {
     console.log(filterId, isActive);
   };
 
+  const handleOrderChange = selectedOrder => {
+    setOrder(selectedOrder);
+    console.log(selectedOrder);
+  };
+
+  const orderOptions = [
+    { value: "last-cooked", label: "Last cooked" },
+    { value: "best", label: "Best matched" }
+  ];
+  const [order, setOrder] = useState(null);
+
   return (
     <div className={styles.Wrap}>
       <Headline level="2">Recipes</Headline>
       <div className={styles.Tabs}>
-        <a href="" className={`${styles.TabButton} ${styles.active}`}>
+        <button href="" className={`${styles.TabButton} ${styles.active}`}>
           Your Recipes
-        </a>
-        <a href="" className={styles.TabButton}>
+        </button>
+        <button href="" className={styles.TabButton}>
           Homies
-        </a>
-        <a href="" className={styles.TabButton}>
+        </button>
+        <button href="" className={styles.TabButton}>
           Groupies
-        </a>
+        </button>
       </div>
 
       <div className={styles.Controls}>
@@ -37,7 +49,17 @@ const Recipes = ({ upcomingEvents, recipes }) => {
           </Tag>
         </div>
 
-        <div className={styles.Order}>Order by</div>
+        <div className={styles.Order}>
+          <Icon name="sort" className={styles.OrderIcon} />
+          <span>Order by</span>
+          <Select
+            label="Order by"
+            options={orderOptions}
+            onChange={handleOrderChange}
+            style="invisible"
+            defaultValue={orderOptions[0].value}
+          />
+        </div>
       </div>
 
       <Grid editable recipes={recipes} />
