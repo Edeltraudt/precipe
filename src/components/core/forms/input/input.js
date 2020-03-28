@@ -5,9 +5,9 @@ import Icon from "../../icon";
 
 import styles from "./input.module.scss";
 
-export const InputWithIcon = ({ children, iconName }) => (
+export const InputWithIcon = ({ children, icon }) => (
   <div className={styles.Wrap}>
-    <Icon name={iconName} className={styles.Icon} />
+    <Icon name={icon} className={styles.Icon} />
     {children}
   </div>
 );
