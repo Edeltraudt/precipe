@@ -27,7 +27,7 @@ const dietaryRestrictions = [
   },
   {
     id: 5,
-    label: "Milk products"
+    label: "Lactose"
   },
   {
     id: 6,

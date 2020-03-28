@@ -6,7 +6,7 @@ import { FormItem } from "./form-item";
 
 import styles from "./form.module.scss";
 
-const Form = ({ method, children, onSubmit }) => {
+const Form = ({ className, method, children, onSubmit }) => {
   const handleSubmit = e => {
     if (onSubmit) {
       onSubmit(e);
@@ -14,13 +14,14 @@ const Form = ({ method, children, onSubmit }) => {
   };
 
   return (
-    <form className={styles.Form} onSubmit={handleSubmit}>
+    <form className={`${styles.Form} ${className}`} onSubmit={handleSubmit}>
       {children}
     </form>
   );
 };
 
 Form.propTypes = {
+  className: PropTypes.string,
   method: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),

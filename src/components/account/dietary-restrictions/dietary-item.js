@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import Icon from "./../../core"
+
 import * as styles from "./dietary-restrictions.module.scss";
 
 export const DietaryItem = ({ label, checked, onChange }) => {
@@ -10,7 +12,7 @@ export const DietaryItem = ({ label, checked, onChange }) => {
     .replace(/\s/g, "-");
   const id = "si-" + slug;
 
-  const [checked, setChecked] = useState(checked);
+  const [checkedValue, setCheckedValue] = useState(checked);
 
   return (
     <div className={`card -elevated -small ${styles.DietaryItem}`}>
@@ -19,16 +21,13 @@ export const DietaryItem = ({ label, checked, onChange }) => {
         type="checkbox"
         className={styles.Checkbox}
         onChange={e => {
-          onChange(!checked);
-          setChecked(!checked);
+          onChange(!checkedValue);
+          setCheckedValue(!checkedValue);
         }}
-        checked={checked}
+        checked={checkedValue}
       />
       <label htmlFor={id} className={`${styles.Label} expand-click-area`}>
-        {/* TODO: embed icon */}
-        <svg className={styles.Icon}>
-          <use xlinkHref={`/assets/diet-sprite.svg#${slug}`}></use>
-        </svg>
+        <Icon name={`diet-${slug}`} />
         {label}
       </label>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Calendar from "../../components/calendar/view/calendar";
+import CalendarView from "../../components/calendar";
 import Recipes from "../../components/recipes/view/recipes";
 
 import styles from "./dashboard.module.scss";
@@ -81,7 +81,7 @@ const DashboardView = props => {
   return (
     <main className={`${styles.Dashboard} wrap`}>
       <section className={`${styles.Events} sidebar`}>
-        <Calendar upcomingEvents={upcomingEvents} />
+        <CalendarView upcomingEvents={upcomingEvents} />
       </section>
       <section className={`${styles.Recipes} content`}>
         <Recipes recipes={recipes} />

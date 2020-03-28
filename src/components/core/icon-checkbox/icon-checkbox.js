@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./icon-checkbox.module.scss";
 
-const IconCheckbox = ({ checked, type, icon, label, onChange }) => {
+const IconCheckbox = ({ id, checked, type, icon, label, onChange }) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleChange = e => {
@@ -32,6 +32,7 @@ const IconCheckbox = ({ checked, type, icon, label, onChange }) => {
 };
 
 IconCheckbox.propTypes = {
+  id: PropTypes.string,
   checked: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.oneOf(["radio", "checkbox"]),

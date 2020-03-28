@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "./label-value.module.scss";
 
 const LabelValue = ({ label, value, suffix, editable, onChange }) => {
-  const [value, setValue] = useState(false);
+  const [inputValue, setValue] = useState(value);
 
   return (
     <div className={styles.Wrap}>
@@ -12,7 +12,7 @@ const LabelValue = ({ label, value, suffix, editable, onChange }) => {
 
       <strong className={styles.Label}>{label}</strong>
       <p className={styles.Value}>
-        {value}
+        {inputValue}
         {suffix && <span className={styles.Suffix}>{suffix}</span>}
       </p>
     </div>
