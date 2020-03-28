@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { Headline } from "../../core/typography";
 import Rating from "./../rating";
 
+import placeholder from "./../../../assets/img/placeholder.jpg";
+
 import styles from "./teaser.module.scss";
 
 const RecipeTeaser = ({ recipe, groupIcon, onClick }) => (
@@ -12,11 +14,7 @@ const RecipeTeaser = ({ recipe, groupIcon, onClick }) => (
       {recipe !== undefined && (
         <>
           {/* TODO: Optional Group Icon */}
-          <img
-            src="https://via.placeholder.com/320x380"
-            alt=""
-            className={styles.Image}
-          />
+          <img src={placeholder} alt="" className={styles.Image} />
         </>
       )}
     </figure>

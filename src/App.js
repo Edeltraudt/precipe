@@ -2,11 +2,11 @@ import React from "react";
 
 import "./assets/scss/styles.scss";
 
-import DashboardView from "./views/dashboard";
+import BaseView from "./views/base";
 
 function App() {
   return (
-    <DashboardView />
+    <BaseView />
   );
 }
 

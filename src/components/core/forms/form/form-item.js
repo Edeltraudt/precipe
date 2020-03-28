@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 
 import styles from "./form.module.scss";
 
-export const FormItem = ({ children, label, info }) => {
+export const FormItem = ({ children, label, info, className }) => {
   const id = children && typeof children !== "string" ? children.id : null;
 
   return (
-    <div className={styles.Item}>
+    <div className={`${styles.Item} ${className}`}>
       {children}
       {label && (
         <label className={styles.Label} htmlFor={id}>
@@ -20,10 +20,15 @@ export const FormItem = ({ children, label, info }) => {
 };
 
 FormItem.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
   label: PropTypes.string,
   info: PropTypes.string
+};
+
+FormItem.defaultProps = {
+  className: ""
 };

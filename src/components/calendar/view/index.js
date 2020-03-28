@@ -10,7 +10,7 @@ import CalendarForm from "./../form/form";
 import styles from "./calendar.module.scss";
 
 const Calendar = ({ upcomingEvents }) => {
-  const [isCreating, setIsCreating] = useState(false);
+  const [isCreating, setIsCreating] = useState(true);
 
   const handleCreateEventClick = e => {
     setIsCreating(true);

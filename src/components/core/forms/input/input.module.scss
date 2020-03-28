@@ -29,7 +29,7 @@
 
 .Wrap {
   $icon-size: 1.25rem;
-  $icon-space: 1rem;
+  $icon-space: 0.75rem;
 
   position: relative;
 
@@ -39,7 +39,8 @@
     display: flex;
     height: $icon-size;
     justify-content: center;
-    left: 1rem;
+    left: $icon-space;
+    margin-bottom: 0.1em;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

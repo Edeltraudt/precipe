@@ -1,6 +1,7 @@
 @import './../../../../assets/scss/utility';
 
 .Wrap {
+  display: inline-block;
   position: relative;
 
   &:not(:first-child) {
