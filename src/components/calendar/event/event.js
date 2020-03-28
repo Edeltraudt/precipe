@@ -28,7 +28,7 @@ const CalendarEvent = ({ event }) => {
   return event ? (
     <article
       className={styles.Wrap}
-      style={{ "--color": color, "--color-text": color ? "#fff" : null }}
+      style={{ "--color": color, "--color-inv": color ? "#fff" : null }}
     >
       <div className={[styles.Bubble, isJoined ? styles.joined : ""].join(" ")}>
         <time className={styles.Time}>

@@ -10,7 +10,7 @@ import CalendarForm from "./../form/form";
 import styles from "./calendar.module.scss";
 
 const Calendar = ({ upcomingEvents }) => {
-  const [isCreating, setIsCreating] = useState(true);
+  const [isCreating, setIsCreating] = useState(false);
 
   const handleCreateEventClick = e => {
     setIsCreating(true);
@@ -32,7 +32,7 @@ const Calendar = ({ upcomingEvents }) => {
         </div>
 
         <Button className={styles.Button} onClick={handleCreateEventClick}>
-          Create new event
+          Invite friends to a meal
         </Button>
       </div>
 
