@@ -1,0 +1,25 @@
+@import "./../../../assets/scss/utility";
+
+.Summary {
+  align-items: center;
+  display: grid;
+  grid-gap: 0 2rem;
+  grid-template:
+    "nm ic" auto
+    "lk ic" / 1fr auto;
+}
+
+.Name {
+  color: $color-headlines;
+  font-size: 1.125em;
+  font-weight: $fw-medium;
+  grid-area: nm;
+}
+
+.Link {
+  grid-area: lk;
+}
+
+.Icon {
+  grid-area: ic;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 
 import UserContext from "./../../../contexts/user-context";
@@ -9,34 +9,13 @@ import { DietaryItem } from "./dietary-item";
 import * as styles from "./dietary-restrictions.module.scss";
 
 const dietaryRestrictions = [
-  {
-    id: 1,
-    label: "Pork"
-  },
-  {
-    id: 2,
-    label: "Poultry"
-  },
-  {
-    id: 3,
-    label: "Beef"
-  },
-  {
-    id: 4,
-    label: "Fish"
-  },
-  {
-    id: 5,
-    label: "Lactose"
-  },
-  {
-    id: 6,
-    label: "Wheat"
-  },
-  {
-    id: 7,
-    label: "Eggs"
-  }
+  { id: 1, label: "Pork" },
+  { id: 2, label: "Poultry" },
+  { id: 3, label: "Beef" },
+  { id: 4, label: "Fish" },
+  { id: 5, label: "Lactose" },
+  { id: 6, label: "Wheat" },
+  { id: 7, label: "Eggs" }
 ];
 
 export const DietaryRestrictions = ({ className }) => {

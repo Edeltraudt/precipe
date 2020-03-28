@@ -18,8 +18,10 @@ const SelectBox = ({
   return (
     <div className={`${styles.Wrap} ${className} ${styles[style]}`}>
       <Select label={label} initialValue={defaultValue} onChange={onChange}>
-        {options.map(option => (
-          <Option value={option.value}>{option.label}</Option>
+        {options.map((option, index) => (
+          <Option key={index} value={option.value}>
+            {option.label}
+          </Option>
         ))}
       </Select>
       <Icon className={styles.Icon} name="angle-down" />
@@ -27,16 +29,16 @@ const SelectBox = ({
   );
 };
 
-const optionShape = PropTypes.shape({
-  value: PropTypes.string,
-  label: PropTypes.string
-});
-
 SelectBox.propTypes = {
-  options: PropTypes.arrayOf(optionShape),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string
+    })
+  ),
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  defaultValue: optionShape,
+  defaultValue: PropTypes.string,
   onChange: PropTypes.func,
   style: PropTypes.oneOf(["default", "invisible"])
 };

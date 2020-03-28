@@ -1,9 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import CalendarView from "../../components/calendar";
 import DashboardView from "../dashboard";
 import AccountView from "../account";
+
+import { AccountSummary } from "../../components/account";
 
 import styles from "./base.module.scss";
 
@@ -54,6 +56,9 @@ const BaseView = props => {
       </section>
       <div className={styles.Main}>
         <Router>
+          <aside className={styles.Account}>
+            <AccountSummary />
+          </aside>
           <Switch>
             <Route path="/account">
               <AccountView />

@@ -30,6 +30,7 @@
 .Main {
   @extend %padding-container;
   flex: 1;
+  position: relative;
 
   --bg-color: $color-base-soft;
 
@@ -37,4 +38,10 @@
     padding-left: columns(1);
     padding-right: columns(1);
   }
+}
+
+.Account {
+  margin-top: -0.25em;
+  position: absolute;
+  right: columns(1);
 }
