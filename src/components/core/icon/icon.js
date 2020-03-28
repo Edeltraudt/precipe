@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 import styles from "./icon.module.scss";
 
-import { ReactComponent as Checkmark } from "./icons/checkmark.svg";
 import { ReactComponent as AngleDown } from "./icons/angle-down.svg";
 import { ReactComponent as ArrowLeft } from "./icons/arrow-left.svg";
+import { ReactComponent as Checkmark } from "./icons/checkmark.svg";
+import { ReactComponent as Close } from "./icons/close.svg";
 import { ReactComponent as Edit } from "./icons/edit.svg";
 import { ReactComponent as Heart } from "./icons/heart.svg";
 import { ReactComponent as Image } from "./icons/image.svg";
@@ -14,6 +15,7 @@ import { ReactComponent as Plus } from "./icons/plus.svg";
 import { ReactComponent as Search } from "./icons/search.svg";
 import { ReactComponent as Servings } from "./icons/servings.svg";
 import { ReactComponent as Time } from "./icons/time.svg";
+import { ReactComponent as Sort } from "./icons/sort.svg";
 
 import { ReactComponent as DietBeef } from "./icons/beef.svg";
 import { ReactComponent as DietEgg } from "./icons/egg.svg";
@@ -34,6 +36,10 @@ const Icon = ({ size, name, className }) => {
 
       case "edit":
         return <Edit />;
+      case "sort":
+        return <Sort />;
+      case "close":
+        return <Close />;
       case "heart":
         return <Heart />;
       case "image":

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import Icon from "./../icon";
+
 import styles from "./tag.module.scss";
 
 const Tag = ({ id, children, checked, style, onChange }) => {
   const [value, setValue] = useState(checked);
+  const isNegative = style === "negative";
 
   return (
     <div className={`${styles.Wrap} ${styles[style]}`}>
@@ -20,6 +23,7 @@ const Tag = ({ id, children, checked, style, onChange }) => {
       />
       <label htmlFor={id} className={styles.Tag}>
         {children}
+        {isNegative && <Icon name="close" className={styles.Icon} />}
       </label>
     </div>
   );

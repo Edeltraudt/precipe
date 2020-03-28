@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import Icon from "../../icon";
+
 import styles from "./input.module.scss";
 
-export const InputWithIcon = ({ children, icon }) => (
+export const InputWithIcon = ({ children, iconName }) => (
   <div className={styles.Wrap}>
-    <div className={styles.Icon}>{icon}</div>
+    <Icon name={iconName} className={styles.Icon} />
     {children}
   </div>
 );

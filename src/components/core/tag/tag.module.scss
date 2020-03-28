@@ -11,12 +11,14 @@
 }
 
 .Tag {
+  align-items: center;
   @include ButtonReset($spacing-large);
   @include ButtonColor($color-input-bg, $color-input-text);
+  display: inline-flex;
   font-weight: $fw-normal;
   font-size: $fs-base;
   line-height: 1;
-  padding: 0.75em 2em;
+  padding: 0.75em 1.75em;
   transition: background 0.15s ease-out;
   text-align: center;
 
@@ -29,4 +31,10 @@
       color: colorInvert($color-text);
     }
   }
+}
+
+.Icon {
+  font-size: 0.625em;
+  margin-left: 1em;
+  margin-right: -1em;
 }

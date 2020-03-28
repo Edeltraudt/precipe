@@ -115,7 +115,7 @@ export const AccountSettings = props => {
                   </Message>
                 </FormItem>
                 <FormItem>
-                  <Button type="submit">Update e-mail</Button>
+                  <Button style="secure" type="submit">Update e-mail</Button>
                 </FormItem>
               </FormRow>
             </Form>
@@ -160,7 +160,7 @@ export const AccountSettings = props => {
                   </Message>
                 </FormItem>
                 <FormItem>
-                  <Button type="submit">Save new password</Button>
+                  <Button style="secure" type="submit">Save new password</Button>
                 </FormItem>
               </FormRow>
             </Form>

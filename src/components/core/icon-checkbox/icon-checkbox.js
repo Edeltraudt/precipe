@@ -37,7 +37,7 @@ IconCheckbox.propTypes = {
   label: PropTypes.string,
   type: PropTypes.oneOf(["radio", "checkbox"]),
   onChange: PropTypes.func,
-  icon: PropTypes.oneOf(["check", "cross"])
+  icon: PropTypes.oneOf(["check", "close"])
 };
 
 IconCheckbox.defaultProps = {

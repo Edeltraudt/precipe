@@ -14,20 +14,23 @@
     @include ButtonColor($color-danger-button-bg, $color-danger-button-text);
   }
 
+  &.secure {
+    @include ButtonColor($color-secure-button-bg, $color-secure-button-text);
+  }
+
   &.link,
   &.plain-link {
     all: initial;
     cursor: pointer;
     font: inherit;
-    font-weight: $fw-medium;
     transition: color 0.15s ease-out;
   }
 
   &.link {
-    color: $color-success;
+    color: $color-link;
 
     &:hover {
-      color: $color-button-text;
+      color: $color-link-hover;
     }
   }
 
@@ -35,7 +38,7 @@
     color: var(--text-color);
 
     &:hover {
-      color: $color-success;
+      color: $color-link;
     }
   }
 }

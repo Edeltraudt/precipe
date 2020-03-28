@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-// import { Tag } from "./../../core";
+import { Tag } from "./../../core";
 import { Input, InputWithIcon } from "./../../core/forms";
 import { Headline } from "./../../core/typography";
-
-import { ReactComponent as IconSearch } from "./../../../assets/icons/search.svg";
 
 import styles from "./ingredient-blacklist.module.scss";
 
 export const IngredientBlacklist = props => {
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      label: "Peanuts"
+    }
+  ]);
+
   return (
     <section className="card">
       <Headline level="2" type="subheadline">
@@ -17,11 +22,11 @@ export const IngredientBlacklist = props => {
       </Headline>
       <p>
         Any more elaborate allergies and intolerances than listed above? Be sure
-        to still tell your friends. And enter all ingredients you cannot eat or
+        to still tell your friends and enter all ingredients you cannot eat or
         just don’t like. Whatever.
       </p>
 
-      <InputWithIcon icon={<IconSearch />}>
+      <InputWithIcon icon="search">
         <Input
           id="blacklist-search"
           type="search"
@@ -30,11 +35,18 @@ export const IngredientBlacklist = props => {
       </InputWithIcon>
 
       <ul className={styles.Blacklist}>
-        <li className={styles.Item}>
-          {/* <Tag checked style="negative"> */}
-          {/*   Peanuts */}
-          {/* </Tag> */}
-        </li>
+        {items.map(item => (
+          <li key={item.id} className={styles.Item}>
+            <Tag
+              id={`blacklist-${item.id}`}
+              checked
+              style="negative"
+              onChange={value => setItems(items.filter(e => e.id !== item.id))}
+            >
+              {item.label}
+            </Tag>
+          </li>
+        ))}
       </ul>
     </section>
   );

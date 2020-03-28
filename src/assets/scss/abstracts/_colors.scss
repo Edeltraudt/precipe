@@ -1,4 +1,4 @@
-// color variables
+  // color variables
 
 $color-grey-0:      #FFFFFF;
 $color-grey-50:     #F7F8FA;
@@ -10,15 +10,20 @@ $color-grey-500:    #9A9DAB;
 $color-grey-600:    #606678;
 $color-grey-700:    #00192B;
 
-$color-primary-100: #CBF2CF;
-$color-primary-200: #5DC765;
-$color-primary-300: #23872B;
+$color-primary-100:   #FAF2BB;
+$color-primary-200:   #FDDB3A;
+$color-primary-300:   saturate(#876C23, 100%);
+
+$color-secondary-100: #CBF2CF;
+$color-secondary-200: #5DC765;
+$color-secondary-300: #23872B;
 
 $color-primary:     $color-primary-200;
 $color-primary-inverse: $color-primary-300;
 
 $color-danger:      #D11749;
-$color-success:     $color-primary;
+$color-success:     $color-secondary-200;
+$color-secure:      $color-success;
 
 $color-base:        $color-grey-0;
 $color-base-soft:   $color-grey-50;
@@ -26,6 +31,9 @@ $color-light:       $color-grey-100;
 $color-soft:        $color-grey-500;
 $color-text:        $color-grey-600;
 $color-headlines:   $color-grey-700;
+
+$color-link:        $color-primary-300;
+$color-link-hover:  darken($color-link, 10%);
 
 $color-input-bg:          $color-grey-200;
 $color-input-bg-focus:    $color-grey-300;
@@ -40,3 +48,5 @@ $color-button-text: $color-primary-300;
 $color-danger-button-bg:    mix($color-danger, $color-base, 15%);
 $color-danger-button-text:  darken($color-danger, 10%);
 
+$color-secure-button-bg:    $color-secondary-100;
+$color-secure-button-text:  $color-secondary-300;

@@ -1,10 +1,17 @@
 .Icon {
+  align-self: center;
   display: inline-block;
   font-size: 1em;
   height: 1em;
   width: 1em;
 
+
+  &:not(:last-child) {
+    margin-right: 0.75em;
+  }
+
   svg {
+    display: inline-block;
     height: 100%;
     object-fit: contain;
     width: 100%;

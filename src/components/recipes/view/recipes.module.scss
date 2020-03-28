@@ -7,6 +7,7 @@
 }
 
 .TabButton {
+  @include ButtonReset;
   color: $color-text;
   @include font-size($fs-large);
   text-decoration: none;
@@ -35,4 +36,20 @@
 
 .Filters {
   display: flex;
+}
+
+.Order {
+  align-items: center;
+  color: var(--soft-color);
+  display: flex;
+
+  &Icon {
+    margin-bottom: 0.15em;
+  }
+
+  &Select {
+    flex: 0 0 auto;
+    margin-left: 0.5em;
+    min-width: 10rem;
+  }
 }
