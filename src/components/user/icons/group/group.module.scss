@@ -1,4 +1,4 @@
-@import './../../../../assets/scss/utility';
+@import "./../../../../assets/scss/utility";
 
 .Wrap {
   display: flex;
@@ -20,7 +20,7 @@
   width: 3rem;
 
   & + & {
-    margin-right: -0.625rem
+    margin-right: -0.625rem;
   }
 
   &.s {
@@ -58,5 +58,116 @@
     * {
       stroke-width: 4;
     }
+  }
+
+  &Wrap {
+    position: relative;
+  }
+}
+
+.Menu {
+  background: $color-base;
+  border-radius: $border-radius;
+  @include elevate(15);
+  box-sizing: content-box;
+  left: 0;
+  margin-top: 7px + 5px;
+  min-height: 100px;
+  min-width: (3.5rem * 4);
+  opacity: 0;
+  padding: 1.5rem;
+  position: absolute;
+  transform: scale(0.8);
+  transform-origin: 25% 0;
+  transition: 0.2s ease;
+  transition-property: transform, opacity, visibility;
+  visibility: hidden;
+  will-change: opacity, visibility;
+  z-index: 100;
+
+  &.isVisible {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+  }
+
+  &::before,
+  &::after {
+    bottom: 100%;
+    content: "";
+    height: 0;
+    left: 3rem / 2;
+    position: absolute;
+    width: 0;
+  }
+
+  &::before {
+    border-bottom: 7px solid $color-base;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    margin-left: -7px;
+    z-index: 1;
+  }
+
+  &::after {
+    border-bottom: 8px solid mix($color-base-soft, $color-border);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    margin-left: -8px;
+    z-index: 0;
+  }
+
+  &Label {
+    display: block;
+    font-weight: $fw-medium;
+    margin: 0 0 1em;
+  }
+
+  &List {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    margin: -0.25rem;
+    padding: 0;
+  }
+
+  &Item {
+    box-sizing: content-box;
+    height: 3rem;
+    padding: 0.25rem;
+    width: 3rem;
+  }
+
+  &Input {
+    border-top: 1px solid $color-border;
+    box-sizing: border-box;
+    margin: 1.5rem -1.5rem -1.5rem;
+
+    input {
+      background: $color-base-soft;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
+      &:focus {
+        background: transparent;
+      }
+    }
+  }
+}
+
+.UserButton {
+  @include ButtonReset;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 3rem;
+  padding-top: 2px;
+  width: 3rem;
+
+  * {
+    border: 0;
+  }
+
+  &.isSelected {
+    @include focus-outline;
   }
 }

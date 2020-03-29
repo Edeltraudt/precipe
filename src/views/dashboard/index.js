@@ -1,6 +1,5 @@
 import React from "react";
 
-import CalendarView from "../../components/calendar";
 import Recipes from "../../components/recipes/view/recipes";
 
 import styles from "./dashboard.module.scss";
@@ -38,12 +37,10 @@ const recipes = [
   }
 ];
 
-const DashboardView = props => {
-  return (
-    <div className={styles.Recipes}>
-      <Recipes recipes={recipes} />
-    </div>
-  );
-};
+const DashboardView = props => (
+  <div className={styles.Recipes}>
+    <Recipes recipes={recipes} />
+  </div>
+);
 
 export default DashboardView;
