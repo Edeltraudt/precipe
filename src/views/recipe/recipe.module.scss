@@ -1,0 +1,61 @@
+@import './../../assets/scss/utility';
+
+.Header {
+  @include margin-bottom(3rem);
+}
+
+.Main {
+  display: flex;
+}
+
+.Image {
+  @include elevate(20);
+  border-radius: $border-radius;
+  display: flex;
+  margin: 0;
+  min-width: columns(6);
+  overflow: hidden;
+
+  &Wrap {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    @include margin-bottom(2.5rem);
+    @include margin-top(2.25rem);
+    margin-left: columns(-1);
+    order: 1;
+    position: relative;
+  }
+
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.Ingredients {
+  margin-bottom: 0;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  max-width: 50rem;
+  width: columns(7);
+
+  &List {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+  }
+
+  &Item {
+    &:not(:last-child) {
+      margin: 0 0 0.875rem;
+    }
+  }
+}
+
+.Preparation {
+  @include font-size($fs-medium);
+  @include margin-top(3.5rem);
+  max-width: 38rem;
+}
