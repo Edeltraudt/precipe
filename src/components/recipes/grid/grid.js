@@ -1,28 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
 
 import RecipeTeaser from "../teaser";
 
 import styles from "./grid.module.scss";
 
 const Grid = ({ recipes, editable }) => {
+  const [toRecipe, setToRecipe] = useState(null);
+
   const handleCreateRecipeClick = e => {};
-  const handleRecipeClick = e => {};
 
   return (
-    <div className={styles.Grid}>
-      {editable && (
-        <RecipeTeaser placeholder onClick={handleCreateRecipeClick} />
-      )}
+    <>
+      {toRecipe && <Redirect to={`/recipe/${toRecipe}`} />}
 
-      {recipes.map(recipe => (
-        <RecipeTeaser
-          recipe={recipe}
-          onClick={handleRecipeClick}
-          key={`recipe-${recipe.id}`}
-        />
-      ))}
-    </div>
+      <div className={styles.Grid}>
+        {editable && (
+          <RecipeTeaser placeholder onClick={handleCreateRecipeClick} />
+        )}
+
+        {recipes.map(recipe => (
+          <RecipeTeaser
+            recipe={recipe}
+            onClick={e => setToRecipe(recipe.id)}
+            key={`recipe-${recipe.id}`}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

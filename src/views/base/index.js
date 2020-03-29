@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CalendarView from "../../components/calendar";
 import DashboardView from "../dashboard";
 import AccountView from "../account";
+import RecipeView from "../recipe";
 
 import { Icon } from "../../components/core";
 import { AccountSummary } from "../../components/account";
@@ -74,6 +75,7 @@ const BaseView = props => (
 
         <Switch>
           <SubRoute path="/account" component={<AccountView />} />
+          <SubRoute path="/recipe/:id" component={<RecipeView />} />
 
           <Route path="/">
             <DashboardView />
