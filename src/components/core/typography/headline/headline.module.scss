@@ -11,20 +11,31 @@
 
 h1, h2, .headline {
   @extend %headline;
-  @include font-size($fs-x-large);
   color: $color-headlines;
+  @include font-size($fs-x-large);
   font-weight: $fw-normal;
 }
 
 h3, .subheadline {
   @extend %headline;
-  @include font-size($fs-large);
   color: $color-text;
+  @include font-size($fs-large);
   font-weight: $fw-medium;
 }
 
-h4 {
+h4, .label {
   @extend %headline;
   font-size: $fs-medium;
   font-weight: $fw-medium;
+}
+
+.title {
+  color: $color-headlines;
+  @include font-size($fs-x-large * 1.25);
+  font-weight: $fw-medium;
+  line-height: $lh-small;
+
+  &, &:not(:last-child) {
+    margin: 0 0 0.75em;
+  }
 }

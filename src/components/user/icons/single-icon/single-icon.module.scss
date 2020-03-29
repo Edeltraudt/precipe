@@ -3,6 +3,7 @@
 $border-width: 2px;
 
 .Wrap {
+  @include ButtonReset;
   height: 3rem;
   max-height: 100%;
   max-width: 100%;

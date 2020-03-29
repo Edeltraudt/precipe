@@ -1,5 +1,6 @@
 .card {
   background: $color-base;
+  border-radius: $border-radius;
   margin: 0 0 1.25rem;
   padding: 3rem 6rem 3rem 4rem;
   position: relative;
@@ -20,5 +21,23 @@
 
   &.-small {
     padding: 2rem;
+  }
+
+
+  &__header {
+    overflow: hidden;
+    position: static;
+
+    :last-child {
+      margin-bottom: 1.5rem;
+    }
+
+    &::after {
+      position: absolute;
+      border-bottom: 1px solid $color-border;
+      left: 0;
+      right: 0;
+      content: "";
+    }
   }
 }

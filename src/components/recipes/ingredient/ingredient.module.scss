@@ -3,15 +3,18 @@
 .Wrap {
   align-items: baseline;
   display: flex;
+  @include font-size($fs-large * 0.8);
+  line-height: 1;
+  margin: 0;
 }
 
 .Amount {
   color: $color-headlines;
-  @include font-size($fs-large);
-  min-width: 5em;
+  min-width: 4em;
   padding-right: 1.5em;
 }
 
 .Name {
+  font-size: 1rem;
   font-weight: $fw-normal;
 }

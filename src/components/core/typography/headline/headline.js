@@ -11,7 +11,7 @@ const Headline = ({ level, type, children }) => {
 
 Headline.propTypes = {
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6, "1", "2", "3", "4", "5", "6"]),
-  type: PropTypes.oneOf(["headline", "subheadline"]),
+  type: PropTypes.oneOf(["title", "headline", "subheadline", "label"]),
   children: PropTypes.string
 };
 

@@ -11,6 +11,7 @@ const Ingredient = ({ qty, unit, name }) => {
       <span className={styles.Amount}>
         {qty && qty}
         {unit && unit}
+        {!qty && !unit && <>&nbsp;</>}
       </span>
       <strong className={styles.Name}>{name}</strong>
     </p>

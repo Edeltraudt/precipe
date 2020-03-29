@@ -33,7 +33,7 @@
   flex: 1;
   position: relative;
 
-  --bg-color: $color-base-soft;
+  --bg-color: #{$color-base-soft};
 
   @include break(hd) {
     padding-left: columns(1);
@@ -54,7 +54,7 @@
     align-items: center;
     color: var(--soft-color);
     display: inline-flex;
-    @include font-size($fs-large)
+    @include font-size($fs-x-large)
     line-height: 1;
     text-decoration: none;
   }
