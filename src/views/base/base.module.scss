@@ -1,4 +1,4 @@
-@import './../../assets/scss/utility';
+@import "./../../assets/scss/utility";
 
 .Wrap {
   display: flex;
@@ -15,8 +15,9 @@
   display: flex;
   flex-direction: column;
   flex: 0 0 30%;
-  max-width: 27.5rem;
   height: 100vh;
+  max-width: 27.5rem;
+  overflow: hidden;
   position: sticky;
   top: 0;
 
@@ -44,4 +45,26 @@
   margin-top: -0.25em;
   position: absolute;
   right: columns(1);
+}
+
+.Back {
+  margin: 0 0 1.25rem;
+
+  &Link {
+    align-items: center;
+    color: var(--soft-color);
+    display: inline-flex;
+    @include font-size($fs-large)
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  &Link:hover &Icon {
+    transform: translateX(-10px);
+  }
+
+  &Icon {
+    font-size: 1.25em;
+    transition: 0.15s ease transform;
+  }
 }

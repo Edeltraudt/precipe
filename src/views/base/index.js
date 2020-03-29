@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import CalendarView from "../../components/calendar";
 import DashboardView from "../dashboard";
 import AccountView from "../account";
 
+import { Icon } from "../../components/core";
 import { AccountSummary } from "../../components/account";
 
 import styles from "./base.module.scss";
@@ -48,29 +49,39 @@ const upcomingEvents = [
   }
 ];
 
-const BaseView = props => {
-  return (
-    <main className={styles.Wrap}>
-      <section className={styles.Sidebar}>
-        <CalendarView upcomingEvents={upcomingEvents} />
-      </section>
-      <div className={styles.Main}>
-        <Router>
-          <aside className={styles.Account}>
-            <AccountSummary />
-          </aside>
-          <Switch>
-            <Route path="/account">
-              <AccountView />
-            </Route>
-            <Route path="/">
-              <DashboardView />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    </main>
-  );
-};
+const SubRoute = ({ component, ...props }) => (
+  <Route {...props}>
+    <nav className={styles.Back}>
+      <Link to="/" className={styles.BackLink}>
+        <Icon name="arrow-left" className={styles.BackIcon} />
+        <span>Back to recipes</span>
+      </Link>
+    </nav>
+    {component}
+  </Route>
+);
+
+const BaseView = props => (
+  <main className={styles.Wrap}>
+    <section className={styles.Sidebar}>
+      <CalendarView upcomingEvents={upcomingEvents} />
+    </section>
+    <div className={styles.Main}>
+      <Router>
+        <aside className={styles.Account}>
+          <AccountSummary />
+        </aside>
+
+        <Switch>
+          <SubRoute path="/account" component={<AccountView />} />
+
+          <Route path="/">
+            <DashboardView />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  </main>
+);
 
 export default BaseView;

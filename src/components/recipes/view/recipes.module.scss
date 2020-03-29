@@ -10,6 +10,7 @@
   @include ButtonReset;
   color: $color-text;
   @include font-size($fs-large);
+  line-height: $lh-small;
   text-decoration: none;
   transition: 0.15s ease color;
 

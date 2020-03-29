@@ -37,7 +37,7 @@ const Calendar = ({ upcomingEvents }) => {
       </div>
 
       <div className={[styles.Slide, styles.Form].join(" ")}>
-        <Headline level="2">New Event</Headline>
+        <Headline level="2">New Invitation</Headline>
         <CalendarForm onSuccess={handleCreateEvent} />
       </div>
     </div>
