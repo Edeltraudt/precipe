@@ -8,7 +8,7 @@ import { Button } from "../../core/forms";
 
 import styles from "./summary.module.scss";
 
-const Summary = ({}) => {
+const Summary = () => {
   const user = useContext(UserContext);
 
   return (

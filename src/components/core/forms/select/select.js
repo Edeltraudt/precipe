@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { Select, Option } from "react-a11y-select";
@@ -13,21 +13,19 @@ const SelectBox = ({
   label,
   defaultValue,
   onChange,
-  style
-}) => {
-  return (
-    <div className={`${styles.Wrap} ${className} ${styles[style]}`}>
-      <Select label={label} initialValue={defaultValue} onChange={onChange}>
-        {options.map((option, index) => (
-          <Option key={index} value={option.value}>
-            {option.label}
-          </Option>
-        ))}
-      </Select>
-      <Icon className={styles.Icon} name="angle-down" />
-    </div>
-  );
-};
+  theme
+}) => (
+  <div className={`${styles.Wrap} ${className} ${styles[theme]}`}>
+    <Select label={label} initialValue={defaultValue} onChange={onChange}>
+      {options.map((option, index) => (
+        <Option key={index} value={option.value}>
+          {option.label}
+        </Option>
+      ))}
+    </Select>
+    <Icon className={styles.Icon} name="angle-down" />
+  </div>
+);
 
 SelectBox.propTypes = {
   options: PropTypes.arrayOf(
@@ -40,11 +38,11 @@ SelectBox.propTypes = {
   label: PropTypes.string.isRequired,
   defaultValue: PropTypes.string,
   onChange: PropTypes.func,
-  style: PropTypes.oneOf(["default", "invisible"])
+  theme: PropTypes.oneOf(["default", "invisible"])
 };
 
 SelectBox.defaultProps = {
-  style: "default"
+  theme: "default"
 };
 
 export default SelectBox;

@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import PropTypes from "prop-types";
 
 import UserContext from "./../../../contexts/user-context";
 
@@ -8,7 +7,7 @@ import Form, { Input, Button, FormRow, FormItem } from "./../../core/forms";
 
 import styles from "./settings.module.scss";
 
-export const AccountSettings = props => {
+export const AccountSettings = () => {
   const user = useContext(UserContext);
   const [hasPasswordError, setHasPasswordError] = useState(false);
   const [passwordError, setPasswordError] = useState("");
@@ -49,7 +48,7 @@ export const AccountSettings = props => {
   const handleUpdatePassword = e => {
     e.preventDefault();
 
-    if (!password || password == "") {
+    if (!password || password === "") {
       setHasPasswordError(true);
       setPasswordError("Please choose a password.");
     } else {
@@ -63,7 +62,7 @@ export const AccountSettings = props => {
   const handleUpdateEmail = e => {
     e.preventDefault();
 
-    if (!email || email == "") {
+    if (!email || email === "") {
       setHasEmailError(true);
       setEmailError("Please enter a valid e-mail.");
     } else {
@@ -85,7 +84,7 @@ export const AccountSettings = props => {
             <label htmlFor="account-setting-email">E-Mail Address</label>
           </dt>
           <dd className={styles.Value}>
-            <Button style="plain-link" onClick={handleUpdateEmailClick}>
+            <Button theme="plain-link" onClick={handleUpdateEmailClick}>
               {user.mail}
             </Button>
           </dd>
@@ -104,10 +103,10 @@ export const AccountSettings = props => {
               </FormRow>
               <FormRow>
                 <FormItem>
-                  <Message size="s" style={hasEmailError ? "danger" : false}>
+                  <Message size="s" theme={hasEmailError ? "danger" : false}>
                     {hasEmailError && emailError}
                     <Button
-                      style="plain-link"
+                      theme="plain-link"
                       onClick={handleCancelUpdateEmailClick}
                     >
                       Cancel and do not update e-mail
@@ -115,7 +114,7 @@ export const AccountSettings = props => {
                   </Message>
                 </FormItem>
                 <FormItem>
-                  <Button style="secure" type="submit">Update e-mail</Button>
+                  <Button theme="secure" type="submit">Update e-mail</Button>
                 </FormItem>
               </FormRow>
             </Form>
@@ -127,7 +126,7 @@ export const AccountSettings = props => {
           </dt>
           <dd className={styles.Value}>
             {!isEditingPassword && (
-              <Button style="link" onClick={handleUpdatePasswordClick}>
+              <Button theme="link" onClick={handleUpdatePasswordClick}>
                 Update password
               </Button>
             )}
@@ -147,12 +146,12 @@ export const AccountSettings = props => {
               </FormRow>
               <FormRow>
                 <FormItem>
-                  <Message size="s" style={hasPasswordError ? "danger" : false}>
+                  <Message size="s" theme={hasPasswordError ? "danger" : false}>
                     {hasPasswordError
                       ? passwordError
                       : "Make sure to choose a secure password."}
                     <Button
-                      style="plain-link"
+                      theme="plain-link"
                       onClick={handleCancelUpdatePasswordClick}
                     >
                       Cancel and do not change password
@@ -160,7 +159,7 @@ export const AccountSettings = props => {
                   </Message>
                 </FormItem>
                 <FormItem>
-                  <Button style="secure" type="submit">Save new password</Button>
+                  <Button theme="secure" type="submit">Save new password</Button>
                 </FormItem>
               </FormRow>
             </Form>

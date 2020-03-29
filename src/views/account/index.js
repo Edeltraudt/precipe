@@ -29,7 +29,7 @@ const AccountView = props => {
           Your account and user profile will be mercilessly annihilated and your
           friends will cry.
         </p>
-        <Button style="danger">Delete Account</Button>
+        <Button theme="danger">Delete Account</Button>
       </section>
     </div>
   );

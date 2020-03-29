@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { UserIconGroup } from "./../../user/icons";
-import Form, { FormItem, FormRow, Button, Input, InputWithIcon } from "./../../core/forms";
+import Form, {
+  FormItem,
+  FormRow,
+  Button,
+  Input,
+  InputWithIcon
+} from "./../../core/forms";
 
 import styles from "./form.module.scss";
 
@@ -36,6 +42,7 @@ const CalendarForm = ({ onSuccess }) => {
     if (onSuccess) {
       onSuccess(title);
       setDefaultValues();
+      console.log(invitees, endTime, recipe);
     }
   };
 
@@ -61,7 +68,11 @@ const CalendarForm = ({ onSuccess }) => {
       </FormRow>
 
       <FormRow>
-        <FormItem label="Add people or a group">
+        <FormItem
+          label="Add people or a group"
+          info="Plan your meals around the people who you’re inviting while respecting any dietary restrictions."
+          showInfoTop
+        >
           <UserIconGroup editable groupId={1} />
         </FormItem>
       </FormRow>

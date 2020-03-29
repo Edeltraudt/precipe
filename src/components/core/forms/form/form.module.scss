@@ -9,7 +9,7 @@ $margin: $spacing-base;
 }
 
 .Row {
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
 
   &.limited {
     display: flex;
@@ -50,6 +50,7 @@ $margin: $spacing-base;
   font-weight: $fw-medium;
   line-height: 1;
   margin: 0 0 0.5em;
+  order: 2;
 }
 
 .Info {
@@ -59,4 +60,10 @@ $margin: $spacing-base;
   margin: 1em 0 0;
   max-width: 65%;
   order: -1;
+
+  &.first {
+    order: 1;
+    margin: 0 0 1em;
+    max-width: none;
+  }
 }

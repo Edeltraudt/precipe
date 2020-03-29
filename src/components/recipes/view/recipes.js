@@ -56,13 +56,13 @@ const Recipes = ({ upcomingEvents, recipes }) => {
             label="Order by"
             options={orderOptions}
             onChange={handleOrderChange}
-            style="invisible"
+            theme="invisible"
             defaultValue={orderOptions[0].value}
           />
         </div>
       </div>
 
-      <Grid editable recipes={recipes} />
+      <Grid editable recipes={recipes} order={order} />
     </div>
   );
 };

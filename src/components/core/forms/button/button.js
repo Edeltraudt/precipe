@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./button.module.scss";
 
-const Button = ({ id, type, style, className, onClick, children, href }) =>
+const Button = ({ id, type, theme, className, onClick, children, href }) =>
   href ? (
     <Link id={id} className={`${styles.Button} ${styles["plain-link"]} ${className}`} to={href}>
       {children}
@@ -13,7 +13,7 @@ const Button = ({ id, type, style, className, onClick, children, href }) =>
     <button
       id={id}
       type={type}
-      className={[styles.Button, styles[style], className].join(" ")}
+      className={[styles.Button, styles[theme], className].join(" ")}
       onClick={e => {
         if (onClick) onClick(e);
       }}
@@ -27,13 +27,13 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   type: PropTypes.string,
-  style: PropTypes.oneOf(["default", "danger", "secure", "link", "plain-link"]),
+  theme: PropTypes.oneOf(["default", "danger", "secure", "link", "plain-link"]),
   href: PropTypes.string
 };
 
 Button.defaultProps = {
   type: "button",
-  style: "default"
+  theme: "default"
 };
 
 export default Button;

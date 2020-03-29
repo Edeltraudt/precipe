@@ -26,9 +26,9 @@ const RecipeTeaser = ({ recipe, groupIcon, onClick }) => (
         </button>
       ) : (
         <div className={styles.Info}>
-          <a className={`expand-click-area ${styles.Link}`} onClick={onClick}>
+          <button className={`expand-click-area ${styles.Link}`} onClick={onClick}>
             <Headline level="4">{recipe.title}</Headline>
-          </a>
+          </button>
 
           <p className={styles.Time}>20 min</p>
           <Rating value={3} />

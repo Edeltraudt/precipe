@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./form.module.scss";
 
-export const FormItem = ({ children, label, info, className }) => {
+export const FormItem = ({ children, label, info, className, showInfoTop }) => {
   const id = children && typeof children !== "string" ? children.id : null;
 
   return (
@@ -14,7 +14,11 @@ export const FormItem = ({ children, label, info, className }) => {
           {label}
         </label>
       )}
-      {info && <p className={styles.Info}>{info}</p>}
+      {info && (
+        <p className={`${styles.Info} ${showInfoTop ? styles.first : ""}`}>
+          {info}
+        </p>
+      )}
     </div>
   );
 };

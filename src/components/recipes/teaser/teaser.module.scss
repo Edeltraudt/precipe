@@ -16,6 +16,7 @@
 
 .Link {
   @include ButtonReset;
+  text-align: left;
 }
 
 .ImageWrap {

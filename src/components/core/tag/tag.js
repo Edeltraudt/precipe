@@ -5,12 +5,12 @@ import Icon from "./../icon";
 
 import styles from "./tag.module.scss";
 
-const Tag = ({ id, children, checked, style, onChange }) => {
+const Tag = ({ id, children, checked, theme, onChange }) => {
   const [value, setValue] = useState(checked);
-  const isNegative = style === "negative";
+  const isNegative = theme === "negative";
 
   return (
-    <div className={`${styles.Wrap} ${styles[style]}`}>
+    <div className={`${styles.Wrap} ${styles[theme]}`}>
       <input
         type="checkbox"
         id={id}
@@ -35,11 +35,12 @@ Tag.propTypes = {
     .isRequired,
   onChange: PropTypes.func.isRequired,
   checked: PropTypes.bool,
-  style: PropTypes.oneOf(["negative"])
+  theme: PropTypes.oneOf(["default", "negative"])
 };
 
 Tag.defaultProps = {
-  checked: false
+  checked: false,
+  theme: "default"
 };
 
 export default Tag;

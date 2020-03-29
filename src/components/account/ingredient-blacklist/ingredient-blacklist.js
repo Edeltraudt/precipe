@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 import { Tag } from "./../../core";
 import { Input, InputWithIcon } from "./../../core/forms";
@@ -7,7 +6,7 @@ import { Headline } from "./../../core/typography";
 
 import styles from "./ingredient-blacklist.module.scss";
 
-export const IngredientBlacklist = props => {
+export const IngredientBlacklist = () => {
   const [items, setItems] = useState([
     {
       id: 1,
@@ -40,7 +39,7 @@ export const IngredientBlacklist = props => {
             <Tag
               id={`blacklist-${item.id}`}
               checked
-              style="negative"
+              theme="negative"
               onChange={value => setItems(items.filter(e => e.id !== item.id))}
             >
               {item.label}
