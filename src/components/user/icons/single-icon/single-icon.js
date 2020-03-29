@@ -7,11 +7,15 @@ import Tooltip from "./../../../core/tooltip/tooltip";
 
 import styles from "./single-icon.module.scss";
 
-export const UserIcon = ({ image, name, disableTooltip }) => {
-  const user = useContext(UserContext);
+export const UserIcon = ({ image, name, disableTooltip, onClick }) => {
+  const currentUser = useContext(UserContext);
+  const TagName = onClick ? "button" : "div";
+  const props = onClick
+    ? { type: "button", onClick: e => onClick(name) }
+    : {};
 
   return (
-    <div className={styles.Wrap}>
+    <TagName className={styles.Wrap} {...props}>
       {image ? (
         <img
           src={image}
@@ -22,14 +26,15 @@ export const UserIcon = ({ image, name, disableTooltip }) => {
         <span className={styles.Icon}>{name.slice(0, 1)}</span>
       )}
       {!disableTooltip && (
-        <Tooltip>{user.name === name ? "You" : name}</Tooltip>
+        <Tooltip>{currentUser.name === name ? "You" : name}</Tooltip>
       )}
-    </div>
+    </TagName>
   );
 };
 
 UserIcon.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string.isRequired,
-  disableTooltip: PropTypes.bool
+  disableTooltip: PropTypes.bool,
+  onClick: PropTypes.func
 };
