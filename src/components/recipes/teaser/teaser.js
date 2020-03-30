@@ -18,16 +18,16 @@ const RecipeTeaser = ({ recipe, groupIcon, onClick }) => (
         </>
       )}
     </figure>
-    <header className={styles.Title}>
+    <header className={styles.Header}>
       {!recipe ? (
         <button className={styles.Link} onClick={onClick}>
           <span className={styles.placeholderIcon} />
-          <Headline level="4">Create new Recipe</Headline>
+          <Headline level="4" className={styles.Title}>Create new Recipe</Headline>
         </button>
       ) : (
         <div className={styles.Info}>
           <button className={`expand-click-area ${styles.Link}`} onClick={onClick}>
-            <Headline level="4">{recipe.title}</Headline>
+            <Headline level="4" className={styles.Title}>{recipe.title}</Headline>
           </button>
 
           <p className={styles.Time}>20 min</p>

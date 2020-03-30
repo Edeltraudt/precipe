@@ -81,7 +81,7 @@
   margin: 0;
 }
 
-.Title {
+.Header {
   bottom: 0;
   color: $color-base;
   display: flex;
@@ -95,10 +95,15 @@
 
   .placeholder & {
     color: inherit;
+  }
+}
 
-    * {
-      font-weight: $fw-normal;
-    }
+.Title {
+  text-align: left;
+
+  .placeholder & {
+    font-weight: $fw-normal;
+    text-align: center;
   }
 }
 
