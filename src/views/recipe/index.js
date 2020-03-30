@@ -107,8 +107,8 @@ const RecipeView = props => {
                 </Headline>
               </header>
               <ul className={styles.IngredientsList}>
-                {recipe.ingredients.map(ingredient => (
-                  <li className={styles.IngredientsItem}>
+                {recipe.ingredients.map((ingredient, index) => (
+                  <li className={styles.IngredientsItem} key={index}>
                     <RecipeIngredient
                       qty={ingredient.amount}
                       unit={ingredient.unit}

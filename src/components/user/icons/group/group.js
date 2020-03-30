@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+// import Select from "react-select";
 
 import Icon from "./../../../core/icon";
 import { Input, InputWithIcon } from "./../../../core/forms";
@@ -15,8 +16,7 @@ const availableUsers = [
   { id: 6, name: "Johannes" }
 ];
 
-const AddUsersMenu = ({ isVisible }) => {
-  const id = Math.floor(Math.random() * 1000) + "-users";
+const AddUsersMenu = ({ isVisible, id }) => {
   const [searchInput, setSearchInput] = useState("");
   const [selectedUsers, setSelectedUsers] = useState([
     { id: 2, name: "Cordula" }
@@ -33,7 +33,10 @@ const AddUsersMenu = ({ isVisible }) => {
   };
 
   return (
-    <div className={`${styles.Menu} ${isVisible ? styles.isVisible : ""}`}>
+    <div
+      className={`${styles.Menu} ${isVisible ? styles.isVisible : ""}`}
+      aria-hidden={!isVisible}
+    >
       <strong className={styles.MenuLabel}>Add users or groups</strong>
       <ul className={styles.MenuList}>
         {availableUsers.map(user => {
@@ -71,15 +74,36 @@ const AddUsersMenu = ({ isVisible }) => {
 };
 
 export const UserIconGroup = ({ size, groupId, editable }) => {
+  const id = Math.floor(Math.random() * 1000) + "-users";
   const [users, setUsers] = useState([]);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+  const elementRef = useRef();
+
+  const handleClickOutside = e => {
+    if (isMenuVisible && !elementRef.current.contains(e.target)) {
+      setIsMenuVisible(false);
+    }
+  };
 
   useEffect(() => {
     // TODO: get all group members and group color
     if (groupId) {
       setUsers([{ name: "Laureena" }, { name: "Tim" }]);
     }
-  }, [groupId]);
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [groupId, isMenuVisible]);
+
+  const handleClick = e => {
+    e.stopPropagation();
+    console.log("Click button, menu was open:", isMenuVisible);
+    setIsMenuVisible(!isMenuVisible);
+  };
 
   return (
     <div className={styles.Wrap}>
@@ -92,16 +116,18 @@ export const UserIconGroup = ({ size, groupId, editable }) => {
       </ul>
 
       {editable && (
-        <div className={styles.AddWrap}>
+        <div className={styles.AddWrap} ref={elementRef}>
           <button
             className={styles.Add}
             aria-label="Add user"
             type="button"
-            onClick={() => setIsMenuVisible(!isMenuVisible)}
+            onClick={handleClick}
+            aria-haspopup
+            aria-controls={id}
           >
             <Icon className={styles.AddIcon} name="plus" />
           </button>
-          <AddUsersMenu isVisible={isMenuVisible} />
+          <AddUsersMenu id={id} isVisible={isMenuVisible} />
         </div>
       )}
     </div>
