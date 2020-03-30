@@ -21,9 +21,11 @@
 
   &.link,
   &.plain-link {
-    all: initial;
+    background: transparent;
     cursor: pointer;
     font: inherit;
+    padding: 0;
+    text-decoration: none;
     transition: color 0.15s ease-out;
   }
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-// import Select from "react-select";
 
 import Icon from "./../../../core/icon";
 import { Input, InputWithIcon } from "./../../../core/forms";
@@ -68,7 +67,6 @@ const AddUsersMenu = ({ isVisible, id }) => {
           />
         </InputWithIcon>
       </div>
-      {/* <Select options={options} autosize /> */}
     </div>
   );
 };
