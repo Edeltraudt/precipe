@@ -49,6 +49,19 @@ const CalendarForm = ({ onSuccess }) => {
   return (
     <Form className={styles.Form} onSubmit={handleSubmit}>
       <FormRow>
+        <FormItem label="Event name">
+          <Input
+            type="text"
+            id="new-event-title"
+            size="l"
+            placeholder="e.g. Dinner"
+            onChange={setTitle}
+            value={title}
+          />
+        </FormItem>
+      </FormRow>
+
+      <FormRow>
         <FormItem label="Date">
           <Input
             type="date"
@@ -70,7 +83,7 @@ const CalendarForm = ({ onSuccess }) => {
       <FormRow>
         <FormItem
           label="Add people or a group"
-          info="Plan your meals around the people who you’re inviting while respecting any dietary restrictions."
+          info="Plan your meals around the people you’re inviting while respecting any dietary restrictions."
           showInfoTop
         >
           <UserIconGroup editable groupId={1} />

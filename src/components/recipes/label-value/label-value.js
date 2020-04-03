@@ -5,26 +5,7 @@ import styles from "./rating.module.scss";
 
 import Icon from "../../core/icon";
 
-const ratings = [
-  {
-    value: 4,
-    label: "I love it"
-  },
-  {
-    value: 3,
-    label: "Sure let's go"
-  },
-  {
-    value: 2,
-    label: "It's okay"
-  },
-  {
-    value: 1,
-    label: "Only if I absolutely have to"
-  }
-];
-
-const Rating = ({ value, onChange }) => {
+const Rating = ({ value, label, suffix, editable, onChange }) => {
   const [ratingValue, setRatingValue] = useState(value);
 
   const handleClick = rating => {
@@ -40,9 +21,10 @@ const Rating = ({ value, onChange }) => {
       {ratings.map(rating => (
         <button
           key={rating.value}
-          className={`${styles.Item} ${
+          className={[
+            styles.Item,
             ratingValue && ratingValue === rating.value ? styles.checked : ""
-          }`}
+          ].join(" ")}
           aria-label={rating.label}
           onClick={e => handleClick(rating.value)}
         >
@@ -54,7 +36,10 @@ const Rating = ({ value, onChange }) => {
 };
 
 Rating.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  suffix: PropTypes.string,
+  editable: PropTypes.bool,
   onChange: PropTypes.func
 };
 
