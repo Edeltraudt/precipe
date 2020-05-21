@@ -1,2 +1,2 @@
-export { UserIcon } from './single-icon/single-icon';
-export { UserIconGroup } from './group/group';
+export { default as UserIcon } from './single-icon/single-icon';
+export { default as UserIconGroup } from './group/group';

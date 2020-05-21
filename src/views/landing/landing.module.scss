@@ -1,0 +1,90 @@
+@import "./../../assets/scss/utility";
+
+.Landing {
+  display: grid;
+  grid-template:
+    'hd' auto
+    'auth' 1fr;
+  min-height: 100vh;
+  left: 0;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+
+  @include break(tablet-l) {
+    grid-template:
+      'hd img' auto
+      'auth img' 1fr
+      / 11fr 9fr;
+  }
+}
+
+.Header {
+  grid-area: hd;
+}
+
+.Header, .Auth {
+  padding: 4rem 2rem;
+
+  @include break(500px) {
+    padding-left: columns(3);
+    padding-right: columns(3);
+  }
+
+  @include break(tablet-l) {
+    @include break(desktop, max) {
+      padding: columns(1) columns(1);
+    }
+  }
+
+  @include break(desktop) {
+    padding: columns(1) columns(3);
+  }
+}
+
+.Auth {
+  background: $color-base;
+  grid-area: auth;
+
+  @include break(500px) {
+    padding-right: columns(4);
+  }
+
+  @include break(tablet-l) {
+    @include break(desktop, max) {
+      padding-right: columns(2);
+    }
+  }
+}
+
+.Image {
+  grid-area: img;
+}
+
+.Title {
+  color: $color-text;
+}
+
+.Forgot {
+  justify-content: center;
+}
+
+.Image {
+  display: none;
+
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  @include break(tablet-l) {
+    display: block;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+}

@@ -9,7 +9,7 @@ import { Button } from "../../core/forms";
 import styles from "./summary.module.scss";
 
 const Summary = () => {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <div className={styles.Summary}>
@@ -17,9 +17,14 @@ const Summary = () => {
       <div className={styles.Icon}>
         <UserIcon name={user.name} disableTooltip />
       </div>
-      <Button className={styles.Link} href="/account">
+      <Button className={styles.Link} href="/app/account">
         Account settings
       </Button>
+      <form action="/logout" method="POST">
+        <Button className={styles.Link} type="submit">
+          Logout
+        </Button>
+      </form>
     </div>
   );
 };
@@ -29,10 +34,10 @@ Summary.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       groupId: PropTypes.number,
-      preparationTime: PropTypes.number
+      preparationTime: PropTypes.number,
     })
   ),
-  editable: PropTypes.bool
+  editable: PropTypes.bool,
 };
 
 export default Summary;

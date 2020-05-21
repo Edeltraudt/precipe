@@ -8,10 +8,7 @@ const Checkbox = ({ id, checked, label, onChange }) => {
 
   const handleChange = e => {
     setIsChecked(e.target.checked);
-
-    if (onChange) {
-      onChange(e.target.checked);
-    }
+    onChange(e.target.checked);
   };
 
   return (

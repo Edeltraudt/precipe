@@ -7,8 +7,8 @@ import Form, { Input, Button, FormRow, FormItem } from "./../../core/forms";
 
 import styles from "./settings.module.scss";
 
-export const AccountSettings = () => {
-  const user = useContext(UserContext);
+const AccountSettings = () => {
+  const { user } = useContext(UserContext);
   const [hasPasswordError, setHasPasswordError] = useState(false);
   const [passwordError, setPasswordError] = useState("");
   const [password, setPassword] = useState("");
@@ -19,12 +19,12 @@ export const AccountSettings = () => {
   const [email, setEmail] = useState("");
   const [isEditingEmail, setIsEditingEmail] = useState(false);
 
-  const handleUpdatePasswordClick = e => {
+  const handleUpdatePasswordClick = (e) => {
     e.preventDefault();
     setIsEditingPassword(true);
   };
 
-  const handleCancelUpdatePasswordClick = e => {
+  const handleCancelUpdatePasswordClick = (e) => {
     e.preventDefault();
     setIsEditingPassword(false);
     setHasPasswordError(false);
@@ -32,12 +32,12 @@ export const AccountSettings = () => {
     setPassword("");
   };
 
-  const handleUpdateEmailClick = e => {
+  const handleUpdateEmailClick = (e) => {
     e.preventDefault();
     setIsEditingEmail(true);
   };
 
-  const handleCancelUpdateEmailClick = e => {
+  const handleCancelUpdateEmailClick = (e) => {
     e.preventDefault();
     setIsEditingEmail(false);
     setHasEmailError(false);
@@ -45,7 +45,7 @@ export const AccountSettings = () => {
     setEmail("");
   };
 
-  const handleUpdatePassword = e => {
+  const handleUpdatePassword = (e) => {
     e.preventDefault();
 
     if (!password || password === "") {
@@ -59,7 +59,7 @@ export const AccountSettings = () => {
     }
   };
 
-  const handleUpdateEmail = e => {
+  const handleUpdateEmail = (e) => {
     e.preventDefault();
 
     if (!email || email === "") {
@@ -114,7 +114,9 @@ export const AccountSettings = () => {
                   </Message>
                 </FormItem>
                 <FormItem>
-                  <Button theme="secure" type="submit">Update e-mail</Button>
+                  <Button theme="secure" type="submit">
+                    Update e-mail
+                  </Button>
                 </FormItem>
               </FormRow>
             </Form>
@@ -159,7 +161,9 @@ export const AccountSettings = () => {
                   </Message>
                 </FormItem>
                 <FormItem>
-                  <Button theme="secure" type="submit">Save new password</Button>
+                  <Button theme="secure" type="submit">
+                    Save new password
+                  </Button>
                 </FormItem>
               </FormRow>
             </Form>
@@ -169,3 +173,5 @@ export const AccountSettings = () => {
     </section>
   );
 };
+
+export default AccountSettings;

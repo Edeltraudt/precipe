@@ -13,7 +13,7 @@ const Grid = ({ recipes, editable }) => {
 
   return (
     <>
-      {toRecipe && <Redirect to={`/recipe/${toRecipe}`} />}
+      {toRecipe && <Redirect to={`/app/recipe/${toRecipe}`} />}
 
       <div className={styles.Grid}>
         {editable && (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { RecipeIngredient } from "./../../components/recipes";
@@ -17,13 +17,13 @@ const recipes = [
     duration: 20,
     servings: 4,
     ingredients: [
-      { name: "red beets", amount: 4, unit: null },
-      { name: "red onion", amount: 1, unit: null },
-      { name: "mixed herbs", amount: 20, unit: "g" },
-      { name: "olive oil", amount: 50, unit: "g" },
-      { name: "lemon", amount: 1, unit: null },
-      { name: "sugar", amount: 1, unit: "tsb" },
-      { name: "flaky sea salt", amount: null, unit: null }
+      { title: "red beets", amount: 4, unit: null },
+      { title: "red onion", amount: 1, unit: null },
+      { title: "mixed herbs", amount: 20, unit: "g" },
+      { title: "olive oil", amount: 50, unit: "g" },
+      { title: "lemon", amount: 1, unit: null },
+      { title: "sugar", amount: 1, unit: "tsb" },
+      { title: "flaky sea salt", amount: null, unit: null }
     ],
     instructions:
       "<p>Peel, halve, and thinly slice red onion. Remove leaves from herb stems and mince. Zest and juice lemon and add to a bowl with olive oil, sugar, capers, and salt. Season with pepper and mix well.</p><p>Peel and thinly slice beetroots with a mandoline. Add to bowl with the dressing and mix.</p><p>Layer beets on a plate and drizzle with olive oil. Garnish with flaky sea salt and more mixed herbs. Enjoy!</p>"
@@ -33,13 +33,13 @@ const recipes = [
     title: "Simple beet carpaccio with mixed herbs 2",
     duration: 20,
     servings: 4,
-    ingredients: [{ name: "red beets", amount: 4, unit: null }],
+    ingredients: [{ title: "red beets", amount: 4, unit: null }],
     instructions:
       "<p>Peel, halve, and thinly slice red onion. Remove leaves from herb stems and mince. Zest and juice lemon and add to a bowl with olive oil, sugar, capers, and salt. Season with pepper and mix well.</p><p>Peel and thinly slice beetroots with a mandoline. Add to bowl with the dressing and mix.</p><p>Layer beets on a plate and drizzle with olive oil. Garnish with flaky sea salt and more mixed herbs. Enjoy!</p>"
   }
 ];
 
-const RecipeView = props => {
+const RecipeView = (props) => {
   const { id } = useParams();
 
   let recipe;
@@ -86,7 +86,7 @@ const RecipeView = props => {
                     <RecipeIngredient
                       qty={ingredient.amount}
                       unit={ingredient.unit}
-                      name={ingredient.name}
+                      name={ingredient.title}
                     />
                   </li>
                 ))}

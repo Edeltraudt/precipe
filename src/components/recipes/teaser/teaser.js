@@ -8,6 +8,7 @@ import placeholder from "./../../../assets/img/placeholder.jpg";
 
 import styles from "./teaser.module.scss";
 
+// TODO: Get rating
 const RecipeTeaser = ({ recipe, groupIcon, onClick }) => (
   <article className={`${styles.Wrap} ${!recipe ? styles.placeholder : ""}`}>
     <figure className={styles.ImageWrap}>
@@ -30,7 +31,7 @@ const RecipeTeaser = ({ recipe, groupIcon, onClick }) => (
             <Headline level="4" className={styles.Title}>{recipe.title}</Headline>
           </button>
 
-          <p className={styles.Time}>20 min</p>
+          <p className={styles.Time}>{recipe.time} min</p>
           <Rating value={3} />
         </div>
       )}

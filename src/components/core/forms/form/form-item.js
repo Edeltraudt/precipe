@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./form.module.scss";
 
-export const FormItem = ({ children, label, info, className, showInfoTop }) => {
+const FormItem = ({ children, label, info, className, showInfoTop }) => {
   const id = children && typeof children !== "string" ? children.id : null;
 
   return (
@@ -36,3 +36,5 @@ FormItem.propTypes = {
 FormItem.defaultProps = {
   className: ""
 };
+
+export default FormItem;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { Input, InputWithIcon } from "./../../../core/forms";
-import { UserIcon } from "./../single-icon/single-icon";
+import UserIcon from "./../single-icon/single-icon";
 
 import styles from "./group.module.scss";
 
@@ -27,7 +27,7 @@ const AddUsersMenu = ({ isVisible, id, availableUsers }) => {
       className={`${styles.Menu} ${isVisible ? styles.isVisible : ""}`}
       aria-hidden={!isVisible}
     >
-      <strong className={styles.MenuLabel}>Add users or groups</strong>
+      <strong className={styles.MenuLabel}>Share with friends or a group</strong>
       <ul className={styles.MenuList}>
         {availableUsers.map(user => {
           const isSelected = Boolean(selectedUsers.find(u => u.id === user.id));

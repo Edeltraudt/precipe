@@ -160,7 +160,6 @@
   border-radius: 50%;
   box-sizing: border-box;
   height: 3rem;
-  padding-top: 2px;
   width: 3rem;
 
   * {
@@ -169,5 +168,9 @@
 
   &.isSelected {
     @include focus-outline;
+  }
+
+  span:first-child {
+    margin-top: 0;
   }
 }

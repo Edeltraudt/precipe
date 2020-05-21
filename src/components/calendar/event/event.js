@@ -9,24 +9,24 @@ import { eventModel } from "./../../../models/event";
 
 import styles from "./event.module.scss";
 
-const padTime = n => n.toString().padStart(2, 0);
-const getTime = date =>
+const padTime = (n) => n.toString().padStart(2, 0);
+const getTime = (date) =>
   padTime(date.getHours()) + ":" + padTime(date.getMinutes());
 
 const CalendarEvent = ({ event }) => {
-  const user = useContext(UserContext);
-  const index = user.groups.findIndex(groupId => groupId === event.groupId);
+  const { user } = useContext(UserContext);
+  const index = user.groups.findIndex((groupId) => groupId === event.groupId);
   const color = user.groupColors[index];
 
   const [accepted, setAccepted] = useState(false);
 
-  const handleAccept = status => {
+  const handleAccept = (status) => {
     setAccepted(true);
   };
 
-  const handleDecline = status => {
+  const handleDecline = (status) => {
     setAccepted(false);
-  }
+  };
 
   return event ? (
     <article
@@ -65,7 +65,7 @@ const CalendarEvent = ({ event }) => {
 };
 
 CalendarEvent.propTypes = {
-  event: eventModel
+  event: eventModel,
 };
 
 export default CalendarEvent;

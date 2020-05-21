@@ -5,6 +5,8 @@ import Icon from "./../icon";
 
 import styles from "./tag.module.scss";
 
+const TagThemes = ["default", "negative"];
+
 const Tag = ({ id, children, checked, theme, onChange }) => {
   const [value, setValue] = useState(checked);
   const isNegative = theme === "negative";
@@ -15,7 +17,7 @@ const Tag = ({ id, children, checked, theme, onChange }) => {
         type="checkbox"
         id={id}
         className={styles.Input}
-        onChange={e => {
+        onChange={(e) => {
           onChange(!value);
           setValue(!value);
         }}
@@ -30,17 +32,18 @@ const Tag = ({ id, children, checked, theme, onChange }) => {
 };
 
 Tag.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
   onChange: PropTypes.func.isRequired,
   checked: PropTypes.bool,
-  theme: PropTypes.oneOf(["default", "negative"])
+  theme: PropTypes.oneOf(TagThemes),
 };
 
 Tag.defaultProps = {
   checked: false,
-  theme: "default"
+  theme: "default",
 };
 
 export default Tag;
+export { TagThemes };

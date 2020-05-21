@@ -15,11 +15,12 @@ Headline.propTypes = {
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6, "1", "2", "3", "4", "5", "6"]),
   type: PropTypes.oneOf(["title", "headline", "subheadline", "label"]),
   className: PropTypes.string,
-  children: PropTypes.string
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
 };
 
 Headline.defaultProps = {
-  className: ""
+  className: "",
+  level: 2
 };
 
 export default Headline;

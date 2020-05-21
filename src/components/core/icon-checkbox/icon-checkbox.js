@@ -8,7 +8,11 @@ import styles from "./icon-checkbox.module.scss";
 const IconCheckbox = ({ id, checked, type, icon, label, onChange, name }) => {
   const [isChecked, setIsChecked] = useState(checked);
 
-  const handleChange = e => {
+  if (!name) {
+    name = id;
+  }
+
+  const handleChange = (e) => {
     setIsChecked(e.target.checked);
 
     if (onChange) {
@@ -37,18 +41,18 @@ const IconCheckbox = ({ id, checked, type, icon, label, onChange, name }) => {
 };
 
 IconCheckbox.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string,
   checked: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.oneOf(["radio", "checkbox"]),
   onChange: PropTypes.func,
-  icon: PropTypes.oneOf(["checkmark", "close"])
+  icon: PropTypes.oneOf(["checkmark", "close"]),
 };
 
 IconCheckbox.defaultProps = {
   type: "radio",
-  icon: "checkmark"
+  icon: "checkmark",
 };
 
 export default IconCheckbox;

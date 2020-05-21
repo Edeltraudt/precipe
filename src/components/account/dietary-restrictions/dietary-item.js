@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { Icon } from "./../../core"
+import { Icon } from "./../../core";
 
 import * as styles from "./dietary-restrictions.module.scss";
 
-export const DietaryItem = ({ label, checked, onChange }) => {
+const DietaryItem = ({ label, checked, onChange }) => {
   const slug = label
-    .toLowerCase()
-    .trim()
-    .replace(/\s/g, "-");
+    ? label
+        .toLowerCase()
+        .trim()
+        .replace(/\s/g, "-")
+    : "";
   const id = "si-" + slug;
 
   const [checkedValue, setCheckedValue] = useState(checked);
 
-  return (
+  return label ? (
     <div className={`card -elevated -small ${styles.DietaryItem}`}>
       <input
         id={id}
         type="checkbox"
         className={styles.Checkbox}
-        onChange={e => {
+        onChange={(e) => {
           onChange(!checkedValue);
           setCheckedValue(!checkedValue);
         }}
@@ -31,15 +33,17 @@ export const DietaryItem = ({ label, checked, onChange }) => {
         {label}
       </label>
     </div>
-  );
+  ) : null;
 };
 
 DietaryItem.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  checked: PropTypes.bool
+  checked: PropTypes.bool,
 };
 
 DietaryItem.defaultProps = {
-  checked: false
+  checked: false,
 };
+
+export default DietaryItem;

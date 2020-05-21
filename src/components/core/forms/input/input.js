@@ -12,7 +12,7 @@ export const InputWithIcon = ({ children, icon }) => (
   </div>
 );
 
-const Input = ({ value, id, type, placeholder, onChange, size }) => {
+const Input = ({ value, id, type, placeholder, onChange, name, size }) => {
   const [inputValue, setInputValue] = useState(value);
 
   const handleChange = e => {
@@ -24,10 +24,11 @@ const Input = ({ value, id, type, placeholder, onChange, size }) => {
   };
 
   const props = {
-    id: id,
-    placeholder: placeholder,
+    id,
+    placeholder,
     className: [styles.Input, size === "l" ? styles.large : ""].join(" "),
     value: inputValue,
+    name,
     onChange: handleChange
   };
 
@@ -42,6 +43,7 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
+  name: PropTypes.string,
   id: PropTypes.string.isRequired,
   size: PropTypes.oneOf(["s", "l"]).isRequired,
   value: PropTypes.any

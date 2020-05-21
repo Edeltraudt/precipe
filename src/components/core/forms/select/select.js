@@ -7,13 +7,15 @@ import Icon from "../../icon/icon";
 
 import * as styles from "./select.module.scss";
 
+const SelectBoxThemes = ["default", "invisible"];
+
 const SelectBox = ({
   options,
   className,
   label,
   defaultValue,
   onChange,
-  theme
+  theme,
 }) => (
   <div className={`${styles.Wrap} ${className} ${styles[theme]}`}>
     <Select label={label} initialValue={defaultValue} onChange={onChange}>
@@ -31,18 +33,19 @@ SelectBox.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
-      label: PropTypes.string
+      label: PropTypes.string,
     })
-  ),
+  ).isRequired,
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   defaultValue: PropTypes.string,
   onChange: PropTypes.func,
-  theme: PropTypes.oneOf(["default", "invisible"])
+  theme: PropTypes.oneOf(SelectBoxThemes),
 };
 
 SelectBox.defaultProps = {
-  theme: "default"
+  theme: "default",
 };
 
 export default SelectBox;
+export { SelectBoxThemes };

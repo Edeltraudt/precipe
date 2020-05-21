@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./form.module.scss";
 
-export const FormRow = ({ children, className }) => {
+const FormRow = ({ children, className }) => {
   const cls = [
     styles.Row,
     children.length ? styles.limited : "",
@@ -24,3 +24,5 @@ FormRow.propTypes = {
   ]).isRequired,
   className: PropTypes.string
 };
+
+export default FormRow;

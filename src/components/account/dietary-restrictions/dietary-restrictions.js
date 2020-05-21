@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import UserContext from "./../../../contexts/user-context";
 
+import DietaryItem from "./dietary-item";
 import { Headline } from "./../../../components/core/typography";
-import { DietaryItem } from "./dietary-item";
 
 import * as styles from "./dietary-restrictions.module.scss";
 
@@ -18,7 +18,7 @@ const dietaryRestrictions = [
   { id: 7, label: "Eggs" }
 ];
 
-export const DietaryRestrictions = ({ className }) => {
+const DietaryRestrictions = ({ className }) => {
   const user = useContext(UserContext);
 
   return (
@@ -32,7 +32,7 @@ export const DietaryRestrictions = ({ className }) => {
           <DietaryItem
             key={item.id}
             label={item.label}
-            checked={user.dietaryRestrictions.includes(item.id)}
+            checked={user.dietaryRestrictions && user.dietaryRestrictions.includes(item.id)}
             onChange={console.log}
           />
         ))}
@@ -44,3 +44,5 @@ export const DietaryRestrictions = ({ className }) => {
 DietaryRestrictions.propTypes = {
   className: PropTypes.string
 };
+
+export default DietaryRestrictions;

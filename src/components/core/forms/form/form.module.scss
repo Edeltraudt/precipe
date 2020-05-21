@@ -38,6 +38,12 @@ $margin: $spacing-base;
     flex: 0 0 auto;
   }
 
+  a {
+    color: $color-link;
+    font-weight: $fw-medium;
+    text-decoration: none;
+  }
+
   &:last-child:not(:only-child) {
     button, a {
       margin-left: auto;

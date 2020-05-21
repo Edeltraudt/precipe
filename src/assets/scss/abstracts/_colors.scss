@@ -10,19 +10,15 @@ $color-grey-500:    #9A9DAB;
 $color-grey-600:    #606678;
 $color-grey-700:    #00192B;
 
-$color-primary-100:   #FAF2BB;
-$color-primary-200:   #FDDB3A;
-$color-primary-300:   saturate(#876C23, 100%);
-
-$color-secondary-100: #CBF2CF;
-$color-secondary-200: #5DC765;
-$color-secondary-300: #23872B;
+$color-primary-100: #CBF2CF;
+$color-primary-200: #5DC765;
+$color-primary-300: #23872B;
 
 $color-primary:     $color-primary-200;
 $color-primary-inverse: $color-primary-300;
 
 $color-danger:      #D11749;
-$color-success:     $color-secondary-200;
+$color-success:     $color-primary-200;
 $color-secure:      $color-success;
 
 $color-base:        $color-grey-0;
@@ -48,5 +44,5 @@ $color-button-text: $color-primary-300;
 $color-danger-button-bg:    mix($color-danger, $color-base, 15%);
 $color-danger-button-text:  darken($color-danger, 10%);
 
-$color-secure-button-bg:    $color-secondary-100;
-$color-secure-button-text:  $color-secondary-300;
+$color-secure-button-bg:    $color-primary-100;
+$color-secure-button-text:  $color-primary-300;

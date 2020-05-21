@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import AddUsersMenu from "./add-users-menu";
 import Icon from "./../../../core/icon";
-import { UserIcon } from "./../single-icon/single-icon";
+import UserIcon from "./../single-icon/single-icon";
 
 import styles from "./group.module.scss";
 
@@ -12,15 +12,21 @@ const availableUsers = [
   { id: 3, name: "Ulrike" },
   { id: 4, name: "Benny" },
   { id: 5, name: "Tanja" },
-  { id: 6, name: "Johannes" }
+  { id: 6, name: "Johannes" },
 ];
 
-export const UserIconGroup = ({ size, groupId, editable }) => {
+const UserIconGroup = ({ size, groupId, editable }) => {
   const id = Math.floor(Math.random() * 1000) + "-users";
   const [users, setUsers] = useState([]);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const elementRef = useRef();
+
+  const handleClickOutside = (e) => {
+    if (isMenuVisible && !elementRef.current.contains(e.target)) {
+      setIsMenuVisible(false);
+    }
+  };
 
   useEffect(() => {
     // TODO: get all group members and group color
@@ -31,15 +37,9 @@ export const UserIconGroup = ({ size, groupId, editable }) => {
     document.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("click", () => {});
     };
   }, [groupId, isMenuVisible]);
-
-  const handleClickOutside = e => {
-    if (isMenuVisible && !elementRef.current.contains(e.target)) {
-      setIsMenuVisible(false);
-    }
-  };
 
   return (
     <div className={styles.Wrap}>
@@ -78,5 +78,7 @@ UserIconGroup.propTypes = {
   size: PropTypes.oneOf(["s", "l"]),
   groupId: PropTypes.number,
   editable: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 };
+
+export default UserIconGroup;

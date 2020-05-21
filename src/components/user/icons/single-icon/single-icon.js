@@ -7,8 +7,8 @@ import Tooltip from "./../../../core/tooltip/tooltip";
 
 import styles from "./single-icon.module.scss";
 
-export const UserIcon = ({ image, name, disableTooltip }) => {
-  const user = useContext(UserContext);
+const SingleIcon = ({ image, name, disableTooltip }) => {
+  const { user } = useContext(UserContext);
 
   return (
     <div className={styles.Wrap}>
@@ -22,14 +22,16 @@ export const UserIcon = ({ image, name, disableTooltip }) => {
         <span className={styles.Icon}>{name.slice(0, 1)}</span>
       )}
       {!disableTooltip && (
-        <Tooltip>{user.name === name ? "You" : name}</Tooltip>
+        <Tooltip>{user && user.name === name ? "You" : name}</Tooltip>
       )}
     </div>
   );
 };
 
-UserIcon.propTypes = {
+SingleIcon.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string.isRequired,
-  disableTooltip: PropTypes.bool
+  disableTooltip: PropTypes.bool,
 };
+
+export default SingleIcon;

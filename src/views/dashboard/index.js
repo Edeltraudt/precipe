@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Recipes from "../../components/recipes/view/recipes";
 
 import styles from "./dashboard.module.scss";
 
-const recipes = [
+const mockRecipes = [
   {
     id: 1,
     title: "Simple beet carpaccio with mixed herbs",
@@ -37,10 +37,14 @@ const recipes = [
   }
 ];
 
-const DashboardView = props => (
-  <div className={styles.Recipes}>
-    <Recipes recipes={recipes} />
-  </div>
-);
+const DashboardView = (props) => {
+  const [recipes, setRecipes] = useState(mockRecipes);
+
+  return (
+    <div className={styles.Recipes}>
+      <Recipes recipes={recipes} />
+    </div>
+  );
+};
 
 export default DashboardView;
