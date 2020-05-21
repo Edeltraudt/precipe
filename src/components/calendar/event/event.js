@@ -33,7 +33,10 @@ const CalendarEvent = ({ event }) => {
   return event ? (
     <article
       className={styles.Wrap}
-      style={{ "--color": color.background, "--color-inv": color.foreground ? "#fff" : null }}
+      style={{
+        "--color": color.background,
+        "--color-inv": color.foreground,
+      }}
     >
       <div className={[styles.Bubble, accepted ? styles.joined : ""].join(" ")}>
         <time className={styles.Time}>
