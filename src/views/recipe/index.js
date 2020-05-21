@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import API from "../../utility/api";
 
 import { RecipeIngredient } from "./../../components/recipes";
 import { UserIconGroup } from "./../../components/user/icons";
@@ -10,44 +12,18 @@ import placeholder from "./../../assets/img/recipe-detail-placeholder.jpg";
 
 import styles from "./recipe.module.scss";
 
-const recipes = [
-  {
-    id: 1,
-    title: "Simple beet carpaccio with mixed herbs",
-    duration: 20,
-    servings: 4,
-    ingredients: [
-      { title: "red beets", amount: 4, unit: null },
-      { title: "red onion", amount: 1, unit: null },
-      { title: "mixed herbs", amount: 20, unit: "g" },
-      { title: "olive oil", amount: 50, unit: "g" },
-      { title: "lemon", amount: 1, unit: null },
-      { title: "sugar", amount: 1, unit: "tsb" },
-      { title: "flaky sea salt", amount: null, unit: null }
-    ],
-    instructions:
-      "<p>Peel, halve, and thinly slice red onion. Remove leaves from herb stems and mince. Zest and juice lemon and add to a bowl with olive oil, sugar, capers, and salt. Season with pepper and mix well.</p><p>Peel and thinly slice beetroots with a mandoline. Add to bowl with the dressing and mix.</p><p>Layer beets on a plate and drizzle with olive oil. Garnish with flaky sea salt and more mixed herbs. Enjoy!</p>"
-  },
-  {
-    id: 2,
-    title: "Simple beet carpaccio with mixed herbs 2",
-    duration: 20,
-    servings: 4,
-    ingredients: [{ title: "red beets", amount: 4, unit: null }],
-    instructions:
-      "<p>Peel, halve, and thinly slice red onion. Remove leaves from herb stems and mince. Zest and juice lemon and add to a bowl with olive oil, sugar, capers, and salt. Season with pepper and mix well.</p><p>Peel and thinly slice beetroots with a mandoline. Add to bowl with the dressing and mix.</p><p>Layer beets on a plate and drizzle with olive oil. Garnish with flaky sea salt and more mixed herbs. Enjoy!</p>"
-  }
-];
-
 const RecipeView = (props) => {
   const { id } = useParams();
+  const [recipe, setRecipe] = useState(undefined);
 
-  let recipe;
-
-  if (!Number.isNaN(id)) {
-    recipe = recipes.find(recipe => recipe.id === Number(id));
-    recipe.image = placeholder;
-  }
+  useEffect(() => {
+    API.get(`recipes/${id}`)
+      .then((res) => {
+        res.data.image = placeholder;
+        setRecipe(res.data);
+      })
+      .catch(console.log);
+  }, [id]);
 
   return (
     <div className={styles.Recipe}>
