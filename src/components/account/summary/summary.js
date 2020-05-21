@@ -21,7 +21,7 @@ const Summary = () => {
         Account settings
       </Button>
       <form action="/logout" method="POST">
-        <Button className={styles.Link} type="submit">
+        <Button className={styles.Link} type="submit" theme="plain-link">
           Logout
         </Button>
       </form>

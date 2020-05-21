@@ -16,6 +16,7 @@ import LandingView from "../landing";
 import { Icon } from "../../components/core";
 import { AccountSummary } from "../../components/account";
 
+import API from "../../utility/api";
 import UserContext from "../../contexts/user-context";
 
 import styles from "./base.module.scss";
@@ -72,16 +73,18 @@ const SubRoute = ({ component, ...props }) => (
 );
 
 const BaseView = (props) => {
-  const [user, setUser] = useState({
-    id: 1,
-    name: "Laureena",
-    mail: "laureena@outlook.com",
-    password: "test",
-    groups: [1, 2],
-    groupColors: ["#385EFF", "#9C48B5"],
-    dietaryRestrictions: [4, 5],
-  });
+  const [user, setUser] = useState(false);
   const isAuthenticated = Boolean(user);
+
+  useEffect(() => {
+    API.get("/me")
+      .then((res) => {
+        setUser(res.data);
+      })
+      .catch((error) => {
+        // do nothing
+      });
+  }, [setUser]);
 
   return (
     <main className={styles.Wrap}>
@@ -100,21 +103,18 @@ const BaseView = (props) => {
             )}
 
             <Switch>
-              <Route path="/app">
-                {isAuthenticated ? (
+              <Route path="/app">{isAuthenticated ? (
                   <>
                     <SubRoute path="/app/account" component={<AccountView />} />
-                    <SubRoute
-                      path="/app/recipe/:id"
-                      component={<RecipeView />}
-                    />
+                    <SubRoute path="/app/recipe/:id" component={<RecipeView />} />
 
-                    <DashboardView />
+                    <Route path="/app" exact>
+                      <DashboardView />
+                    </Route>
                   </>
                 ) : (
                   <Redirect to="/" />
-                )}
-              </Route>
+                )}</Route>
 
               <Route path="/">
                 {isAuthenticated ? <Redirect to="/app" /> : <LandingView />}
