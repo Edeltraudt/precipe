@@ -13,6 +13,7 @@
   line-height: $lh-small;
   text-decoration: none;
   transition: 0.15s ease color;
+  text-transform: capitalize;
 
   & + & {
     margin-left: 1em;
