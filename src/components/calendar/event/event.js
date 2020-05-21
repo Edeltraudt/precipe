@@ -5,6 +5,8 @@ import UserContext from "./../../../contexts/user-context";
 import { IconCheckbox } from "./../../core";
 import { UserIconGroup } from "./../../user/icons";
 
+import colors from "./../../../assets/data/colors.json";
+
 import { eventModel } from "./../../../models/event";
 
 import styles from "./event.module.scss";
@@ -15,8 +17,8 @@ const getTime = (date) =>
 
 const CalendarEvent = ({ event }) => {
   const { user } = useContext(UserContext);
-  const index = user.groups.findIndex((groupId) => groupId === event.groupId);
-  const color = user.groupColors[index];
+  const index = user.groups.findIndex((group) => group.id === event.groupId);
+  const color = colors[index];
 
   const [accepted, setAccepted] = useState(false);
 
@@ -31,7 +33,7 @@ const CalendarEvent = ({ event }) => {
   return event ? (
     <article
       className={styles.Wrap}
-      style={{ "--color": color, "--color-inv": color ? "#fff" : null }}
+      style={{ "--color": color.background, "--color-inv": color.foreground ? "#fff" : null }}
     >
       <div className={[styles.Bubble, accepted ? styles.joined : ""].join(" ")}>
         <time className={styles.Time}>

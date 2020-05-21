@@ -31,7 +31,7 @@ const events = [
     startDate: new Date(today.setHours(11, 0, 0)),
     endDate: new Date(today.setHours(12, 0, 0)),
     title: "Breakfast",
-    groupId: 2,
+    groupId: 1,
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const events = [
     startDate: new Date(tomorrow.setHours(11, 0, 0)),
     endDate: new Date(tomorrow.setHours(14, 30, 0)),
     title: "Brunch",
-    groupId: 2,
+    groupId: 1,
   },
 ];
 
@@ -103,10 +103,14 @@ const BaseView = (props) => {
             )}
 
             <Switch>
-              <Route path="/app">{isAuthenticated ? (
+              <Route path="/app">
+                {isAuthenticated ? (
                   <>
                     <SubRoute path="/app/account" component={<AccountView />} />
-                    <SubRoute path="/app/recipe/:id" component={<RecipeView />} />
+                    <SubRoute
+                      path="/app/recipe/:id"
+                      component={<RecipeView />}
+                    />
 
                     <Route path="/app" exact>
                       <DashboardView />
@@ -114,7 +118,8 @@ const BaseView = (props) => {
                   </>
                 ) : (
                   <Redirect to="/" />
-                )}</Route>
+                )}
+              </Route>
 
               <Route path="/">
                 {isAuthenticated ? <Redirect to="/app" /> : <LandingView />}
