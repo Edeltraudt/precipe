@@ -26,6 +26,7 @@ const DietaryRestrictions = ({ className }) => {
       <Headline level="2" type="subheadline">
         Dietary restrictions and preferences
       </Headline>
+      <p>Select all food groups that you like to eat.</p>
       <div className={styles.Grid}>
         {/* TODO: save change to user */}
         {dietaryRestrictions.map(item => (
