@@ -17,7 +17,9 @@ const getTime = (date) =>
 
 const CalendarEvent = ({ event }) => {
   const { user } = useContext(UserContext);
-  const index = user.groups.findIndex((group) => group.id === event.groupId);
+  console.log(user);
+  const index =
+    user.groups && user.groups.findIndex((group) => group.id === event.groupId);
   const color = colors[index];
 
   const [accepted, setAccepted] = useState(false);

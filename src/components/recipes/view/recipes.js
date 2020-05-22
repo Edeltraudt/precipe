@@ -49,7 +49,7 @@ const Recipes = ({ upcomingEvents, recipes }) => {
         >
           Your Recipes
         </button>
-        {user.groups.map((group) => (
+        {user.groups && user.groups.map((group) => (
           <button
             className={styles.TabButton}
             id={`tab-group-${group.id}`}
