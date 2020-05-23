@@ -1,0 +1,44 @@
+@import "./../../../assets/scss/utility";
+
+// TODO: loading with spinning veggies that get sliced once
+// the loader is done
+
+.Wrap {
+  background: $color-base;
+  display: flex;
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition-property: opacity, visibility;
+  transition: 0.6s 0.2s ease;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 900;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.Loader {
+  animation: rotate 0.75s linear infinite;
+  border-radius: 50%;
+  border: 0.5em solid $color-primary-100;
+  border-left-color: $color-primary;
+  height: calc(2rem + 2vw);
+  margin: auto;
+  transition: opacity 0.2s ease;
+  width: calc(2rem + 2vw);
+
+  @keyframes rotate {
+    to { transform: rotate(360deg); }
+  }
+
+  :not(.active) > & {
+    animation-play-state: paused;
+    opacity: 0;
+  }
+}

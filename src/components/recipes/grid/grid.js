@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 
 import RecipeTeaser from "../teaser";
+import { slugify } from "./../../../utility/helpers";
 
 import styles from "./grid.module.scss";
 
 const Grid = ({ recipes, editable }) => {
   const [toRecipe, setToRecipe] = useState(null);
 
-  const handleCreateRecipeClick = e => {};
+  const handleCreateRecipeClick = (e) => {};
 
   return (
     <>
@@ -20,10 +21,12 @@ const Grid = ({ recipes, editable }) => {
           <RecipeTeaser placeholder onClick={handleCreateRecipeClick} />
         )}
 
-        {recipes.map(recipe => (
+        {recipes.map((recipe) => (
           <RecipeTeaser
             recipe={recipe}
-            onClick={e => setToRecipe(recipe.id)}
+            onClick={(e) =>
+              setToRecipe(recipe.id + "/" + slugify(recipe.title))
+            }
             key={`recipe-${recipe.id}`}
           />
         ))}
@@ -37,10 +40,10 @@ Grid.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       groupId: PropTypes.number,
-      preparationTime: PropTypes.number
+      preparationTime: PropTypes.number,
     })
   ),
-  editable: PropTypes.bool
+  editable: PropTypes.bool,
 };
 
 export default Grid;

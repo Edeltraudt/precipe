@@ -73,6 +73,10 @@ const SubRoute = ({ component, ...props }) => (
   </Route>
 );
 
+const RecipeViewWrap = ({ match }) => (
+  <RecipeView match={ match } />
+)
+
 const BaseView = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(false);
@@ -111,8 +115,8 @@ const BaseView = (props) => {
                       </aside>
 
                       <SubRoute
-                        path="/app/recipe/:id"
-                        component={<RecipeView />}
+                        path="/app/recipe/:id/:slug"
+                        component={<RecipeViewWrap />}
                       />
                       <SubRoute
                         path="/app/account"
