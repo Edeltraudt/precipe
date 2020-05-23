@@ -97,37 +97,42 @@ const BaseView = (props) => {
       <Router>
         <UserContext.Provider value={{ user, setUser }}>
           <Switch>
-            {!isLoading &&
-              (isAuthenticated ? (
-                <Route path="/app">
-                  <section className={styles.Sidebar}>
-                    <CalendarView upcomingEvents={upcomingEvents} />
-                  </section>
+            <Route path="/app">
+              {!isLoading &&
+                (isAuthenticated ? (
+                  <>
+                    <section className={styles.Sidebar}>
+                      <CalendarView upcomingEvents={upcomingEvents} />
+                    </section>
 
-                  <div className={styles.Main}>
-                    <aside className={styles.Account}>
-                      <AccountSummary />
-                    </aside>
+                    <div className={styles.Main}>
+                      <aside className={styles.Account}>
+                        <AccountSummary />
+                      </aside>
 
-                    <SubRoute
-                      path="/app/recipe/:id"
-                      component={<RecipeView />}
-                    />
-                    <SubRoute path="/app/account" component={<AccountView />} />
+                      <SubRoute
+                        path="/app/recipe/:id"
+                        component={<RecipeView />}
+                      />
+                      <SubRoute
+                        path="/app/account"
+                        component={<AccountView />}
+                      />
 
-                    <Route path="/app" exact>
-                      <DashboardView />
-                    </Route>
-                  </div>
-                </Route>
-              ) : (
-                <Redirect to="/" />
-              ))}
+                      <Route path="/app" exact>
+                        <DashboardView />
+                      </Route>
+                    </div>
+                  </>
+                ) : (
+                  <Redirect to="/" />
+                ))}
+            </Route>
 
-            <Route path="/" exact>
+            <Route path="/">
               <LandingView />
 
-              {!isLoading && isAuthenticated && <Redirect to="/app" />}
+              {isAuthenticated && <Redirect to="/app" />}
             </Route>
           </Switch>
         </UserContext.Provider>
