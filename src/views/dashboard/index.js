@@ -9,19 +9,38 @@ import styles from "./dashboard.module.scss";
 const DashboardView = (props) => {
   const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
+  const getUserRecipes = () => {
     API.get(`api/recipes`)
-      .then((res) => {
-        setRecipes(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      .then((res) => setRecipes(res.data))
+      .catch((err) => console.error(err));
+  }
+
+  const changeRecipeGroup = (groupId) => {
+    if (groupId) {
+      API.get(`api/recipes/group/${groupId}`)
+        .then((res) => setRecipes(res.data))
+        .catch((err) => console.error(err));
+    } else {
+      getUserRecipes();
+    }
+  };
+
+  const changeRecipeFilter = (filterId, isActive) => {};
+
+  const changeRecipeOrder = (selectedOrder) => {};
+
+  useEffect(() => {
+    getUserRecipes();
   }, []);
 
   return (
     <div className={styles.Recipes}>
-      <Recipes recipes={recipes} />
+      <Recipes
+        recipes={recipes}
+        onGroupChange={changeRecipeGroup}
+        onFilterChange={changeRecipeFilter}
+        onOrderChange={changeRecipeOrder}
+      />
     </div>
   );
 };

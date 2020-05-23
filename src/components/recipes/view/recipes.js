@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import API from "./../../../utility/api";
 import UserContext from "./../../../contexts/user-context";
 
 import { Headline } from "./../../core/typography";
@@ -11,26 +11,33 @@ import Grid from "./../grid";
 
 import styles from "./recipes.module.scss";
 
-const Recipes = ({ upcomingEvents, recipes }) => {
+const Recipes = ({
+  upcomingEvents,
+  recipes,
+  onGroupChange,
+  onOrderChange,
+  onFilterChange,
+}) => {
   const { user } = useContext(UserContext);
 
   const [order, setOrder] = useState(null);
+  const [groupId, setGroupId] = useState(null);
 
   const handleGroupChange = (groupId) => {
+    setGroupId(groupId);
+
     if (groupId) {
       console.log("Switch recipe view to only recipes of group", groupId);
     } else {
       console.log("Show all recipes");
     }
-  };
 
-  const handleFilterChange = (filterId, isActive) => {
-    console.log(filterId, isActive);
+    onGroupChange(groupId);
   };
 
   const handleOrderChange = (selectedOrder) => {
     setOrder(selectedOrder);
-    console.log(selectedOrder);
+    onOrderChange(selectedOrder);
   };
 
   const orderOptions = [
@@ -44,28 +51,33 @@ const Recipes = ({ upcomingEvents, recipes }) => {
 
       <div className={styles.Tabs}>
         <button
-          className={`${styles.TabButton} ${styles.active}`}
+          className={classNames(styles.TabButton, {
+            [styles.active]: groupId === null,
+          })}
           onClick={(e) => handleGroupChange(null)}
         >
           Your Recipes
         </button>
-        {user.groups && user.groups.map((group) => (
-          <button
-            className={styles.TabButton}
-            id={`tab-group-${group.id}`}
-            onClick={(e) => handleGroupChange(group.id)}
-            key={group.id}
-          >
-            {group.title}
-          </button>
-        ))}
+        {user.groups &&
+          user.groups.map((group) => (
+            <button
+              className={classNames(styles.TabButton, {
+                [styles.active]: groupId === group.id,
+              })}
+              id={`tab-group-${group.id}`}
+              onClick={(e) => handleGroupChange(group.id)}
+              key={group.id}
+            >
+              {group.title}
+            </button>
+          ))}
       </div>
 
       <div className={styles.Controls}>
         <div className={styles.Filters}>
           <Tag
             id="filter-vegetarian"
-            onChange={(val) => handleFilterChange("filter-vegetarian", val)}
+            onChange={(val) => onFilterChange("filter-vegetarian", val)}
           >
             Vegetarian
           </Tag>
@@ -91,7 +103,10 @@ const Recipes = ({ upcomingEvents, recipes }) => {
 
 Recipes.propTypes = {
   upcomingEvents: PropTypes.array,
-  recipes: PropTypes.array,
+  recipes: PropTypes.array.isRequired,
+  onGroupChange: PropTypes.func.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+  onOrderChange: PropTypes.func.isRequired,
 };
 
 export default Recipes;
