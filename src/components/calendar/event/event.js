@@ -36,8 +36,8 @@ const CalendarEvent = ({ event }) => {
     <article
       className={styles.Wrap}
       style={{
-        "--color": color.background,
-        "--color-inv": color.foreground,
+        "--color": color ? color.background : "#000",
+        "--color-inv": color ? color.foreground : "#fff",
       }}
     >
       <div className={[styles.Bubble, accepted ? styles.joined : ""].join(" ")}>

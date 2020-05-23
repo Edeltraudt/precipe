@@ -15,6 +15,7 @@ import LandingView from "../landing";
 
 import { Icon } from "../../components/core";
 import { AccountSummary } from "../../components/account";
+import Loader from "../../components/core/loader";
 
 import API from "../../utility/api";
 import UserContext from "../../contexts/user-context";
@@ -73,61 +74,64 @@ const SubRoute = ({ component, ...props }) => (
 );
 
 const BaseView = (props) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(false);
   const isAuthenticated = Boolean(user);
 
   useEffect(() => {
+    setIsLoading(true);
+
     API.get("/me")
       .then((res) => {
         setUser(res.data);
+        setIsLoading(false);
       })
       .catch((error) => {
-        // do nothing
+        setIsLoading(false);
       });
   }, [setUser]);
 
   return (
     <main className={styles.Wrap}>
-      <UserContext.Provider value={{ user, setUser }}>
-        {isAuthenticated && (
-          <section className={styles.Sidebar}>
-            <CalendarView upcomingEvents={upcomingEvents} />
-          </section>
-        )}
-        <div className={styles.Main}>
-          <Router>
-            {isAuthenticated && (
-              <aside className={styles.Account}>
-                <AccountSummary />
-              </aside>
-            )}
+      <Loader active={isLoading} />
+      <Router>
+        <UserContext.Provider value={{ user, setUser }}>
+          <Switch>
+            {!isLoading &&
+              (isAuthenticated ? (
+                <Route path="/app">
+                  <section className={styles.Sidebar}>
+                    <CalendarView upcomingEvents={upcomingEvents} />
+                  </section>
 
-            <Switch>
-              <Route path="/app">
-                {isAuthenticated ? (
-                  <>
-                    <SubRoute path="/app/account" component={<AccountView />} />
+                  <div className={styles.Main}>
+                    <aside className={styles.Account}>
+                      <AccountSummary />
+                    </aside>
+
                     <SubRoute
                       path="/app/recipe/:id"
                       component={<RecipeView />}
                     />
+                    <SubRoute path="/app/account" component={<AccountView />} />
 
                     <Route path="/app" exact>
                       <DashboardView />
                     </Route>
-                  </>
-                ) : (
-                  <Redirect to="/" />
-                )}
-              </Route>
+                  </div>
+                </Route>
+              ) : (
+                <Redirect to="/" />
+              ))}
 
-              <Route path="/">
-                {isAuthenticated ? <Redirect to="/app" /> : <LandingView />}
-              </Route>
-            </Switch>
-          </Router>
-        </div>
-      </UserContext.Provider>
+            <Route path="/" exact>
+              <LandingView />
+
+              {!isLoading && isAuthenticated && <Redirect to="/app" />}
+            </Route>
+          </Switch>
+        </UserContext.Provider>
+      </Router>
     </main>
   );
 };
