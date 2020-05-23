@@ -22,54 +22,6 @@ import UserContext from "../../contexts/user-context";
 
 import styles from "./base.module.scss";
 
-const today = new Date();
-const tomorrow = new Date(today);
-tomorrow.setDate(tomorrow.getDate() + 1);
-
-const events = [
-  {
-    id: 1,
-    startDate: new Date(today.setHours(11, 0, 0)),
-    endDate: new Date(today.setHours(12, 0, 0)),
-    title: "Breakfast",
-    group: {
-      id: 1,
-      name: "Homies",
-    },
-  },
-  {
-    id: 2,
-    startDate: new Date(today.setHours(18, 0, 0)),
-    endDate: new Date(today.setHours(20, 0, 0)),
-    title: "Djuvec Rice",
-    group: {
-      id: 2,
-      name: "Groupies",
-    },
-  },
-  {
-    id: 3,
-    startDate: new Date(tomorrow.setHours(11, 0, 0)),
-    endDate: new Date(tomorrow.setHours(14, 30, 0)),
-    title: "Brunch",
-    group: {
-      id: 1,
-      name: "Homies",
-    },
-  },
-];
-
-const upcomingEvents = [
-  {
-    date: today,
-    events: [events[0], events[1]],
-  },
-  {
-    date: tomorrow,
-    events: [events[2]],
-  },
-];
-
 const SubRoute = ({ component, ...props }) => (
   <Route {...props}>
     <nav className={styles.Back}>
@@ -113,7 +65,7 @@ const BaseView = (props) => {
                 (isAuthenticated ? (
                   <>
                     <section className={styles.Sidebar}>
-                      <CalendarView upcomingEvents={upcomingEvents} />
+                      <CalendarView />
                     </section>
 
                     <div className={styles.Main}>

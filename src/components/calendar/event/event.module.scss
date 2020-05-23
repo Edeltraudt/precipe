@@ -1,5 +1,11 @@
 @import "./../../../assets/scss/utility";
 
+.Wrap {
+  // ensure contrast from primary color
+  --color: #{$color-grey-700};
+  --color-inv: #{$color-grey-0};
+}
+
 .Bubble {
   border: 1px solid var(--color);
   border-radius: $border-radius;

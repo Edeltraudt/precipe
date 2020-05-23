@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 
 import { IconCheckbox } from "./../../core";
 import { UserIconGroup } from "./../../user/icons";
@@ -8,9 +9,16 @@ import { useGroupColor } from "../../../hooks/user-hooks";
 
 import styles from "./event.module.scss";
 
-const padTime = (n) => n.toString().padStart(2, 0);
-const getTime = (date) =>
-  padTime(date.getHours()) + ":" + padTime(date.getMinutes());
+const getTime = (time) => time.slice(0, time.lastIndexOf(":"));
+const getTimeString = (start, end) => {
+  let str = getTime(start);
+
+  if (end) {
+    str += "–" + getTime(end);
+  }
+
+  return str;
+};
 
 const CalendarEvent = ({ event }) => {
   const [accepted, setAccepted] = useState(false);
@@ -24,10 +32,13 @@ const CalendarEvent = ({ event }) => {
   };
 
   return (
-    <article className={styles.Wrap} style={useGroupColor(event.group.id)}>
-      <div className={[styles.Bubble, accepted ? styles.joined : ""].join(" ")}>
+    <article
+      className={styles.Wrap}
+      style={useGroupColor(event.group ? event.group.id : -1)}
+    >
+      <div className={classNames(styles.Bubble, { [styles.joined]: accepted })}>
         <time className={styles.Time}>
-          {getTime(event.startDate)}–{getTime(event.endDate)}
+          {getTimeString(event.startTime, event.endTime)}
         </time>
         <h4 className={styles.Title}>{event.title}</h4>
       </div>
@@ -51,7 +62,7 @@ const CalendarEvent = ({ event }) => {
           />
         </span>
 
-        <UserIconGroup size="s" members={[event.group]} />
+        {event.group && <UserIconGroup size="s" members={[event.group]} />}
       </div>
     </article>
   );

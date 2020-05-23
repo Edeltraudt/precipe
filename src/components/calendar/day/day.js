@@ -8,7 +8,7 @@ import { eventModel } from "./../../../models/event";
 import styles from "./day.module.scss";
 
 const CalendarDay = ({ events }) => {
-  const date = events[0].startDate;
+  const date = new Date(events[0].date);
   const today = new Date();
   let isToday = false;
 

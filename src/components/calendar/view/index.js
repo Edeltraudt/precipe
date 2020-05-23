@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 
 import { Headline } from "./../../core/typography";
 import { Button } from "./../../core/forms";
@@ -7,18 +6,27 @@ import { Button } from "./../../core/forms";
 import CalendarDay from "./../day";
 import CalendarForm from "./../form/form";
 
+import API from "./../../../utility/api";
+
 import styles from "./calendar.module.scss";
 
-const Calendar = ({ upcomingEvents }) => {
+const Calendar = (props) => {
   const [isCreating, setIsCreating] = useState(false);
+  const [events, setEvents] = useState([]);
 
-  const handleCreateEventClick = e => {
+  const handleCreateEventClick = (e) => {
     setIsCreating(true);
   };
 
-  const handleCreateEvent = e => {
+  const handleCreateEvent = (e) => {
     setIsCreating(false);
   };
+
+  useEffect(() => {
+    API.get(`api/events`)
+      .then((res) => setEvents(res.data))
+      .catch(console.error);
+  }, []);
 
   return (
     <div className={`${styles.Slider} ${isCreating ? styles.form : ""}`}>
@@ -26,7 +34,7 @@ const Calendar = ({ upcomingEvents }) => {
         <Headline level="2">Upcoming Meals</Headline>
 
         <div className={styles.Days}>
-          {upcomingEvents.map(day => (
+          {events.map((day) => (
             <CalendarDay events={day.events} key={day.date} />
           ))}
         </div>
@@ -42,10 +50,6 @@ const Calendar = ({ upcomingEvents }) => {
       </div>
     </div>
   );
-};
-
-Calendar.propTypes = {
-  upcomingEvents: PropTypes.array
 };
 
 export default Calendar;
