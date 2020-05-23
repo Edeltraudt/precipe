@@ -23,8 +23,10 @@ const UserIconGroup = ({ size, groupId, editable }) => {
   const elementRef = useRef();
 
   const handleClickOutside = (e) => {
-    if (isMenuVisible && !elementRef.current.contains(e.target)) {
-      setIsMenuVisible(false);
+    if (elementRef && elementRef.current) {
+      if (isMenuVisible && !elementRef.current.contains(e.target)) {
+        setIsMenuVisible(false);
+      }
     }
   };
 
@@ -37,7 +39,7 @@ const UserIconGroup = ({ size, groupId, editable }) => {
     document.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.removeEventListener("click", () => {});
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [groupId, isMenuVisible]);
 
