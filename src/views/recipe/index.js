@@ -16,13 +16,17 @@ const RecipeView = (props) => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(undefined);
 
+  const handleForkRecipe = () => {
+    console.log("Fork this recipe");
+  };
+
   useEffect(() => {
     API.get(`api/recipes/${id}`)
       .then((res) => {
         res.data.image = placeholder;
         setRecipe(res.data);
       })
-      .catch(console.log);
+      .catch(console.error);
   }, [id]);
 
   return (
@@ -34,15 +38,20 @@ const RecipeView = (props) => {
               {recipe.title}
             </Headline>
             <div className={styles.Info}>
-              <UserIconGroup editable groupId={1} />
+              <UserIconGroup
+                members={recipe.members}
+                editable
+              />
             </div>
           </header>
+
           <div className={styles.Main}>
             <div className={styles.ImageWrap}>
               <figure className={styles.Image}>
                 <img src={recipe.image} alt="" />
               </figure>
             </div>
+
             <section className={`${styles.Ingredients} card`}>
               <header className={`${styles.IngredientsHeader} card__header`}>
                 <div className={styles.IngredientsHeaderWrap}>
@@ -50,7 +59,10 @@ const RecipeView = (props) => {
                     Ingredients
                   </Headline>
 
-                  <button className={styles.Duplicate}>
+                  <button
+                    className={styles.Duplicate}
+                    onClick={handleForkRecipe}
+                  >
                     <Icon name="plus" className={styles.DuplicateIcon} />
                     <span>Fork this recipe</span>
                   </button>
@@ -69,6 +81,7 @@ const RecipeView = (props) => {
               </ul>
             </section>
           </div>
+
           <section className={styles.Preparation}>
             <Headline level="3" type="label">
               Preparation

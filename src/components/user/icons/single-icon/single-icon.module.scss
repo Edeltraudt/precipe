@@ -23,4 +23,8 @@ $border-width: 2px;
   justify-content: center;
   margin-top: -$border-width;
   width: 100%;
+
+  .isGroup & {
+    border-radius: 25%;
+  }
 }

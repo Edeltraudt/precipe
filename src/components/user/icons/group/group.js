@@ -1,54 +1,66 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import AddUsersMenu from "./add-users-menu";
 import Icon from "./../../../core/icon";
 import UserIcon from "./../single-icon/single-icon";
 
+import { userModel } from "./../../../../models/user";
+
 import styles from "./group.module.scss";
 
 const availableUsers = [
-  { id: 2, name: "Cordula" },
-  { id: 3, name: "Ulrike" },
-  { id: 4, name: "Benny" },
-  { id: 5, name: "Tanja" },
-  { id: 6, name: "Johannes" },
+  { id: 2, name: "Cordula", mail: "cordula@example.org" },
+  { id: 3, name: "Ulrike", mail: "ulrike@example.org" },
+  { id: 4, name: "Benny", mail: "benny@example.org" },
+  { id: 5, name: "Tanja", mail: "tanja@example.org" },
+  { id: 6, name: "Johannes", mail: "johannes@example.org" },
 ];
 
-const UserIconGroup = ({ size, groupId, editable }) => {
+const UserIconGroup = ({ size, groups, editable, ...props }) => {
   const id = Math.floor(Math.random() * 1000) + "-users";
-  const [users, setUsers] = useState([]);
+  const [members, setMembers] = useState(props.members);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const elementRef = useRef();
 
-  const handleClickOutside = (e) => {
-    if (elementRef && elementRef.current) {
-      if (isMenuVisible && !elementRef.current.contains(e.target)) {
-        setIsMenuVisible(false);
-      }
-    }
+  const handleMembersChange = (updatedMembers) => {
+    setMembers(
+      members.concat(updatedMembers.filter((m) => members.indexOf(m) < 0))
+    );
+    console.log(updatedMembers, members)
   };
 
   useEffect(() => {
-    // TODO: get all group members and group color
-    if (groupId) {
-      setUsers([{ name: "Laureena" }, { name: "Tim" }]);
-    }
+    const handleClickOutside = (e) => {
+      if (elementRef && elementRef.current) {
+        if (isMenuVisible && !elementRef.current.contains(e.target)) {
+          setIsMenuVisible(false);
+        }
+      }
+    };
 
     document.addEventListener("click", handleClickOutside);
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [groupId, isMenuVisible]);
+  }, [isMenuVisible]);
 
   return (
     <div className={styles.Wrap}>
       <ul className={styles.List}>
-        {users.map((user, index) => (
-          <li className={[styles.Item, styles[size]].join(" ")} key={index}>
-            <UserIcon name={user.name} image={user.image} />
+        {/* TODO: get groups that a user belongs to to color-code icons */}
+        {/* also remove isGroup then */}
+        {members.map((member, index) => (
+          <li className={classNames(styles.Item, styles[size])} key={index}>
+            <UserIcon
+              name={member.name}
+              image={member.image}
+              groupId={!member.mail ? member.id : null}
+              isGroup={Boolean(!member.mail)}
+            />
           </li>
         ))}
       </ul>
@@ -69,6 +81,7 @@ const UserIconGroup = ({ size, groupId, editable }) => {
             id={id}
             isVisible={isMenuVisible}
             availableUsers={availableUsers}
+            onChange={handleMembersChange}
           />
         </div>
       )}
@@ -78,9 +91,20 @@ const UserIconGroup = ({ size, groupId, editable }) => {
 
 UserIconGroup.propTypes = {
   size: PropTypes.oneOf(["s", "l"]),
-  groupId: PropTypes.number,
+  groups: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ),
+  members: PropTypes.arrayOf(userModel),
   editable: PropTypes.bool,
   onChange: PropTypes.func,
+};
+
+UserIconGroup.defaultProps = {
+  members: [],
+  groups: [],
 };
 
 export default UserIconGroup;

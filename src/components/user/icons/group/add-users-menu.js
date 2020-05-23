@@ -6,20 +6,23 @@ import UserIcon from "./../single-icon/single-icon";
 
 import styles from "./group.module.scss";
 
-const AddUsersMenu = ({ isVisible, id, availableUsers }) => {
+const AddUsersMenu = ({ isVisible, id, availableUsers, onChange }) => {
   const [searchInput, setSearchInput] = useState("");
   const [selectedUsers, setSelectedUsers] = useState([
-    { id: 2, name: "Cordula" }
+    { id: 2, name: "Cordula", mail: "cordula@example.com" },
   ]);
 
   const handleClick = (user, isSelected) => {
+    let updatedUsers = selectedUsers;
+
     if (isSelected) {
-      setSelectedUsers(selectedUsers =>
-        selectedUsers.filter(u => u.id !== user.id)
-      );
+      updatedUsers = selectedUsers.filter((u) => u.id !== user.id);
     } else {
-      setSelectedUsers(selectedUsers => [...selectedUsers, user]);
+      updatedUsers = [...selectedUsers, user];
     }
+
+    onChange(updatedUsers);
+    setSelectedUsers((selectedUsers) => updatedUsers);
   };
 
   return (
@@ -27,10 +30,14 @@ const AddUsersMenu = ({ isVisible, id, availableUsers }) => {
       className={`${styles.Menu} ${isVisible ? styles.isVisible : ""}`}
       aria-hidden={!isVisible}
     >
-      <strong className={styles.MenuLabel}>Share with friends or a group</strong>
+      <strong className={styles.MenuLabel}>
+        Share with friends or a group
+      </strong>
       <ul className={styles.MenuList}>
-        {availableUsers.map(user => {
-          const isSelected = Boolean(selectedUsers.find(u => u.id === user.id));
+        {availableUsers.map((user) => {
+          const isSelected = Boolean(
+            selectedUsers.find((u) => u.id === user.id)
+          );
           const cls = isSelected ? styles.isSelected : "";
 
           return (
@@ -68,9 +75,10 @@ AddUsersMenu.propTypes = {
   availableUsers: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      name: PropTypes.string
+      name: PropTypes.string,
     })
-  )
+  ),
+  onChange: PropTypes.func.isRequired,
 };
 
 export default AddUsersMenu;

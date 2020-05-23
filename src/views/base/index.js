@@ -32,21 +32,30 @@ const events = [
     startDate: new Date(today.setHours(11, 0, 0)),
     endDate: new Date(today.setHours(12, 0, 0)),
     title: "Breakfast",
-    groupId: 1,
+    group: {
+      id: 1,
+      name: "Homies",
+    },
   },
   {
     id: 2,
     startDate: new Date(today.setHours(18, 0, 0)),
     endDate: new Date(today.setHours(20, 0, 0)),
     title: "Djuvec Rice",
-    groupId: 1,
+    group: {
+      id: 2,
+      name: "Groupies",
+    },
   },
   {
     id: 3,
     startDate: new Date(tomorrow.setHours(11, 0, 0)),
     endDate: new Date(tomorrow.setHours(14, 30, 0)),
     title: "Brunch",
-    groupId: 1,
+    group: {
+      id: 1,
+      name: "Homies",
+    },
   },
 ];
 
@@ -73,9 +82,7 @@ const SubRoute = ({ component, ...props }) => (
   </Route>
 );
 
-const RecipeViewWrap = ({ match }) => (
-  <RecipeView match={ match } />
-)
+const RecipeViewWrap = ({ match }) => <RecipeView match={match} />;
 
 const BaseView = (props) => {
   const [isLoading, setIsLoading] = useState(true);

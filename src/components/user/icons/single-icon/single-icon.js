@@ -1,17 +1,22 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import UserContext from "../../../../contexts/user-context";
+import { useGroupColor } from "../../../../hooks/user-hooks";
 
 import Tooltip from "./../../../core/tooltip/tooltip";
 
 import styles from "./single-icon.module.scss";
 
-const SingleIcon = ({ image, name, disableTooltip }) => {
+const SingleIcon = ({ groupId, image, name, disableTooltip, isGroup }) => {
   const { user } = useContext(UserContext);
 
   return (
-    <div className={styles.Wrap}>
+    <div
+      className={classNames(styles.Wrap, { [styles.isGroup]: isGroup })}
+      style={useGroupColor(groupId)}
+    >
       {image ? (
         <img
           src={image}
@@ -29,9 +34,11 @@ const SingleIcon = ({ image, name, disableTooltip }) => {
 };
 
 SingleIcon.propTypes = {
-  image: PropTypes.string,
+  groupId: PropTypes.number,
   name: PropTypes.string.isRequired,
+  image: PropTypes.string,
   disableTooltip: PropTypes.bool,
+  isGroup: PropTypes.bool,
 };
 
 export default SingleIcon;

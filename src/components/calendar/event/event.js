@@ -1,13 +1,10 @@
-import React, { useState, useContext } from "react";
-
-import UserContext from "./../../../contexts/user-context";
+import React, { useState } from "react";
 
 import { IconCheckbox } from "./../../core";
 import { UserIconGroup } from "./../../user/icons";
 
-import colors from "./../../../assets/data/colors.json";
-
 import { eventModel } from "./../../../models/event";
+import { useGroupColor } from "../../../hooks/user-hooks";
 
 import styles from "./event.module.scss";
 
@@ -16,12 +13,6 @@ const getTime = (date) =>
   padTime(date.getHours()) + ":" + padTime(date.getMinutes());
 
 const CalendarEvent = ({ event }) => {
-  const { user } = useContext(UserContext);
-  console.log(user);
-  const index =
-    user.groups && user.groups.findIndex((group) => group.id === event.groupId);
-  const color = colors[index];
-
   const [accepted, setAccepted] = useState(false);
 
   const handleAccept = (status) => {
@@ -32,14 +23,8 @@ const CalendarEvent = ({ event }) => {
     setAccepted(false);
   };
 
-  return event ? (
-    <article
-      className={styles.Wrap}
-      style={{
-        "--color": color ? color.background : "#000",
-        "--color-inv": color ? color.foreground : "#fff",
-      }}
-    >
+  return (
+    <article className={styles.Wrap} style={useGroupColor(event.group.id)}>
       <div className={[styles.Bubble, accepted ? styles.joined : ""].join(" ")}>
         <time className={styles.Time}>
           {getTime(event.startDate)}–{getTime(event.endDate)}
@@ -65,10 +50,11 @@ const CalendarEvent = ({ event }) => {
             label="Decline"
           />
         </span>
-        <UserIconGroup size="s" groupId={event.groupId} />
+
+        <UserIconGroup size="s" members={[event.group]} />
       </div>
     </article>
-  ) : null;
+  );
 };
 
 CalendarEvent.propTypes = {
