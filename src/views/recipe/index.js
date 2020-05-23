@@ -17,7 +17,7 @@ const RecipeView = (props) => {
   const [recipe, setRecipe] = useState(undefined);
 
   useEffect(() => {
-    API.get(`recipes/${id}`)
+    API.get(`api/recipes/${id}`)
       .then((res) => {
         res.data.image = placeholder;
         setRecipe(res.data);
